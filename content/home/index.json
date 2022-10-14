@@ -1,0 +1,216 @@
+{
+  "metadata": {
+    "title": "Sucari Tech - Software Development Company",
+    "description": "Sucari Tech is a full-service software development company. Customized software solutions in Peru",
+    "keywords": [
+      "Software Development Company",
+      "Software development"
+    ]
+  },
+  "contacts": [
+    "info@sucari.tech",
+    "+51 928 518 774"
+  ],
+  "months": [
+    "Jan.",
+    "Feb.",
+    "Mar.",
+    "Apr.",
+    "May.",
+    "June.",
+    "July.",
+    "Aug.",
+    "Sept.",
+    "Oct.",
+    "Nov.",
+    "Dec."
+  ],
+  "api": {
+    "errorMessage": "An error has occurred. Please try again later"
+  },
+  "footer": {
+    "textLine": [
+      {
+        "label": "© 2022 Sucari Tech | "
+      },
+      {
+        "label": "Privacy Policy",
+        "to": "/privacy-policy"
+      }
+    ]
+  },
+  "sections": {
+    "home": {
+      "name": "Home",
+      "title": [
+        {
+          "label": "Work better with ",
+          "decorate": false
+        },
+        {
+          "label": "Sucari Technologies",
+          "decorate": true
+        }
+      ],
+      "skippable": false,
+      "paragraph": "Check out the potential of digital transformation, go to the next level with Sucari Tech",
+      "links": [
+        {
+          "label": "Contact us",
+          "to": "getInTouch"
+        },
+        {
+          "label": "Discover",
+          "to": "about"
+        }
+      ],
+      "image": "../images/home/illustration.png"
+    },
+    "about": {
+      "name": "About",
+      "title": "We help implement and manage your digital products",
+      "skippable": false,
+      "founder": {
+        "fullNames": "Derry Sucari",
+        "rol": "Founder & CTO",
+        "message": "I built Sucari Tech to solve the digital challenges we all face. Sucari Tech is designed to change that. Our mission is to facilitate process management by providing technological solutions aimed at excellence and process optimization"
+      }
+    },
+    "services": {
+      "name": "Services",
+      "title": "Services — We offer full-cycle software development services that perfectly meet your needs",
+      "skippable": false,
+      "services": [
+        {
+          "name": "Software Consulting",
+          "image": "../images/services/software-consulting.png"
+        },
+        {
+          "name": "Web Development",
+          "image": "../images/services/web-development.png"
+        },
+        {
+          "name": "Mobile Development",
+          "image": "../images/services/mobile-development.png"
+        },
+        {
+          "name": "Desktop Development",
+          "image": "../images/services/desktop-development.png"
+        },
+        {
+          "name": "UX/UI Design",
+          "image": "../images/services/uiux-design.png"
+        },
+        {
+          "name": "QA & Testing",
+          "image": "../images/services/qa-testing.png"
+        }
+      ]
+    },
+    "cycle": {
+      "name": "Cycle",
+      "title": "Software Development Life Cycle — Our software development processes are composed of the best practices and development methodologies",
+      "skippable": false,
+      "phases": [
+        {
+          "name": "Analysis",
+          "image": "../images/cycle/analysis.png"
+        },
+        {
+          "name": "Design",
+          "image": "../images/cycle/design.png"
+        },
+        {
+          "name": "Implementation",
+          "image": "../images/cycle/implementation.png"
+        },
+        {
+          "name": "Testing",
+          "image": "../images/cycle/testing.png"
+        },
+        {
+          "name": "Deployment",
+          "image": "../images/cycle/deployment.png"
+        },
+        {
+          "name": "Maintenance",
+          "image": "../images/cycle/maintenance.png"
+        }
+      ],
+      "aside": {
+        "label": "available for work",
+        "message": "Are you thinking of a plan?",
+        "link": {
+          "label": "Talk to us",
+          "to": "getInTouch"
+        }
+      }
+    },
+    "getInTouch": {
+      "name": "Get in touch",
+      "title": "Get your project estimations for well-informed business decisions",
+      "skippable": false,
+      "form": {
+        "fields": {
+          "firstName": {
+            "label": "First Name",
+            "placeholder": "First Name"
+          },
+          "lastName": {
+            "label": "Last Name",
+            "placeholder": "Last Name"
+          },
+          "email": {
+            "label": "Email",
+            "placeholder": "Email"
+          },
+          "phone": {
+            "label": "Phone",
+            "placeholder": "Phone"
+          },
+          "company": {
+            "label": "Company",
+            "placeholder": "Company"
+          },
+          "message": {
+            "label": "Message",
+            "placeholder": "How we can help you?"
+          }
+        },
+        "buttonText": "Send"
+      },
+      "notice": [
+        {
+          "label": "By sending this form, you agree to Sucari Tech "
+        },
+        {
+          "label": "Privacy Policy",
+          "to": "/privacy-policy"
+        }
+      ],
+      "information": {
+        "title": "What Happens Next?",
+        "steps": [
+          "— We analyze your business requirements",
+          "— We contact you in a few days",
+          "— We present project estimates and approximate timeline"
+        ]
+      }
+    },
+    "subscribe": {
+      "name": "Subscribe",
+      "title": "Subscribe",
+      "skippable": true,
+      "description": "Subscribe to our newsletter to receive emails about new releases and updates",
+      "form": {
+        "fields": {
+          "email": {
+            "label": "Email",
+            "placeholder": "Enter your email address"
+          }
+        },
+        "buttonText": "Subscribe"
+      }
+    }
+  }
+}
