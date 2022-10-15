@@ -6,9 +6,10 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://sucari.tech'
+    siteUrl: process.env.GATSBY_URL_ROOT
   },
   plugins: [
+    'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
     'gatsby-plugin-mdx',
