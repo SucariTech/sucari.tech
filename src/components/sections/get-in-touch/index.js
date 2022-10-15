@@ -3,6 +3,7 @@ import React from 'react';
 /* Hooks */
 import {
   useContent,
+  useAlert,
   useAPI
 } from '@contexts';
 import { useForm } from '@hooks';
@@ -58,6 +59,7 @@ const GetInTouch = () => {
     sections: { getInTouch }
   } = useContent();
   const [ onChange, onSubmit, fields, resetFields ] = useForm(getInitialFieldValues());
+  const { openAlert } = useAlert();
   const { sendContactEmail } = useAPI();
   const [ submitting, setSubmitting ] = React.useState(false);
   return (
@@ -74,9 +76,9 @@ const GetInTouch = () => {
                 sendContactEmail(fieldValues, data => {
                   setSubmitting(false);
                   if(data.errorMessage){
-                    alert(data.errorMessage);
+                    openAlert(data.errorMessage);
                   }else{
-                    alert(data.successMessage);
+                    openAlert(data.successMessage);
                     resetFields(getInitialFieldValues());
                   }
                 });
