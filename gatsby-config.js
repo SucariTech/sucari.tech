@@ -53,9 +53,9 @@ module.exports = {
       }
     },
     process.env.GOOGLE_ANALYTICS_ID && {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_ID
+        trackingIds: [ process.env.GOOGLE_ANALYTICS_ID ]
       }
     }
   ].filter(Boolean)
