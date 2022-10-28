@@ -1,8 +1,5 @@
 import React from 'react';
 
-/* Helmet */
-import { Helmet } from 'react-helmet';
-
 /* Config */
 import config from '@config';
 
@@ -14,10 +11,7 @@ const Head = ({
   children
 }) => {
   return (
-    <Helmet htmlAttributes={{
-      lang: config.language,
-      translate: 'no'
-    }}>
+    <>
       <title>{ title }</title>
       <meta name="description" content={ description }/>
       <meta name="google" content="notranslate"/>
@@ -54,7 +48,7 @@ const Head = ({
         ))
       }
       { children }
-    </Helmet>
+    </>
   );
 }
 

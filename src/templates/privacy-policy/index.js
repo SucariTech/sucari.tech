@@ -7,13 +7,24 @@ import { graphql } from 'gatsby';
 import config from '@config';
 
 /* Head */
-import Head from '@head';
+import SiteHead from '@head';
 
 /* MDX */
 import { MDXProvider } from '@mdx-js/react';
 
 /* Styles */
 import * as SC from './styles';
+
+export const Head = ({ data: { content } }) => {
+  return (
+    <SiteHead
+      title={ content.frontmatter.title }
+      description={ content.frontmatter.description }
+      keywords={ content.frontmatter.keywords }
+      canonicalUrl={ `${config.url}${content.fields.slug}` }
+    />
+  );
+}
 
 const PrivacyPolicyPageTemplate = ({
   data: {
@@ -23,15 +34,6 @@ const PrivacyPolicyPageTemplate = ({
 }) => {
   return (
     <>
-      {/* Head */}
-      <Head
-        title={ content.frontmatter.title }
-        description={ content.frontmatter.description }
-        keywords={ content.frontmatter.keywords }
-        canonicalUrl={ `${config.url}${content.fields.slug}` }
-      />
-
-      {/* Body */}
       <SC.Header>
         <SC.Label>{ config.name }</SC.Label>
         <SC.Link to="/">{ content.frontmatter.header.link.label }</SC.Link>

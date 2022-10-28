@@ -12,6 +12,9 @@ import {
   APIProvider
 } from '@contexts';
 
+/* Head */
+import SiteHead from '@head';
+
 /* Layout */
 import Layout from '@layouts/main-layout';
 
@@ -25,17 +28,22 @@ import {
   Subscribe
 } from '@components/sections';
 
+export const Head = ({ data: { content } }) => {
+  return (
+    <SiteHead
+      title={ content.metadata.title }
+      description={ content.metadata.description }
+      keywords={ content.metadata.keywords }
+      canonicalUrl={ `${config.url}/` }
+    />
+  );
+}
+
 const HomePageTemplate = ({ data: { content } }) => {
   return (
     <ContentProvider content={ content }>
       <APIProvider>
-        <Layout
-          title={ content.metadata.title }
-          description={ content.metadata.description }
-          keywords={ content.metadata.keywords }
-          canonicalUrl={ `${config.url}/` }
-          ogImage={ `${config.url}${config.ogImageSrc}` }
-        >
+        <Layout>
           <main>
             <Home/>
             <About/>
