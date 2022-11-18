@@ -11,7 +11,6 @@ module.exports = {
   plugins: [
     'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-offline',
     'gatsby-plugin-mdx',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
