@@ -1,8 +1,10 @@
-*.log
 .cache
+*.log
 .vscode
+.yarn/*
+!.yarn/plugins
+!.yarn/releases
 node_modules
 public
 .env*
 !.env.example
-yarn.lock
