@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 /* Gatsby */
-import { Link as GatsbyLink } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby'
 
 export const Footer = styled.footer`
   display: flex;
@@ -12,7 +12,7 @@ export const Footer = styled.footer`
     flex-direction: column;
     align-items: center;
   }
-`;
+`
 
 export const TextLine = styled.p`
   text-align: center;
@@ -26,8 +26,8 @@ export const TextLine = styled.p`
   @media screen and (max-width: 460px){
     font-size: 15px;
   }
-`;
+`
 
 export const FooterLink = styled(GatsbyLink)`
   text-decoration: underline;
-`;
+`

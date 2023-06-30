@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 
 /* Gatsby Plugin Image */
-import { getImage } from 'gatsby-plugin-image';
+import { getImage } from 'gatsby-plugin-image'
 
 /* Hooks */
-import { useContent } from '@contexts';
+import { useContent } from '@contexts'
 
 /* Styles */
-import * as SC from './styles';
+import * as SC from './styles'
 
 const Services = () => {
-  const { sections: { services } } = useContent();
+  const { sections: { services } } = useContent()
   return (
     <SC.Section data-section-name="services">
       <SC.Title data-effect="fade-in">
@@ -35,7 +35,7 @@ const Services = () => {
         }
       </SC.CardContainer>
     </SC.Section>
-  );
+  )
 }
 
-export default Services;
+export default Services

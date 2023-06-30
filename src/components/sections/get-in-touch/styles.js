@@ -1,24 +1,24 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 /* Gatsby */
-import { Link as GatsbyLink } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby'
 
 /* Shared */
 import {
   titleBase,
   sectionBase
-} from '@components/sections/shared/styles';
+} from '@components/sections/shared/styles'
 
 export const Section = styled.section`
   ${sectionBase}
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-`;
+`
 
 export const Title = styled.h5`
   ${titleBase}
-`;
+`
 
 export const Content = styled.div`
   display: flex;
@@ -33,7 +33,7 @@ export const Content = styled.div`
     flex-direction: column;
     margin: 0;
   }
-`;
+`
 
 const container = css`
   flex: 1;
@@ -43,14 +43,14 @@ const container = css`
     width: 100%;
     margin: 24px 24px 0;
   }
-`;
+`
 
 export const Left = styled.div`
   ${container}
   background: var(--second-light);
   border-radius: 8px;
   z-index: 1;
-`;
+`
 
 export const Right = styled.div`
   ${container}
@@ -61,25 +61,25 @@ export const Right = styled.div`
   @media screen and (max-width: 980px){
     border-radius: 8px;
   }
-`;
+`
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-`;
+`
 
 const inputDefaultAttributes = {
   spellCheck: 'false',
   autoComplete: 'off'
-};
+}
 
 const validInput = css`
   border: 1px solid var(--success);
-`;
+`
 
 const invalidInput = css`
   border: 1px solid var(--danger);
-`;
+`
 
 const inputBase = css`
   padding: 10px 12px;
@@ -97,11 +97,11 @@ const inputBase = css`
     padding: 8px 10px;
     font-size: 15px;
   }
-`;
+`
 
 export const Input = styled.input.attrs(inputDefaultAttributes)`
   ${inputBase}
-`;
+`
 
 export const Textarea = styled.textarea.attrs(inputDefaultAttributes)`
   ${inputBase}
@@ -110,18 +110,18 @@ export const Textarea = styled.textarea.attrs(inputDefaultAttributes)`
   @media screen and (max-width: 1550px){
     height: 80px;
   }
-`;
+`
 
 export const Notice = styled.p`
   margin: 0 0 22px;
   font-size: 14px;
   color: var(--fourth-dark);
-`;
+`
 
 export const NoticeLink = styled(GatsbyLink)`
   text-decoration: underline;
   color: var(--third-dark);
-`;
+`
 
 export const Button = styled.button`
   padding: 10px;
@@ -146,7 +146,7 @@ export const Button = styled.button`
     padding: 8px;
     height: 35px;
   }
-`;
+`
 
 export const Information = styled.div`
   padding: 30px;
@@ -156,7 +156,7 @@ export const Information = styled.div`
   @media screen and (max-width: 1024px){
     padding: 10px;
   }
-`;
+`
 
 export const InformationTitle = styled.p`
   text-align: center;
@@ -168,7 +168,7 @@ export const InformationTitle = styled.p`
   @media screen and (max-width: 1024px){
     font-size: 20px;
   }
-`;
+`
 
 export const StepContainer = styled.ul`
   margin: 50px 0;
@@ -197,7 +197,7 @@ export const StepContainer = styled.ul`
       font-size: 15px;
     }
   }
-`;
+`
 
 export const InformationContacts = styled.ul`
   display: flex;
@@ -214,4 +214,4 @@ export const InformationContacts = styled.ul`
   @media screen and (max-width: 1550px){
     font-size: 16px;
   }
-`;
+`

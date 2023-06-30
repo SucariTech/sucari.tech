@@ -1,18 +1,18 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 /* Gatsby Plugin Image */
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 /* Shared */
 import {
   titleBase,
   sectionBase
-} from '@components/sections/shared/styles';
+} from '@components/sections/shared/styles'
 
 const getDistributedDistance = (partIndex, numberOfParts) => {
-  const percentage = 100 / numberOfParts;
-  const value = `${Math.floor(percentage * (partIndex + 1) - percentage * 0.5)}%`;
-  return value;
+  const percentage = 100 / numberOfParts
+  const value = `${Math.floor(percentage * (partIndex + 1) - percentage * 0.5)}%`
+  return value
 }
 
 export const Section = styled.section`
@@ -21,11 +21,11 @@ export const Section = styled.section`
   flex-direction: column;
   justify-content: space-around;
   border-bottom: 4px double var(--second-dark);
-`;
+`
 
 export const Title = styled.h4`
   ${titleBase}
-`;
+`
 
 export const Content = styled.div`
   display: flex;
@@ -34,7 +34,7 @@ export const Content = styled.div`
   @media screen and (max-width: 680px){
     flex-direction: column;
   }
-`;
+`
 
 const container = css`
   flex: 1;
@@ -44,12 +44,12 @@ const container = css`
   @media screen and (max-width: 680px){
     padding: 0;
   }
-`;
+`
 
 export const Left = styled.div`
   ${container}
   display: flex;
-`;
+`
 
 export const Right = styled.aside`
   ${container}
@@ -59,11 +59,11 @@ export const Right = styled.aside`
   @media screen and (max-width: 680px){
     align-self: flex-end;
   }
-`;
+`
 
 export const PhaseList = styled.ul`
   counter-reset: code 0;
-`;
+`
 
 export const Phase = styled.li`
   display: flex;
@@ -73,7 +73,7 @@ export const Phase = styled.li`
   @media screen and (max-width: 1024px){
     transform: translate3d(0, 0, 0);
   }
-`;
+`
 
 export const PhaseImage = styled(GatsbyImage)`
   width: 50px;
@@ -86,7 +86,7 @@ export const PhaseImage = styled(GatsbyImage)`
     width: 30px;
     height: 30px;
   }
-`;
+`
 
 export const PhaseName = styled.div`
   position: relative;
@@ -113,7 +113,7 @@ export const PhaseName = styled.div`
       margin: 0 15px;
     }
   }
-`;
+`
 
 export const RightList = styled.ul`
   display: flex;
@@ -128,7 +128,7 @@ export const RightList = styled.ul`
     padding: 0;
     border-bottom: none;
   }
-`;
+`
 
 export const RightItem = styled.li`
   margin: 20px 0;
@@ -192,4 +192,4 @@ export const RightItem = styled.li`
       font-size: 22px;
     }
   }
-`;
+`

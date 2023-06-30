@@ -2,4 +2,4 @@
 export {
   MenuProvider,
   useMenu
-} from './menu-context';
+} from './menu-context'

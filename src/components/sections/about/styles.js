@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 /* Shared */
-import { sectionBase } from '@components/sections/shared/styles';
+import { sectionBase } from '@components/sections/shared/styles'
 
 export const Section = styled.section`
   ${sectionBase}
@@ -9,7 +9,7 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-`;
+`
 
 export const Title = styled.h2`
   margin: 15px 0;
@@ -37,7 +37,7 @@ export const Title = styled.h2`
   @media screen and (max-width: 380px){
     font-size: 26px;
   }
-`;
+`
 
 export const Founder = styled.p`
   display: flex;
@@ -58,7 +58,7 @@ export const Founder = styled.p`
     font-size: 24px;
     letter-spacing: 2px;
   }
-`;
+`
 
 export const Line = styled.hr`
   margin: 15px 0;
@@ -67,7 +67,7 @@ export const Line = styled.hr`
   border-right: none;
   border-bottom: 4px double var(--fourth-dark);
   border-left: none;
-`;
+`
 
 export const Paragraph = styled.p`
   margin: 15px 0;
@@ -91,4 +91,4 @@ export const Paragraph = styled.p`
     font-size: 18px;
     letter-spacing: 0;
   }
-`;
+`

@@ -1,42 +1,43 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 /* Context */
-const AlertContext = React.createContext();
+const AlertContext = React.createContext()
 
 /* Hooks */
-export const useAlert = () => React.useContext(AlertContext);
+export const useAlert = () => React.useContext(AlertContext)
 
 export const AlertProvider = ({
-  component: Alert,
-  children
+  children,
+  component: Alert
 }) => {
-  const [ visible, setVisible ] = React.useState(false);
-  const [ content, setContent ] = React.useState(null);
+  const [visible, setVisible] = React.useState(false)
+  const [content, setContent] = React.useState(null)
 
   const openAlert = React.useCallback(content => {
-    setContent(content);
-    setVisible(true);
-  }, [ visible ]);
+    setContent(content)
+    setVisible(true)
+  }, [visible])
 
   const closeAlert = React.useCallback(() => {
-    setContent(null);
-    setVisible(false);
-  }, []);
+    setContent(null)
+    setVisible(false)
+  }, [])
 
   React.useEffect(() => {
-    const keydown = e => e.key === 'Escape' && closeAlert();
-    addEventListener('keydown', keydown);
+    const keydown = e => e.key === 'Escape' && closeAlert()
+    addEventListener('keydown', keydown)
     return () => {
-      setVisible(false);
-      setContent(null);
-      removeEventListener('keydown', keydown);
+      setVisible(false)
+      setContent(null)
+      removeEventListener('keydown', keydown)
     }
-  }, []);
+  }, [])
 
   const value = React.useMemo(() => ({
     openAlert,
     closeAlert
-  }), [ openAlert, closeAlert ]);
+  }), [openAlert, closeAlert])
 
   return (
     <AlertContext.Provider value={ value }>
@@ -48,5 +49,10 @@ export const AlertProvider = ({
         { content }
       </Alert>
     </AlertContext.Provider>
-  );
+  )
+}
+
+AlertProvider.propTypes = {
+  children: PropTypes.node,
+  component: PropTypes.elementType.isRequired
 }

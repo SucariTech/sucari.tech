@@ -1,34 +1,36 @@
-import React from 'react';
+import React from 'react'
 
 /* Config */
-import config from '@config';
+import config from '@config'
 
 /* Hooks */
-import { useContent } from '@contexts';
+import { useContent } from '@contexts'
 
 /* Styles */
 import {
   NetworkList,
   Network,
   NetworkLink
-} from '../shared/styles';
+} from '../shared/styles'
 
-import * as SC from './styles';
+import * as SC from './styles'
 
 const Footer = () => {
-  const { footer } = useContent();
+  const { footer } = useContent()
   return (
     <SC.Footer>
       <SC.TextLine data-effect="fade-in">
         {
-          footer.textLine.map((part, index) => part.to ? (
-            <SC.FooterLink
-              key={ index }
-              to={ part.to }
-            >
-              { part.label }
-            </SC.FooterLink>
-          ) : part.label)
+          footer.textLine.map((part, index) => part.to
+            ? (
+              <SC.FooterLink
+                key={ index }
+                to={ part.to }
+              >
+                { part.label }
+              </SC.FooterLink>
+            )
+            : part.label)
         }
       </SC.TextLine>
       <NetworkList data-effect="fade-in">
@@ -47,7 +49,7 @@ const Footer = () => {
         )) }
       </NetworkList>
     </SC.Footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

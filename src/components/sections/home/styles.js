@@ -1,10 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 /* Gatsby Plugin Image */
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 /* Shared */
-import { sectionBase } from '@components/sections/shared/styles';
+import { sectionBase } from '@components/sections/shared/styles'
 
 export const Section = styled.section`
   ${sectionBase}
@@ -13,7 +13,7 @@ export const Section = styled.section`
   @media screen and (max-width: 768px){
     align-items: stretch;
   }
-`;
+`
 
 export const Content = styled.div`
   display: flex;
@@ -33,7 +33,7 @@ export const Content = styled.div`
     padding: 0;
     border: none;
   }
-`;
+`
 
 const container = css`
   width: 100%;
@@ -45,17 +45,17 @@ const container = css`
   @media screen and (max-width: 480px){
     max-width: 100%;
   }
-`;
+`
 
 export const Left = styled.div`
   ${container}
   display: flex;
   justify-content: center;
-`;
+`
 
 export const Right = styled.div`
   ${container}
-`;
+`
 
 export const Title = styled.h1`
   display: flex;
@@ -90,11 +90,11 @@ export const Title = styled.h1`
   @media screen and (max-width: 380px){
     font-size: 18px;
   }
-`;
+`
 
 export const Word = styled.span`
   ${({ decorate = false }) => decorate ? 'color: var(--third-light);' : ''}
-`;
+`
 
 export const Paragraph = styled.p`
   margin: 60px 0;
@@ -119,7 +119,7 @@ export const Paragraph = styled.p`
   @media screen and (max-width: 380px){
     font-size: 16px;
   }
-`;
+`
 
 export const Links = styled.ul`
   display: flex;
@@ -151,7 +151,7 @@ export const Links = styled.ul`
       margin: 0 auto;
     }
   }
-`;
+`
 
 export const Image = styled(GatsbyImage)`
   width: 100%;
@@ -159,4 +159,4 @@ export const Image = styled(GatsbyImage)`
   @media screen and (max-width: 768px){
     padding: 0;
   }
-`;
+`

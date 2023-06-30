@@ -1,22 +1,22 @@
-import React from 'react';
+import React from 'react'
 
 /* Gatsby */
-import { graphql } from 'gatsby';
+import { graphql } from 'gatsby'
 
 /* Config */
-import config from '@config';
+import config from '@config'
 
 /* Providers */
 import {
   ContentProvider,
   APIProvider
-} from '@contexts';
+} from '@contexts'
 
 /* Head */
-import SiteHead from '@head';
+import SiteHead from '@head'
 
 /* Layout */
-import Layout from '@layouts/main-layout';
+import Layout from '@layouts/main-layout'
 
 /* Sections */
 import {
@@ -26,9 +26,14 @@ import {
   Cycle,
   GetInTouch,
   Subscribe
-} from '@components/sections';
+} from '@components/sections'
 
-export const Head = ({ data: { content } }) => {
+/* eslint-disable react/prop-types */
+export const Head = ({
+  data: {
+    content
+  }
+}) => {
   return (
     <SiteHead
       title={ content.metadata.title }
@@ -36,7 +41,7 @@ export const Head = ({ data: { content } }) => {
       keywords={ content.metadata.keywords }
       canonicalUrl={ `${config.url}/` }
     />
-  );
+  )
 }
 
 const HomePageTemplate = ({ data: { content } }) => {
@@ -55,7 +60,7 @@ const HomePageTemplate = ({ data: { content } }) => {
         </Layout>
       </APIProvider>
     </ContentProvider>
-  );
+  )
 }
 
 export const query = graphql`
@@ -199,6 +204,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default HomePageTemplate;
+export default HomePageTemplate

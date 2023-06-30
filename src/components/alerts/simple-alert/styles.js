@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Container = styled.div`
   position: fixed;
@@ -11,14 +11,14 @@ export const Container = styled.div`
   height: ${({ theme }) => `${theme.dimensions.innerHeight}px`};
   z-index: 2000;
   padding: 20px;
-`;
+`
 
 export const Barrier = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 2001;
-`;
+`
 
 export const Modal = styled.div`
   position: relative;
@@ -32,12 +32,12 @@ export const Modal = styled.div`
   color: var(--main-light);
   box-shadow: 0 0 5px var(--main-light);
   z-index: 2002;
-`;
+`
 
 export const OptionContainer = styled.div`
   padding: 25px 0;
   text-align: right;
-`;
+`
 
 export const Option = styled.span`
   padding: 8px 14px;
@@ -45,4 +45,4 @@ export const Option = styled.span`
   background: var(--third-light);
   color: var(--main-dark);
   cursor: pointer;
-`;
+`

@@ -1,24 +1,24 @@
-import React from 'react';
+import React from 'react'
 
 /* Hooks */
 import {
   useContent,
   useAlert,
   useAPI
-} from '@contexts';
-import { useForm } from '@hooks';
+} from '@contexts'
+import { useForm } from '@hooks'
 
 /* Validations */
-import { isEmailValid } from '@utils/validations';
+import { isEmailValid } from '@utils/validations'
 
 /* Loader */
-import { SimpleLoader as Loader } from '@components/loaders';
+import { SimpleLoader as Loader } from '@components/loaders'
 
 /* Layout Footer */
-import { Footer } from '@layouts/main-layout';
+import { Footer } from '@layouts/main-layout'
 
 /* Styles */
-import * as SC from './styles';
+import * as SC from './styles'
 
 const getInitialFieldValues = () => ({
   email: {
@@ -26,14 +26,14 @@ const getInitialFieldValues = () => ({
     valid: null,
     validator: value => isEmailValid(value)
   }
-});
+})
 
 const Subscribe = () => {
-  const { sections: { subscribe } } = useContent();
-  const [ onChange, onSubmit, fields, resetFields ] = useForm(getInitialFieldValues());
-  const { openAlert } = useAlert();
-  const { sendToSubscribe } = useAPI();
-  const [ submitting, setSubmitting ] = React.useState(false);
+  const { sections: { subscribe } } = useContent()
+  const [onChange, onSubmit, fields, resetFields] = useForm(getInitialFieldValues())
+  const { openAlert } = useAlert()
+  const { sendToSubscribe } = useAPI()
+  const [submitting, setSubmitting] = React.useState(false)
   return (
     <SC.Section>
       <SC.ContentWrapper>
@@ -42,17 +42,17 @@ const Subscribe = () => {
           <SC.Form
             onSubmit={ onSubmit({
               onSuccess: React.useCallback(fieldValues => {
-                setSubmitting(true);
+                setSubmitting(true)
                 sendToSubscribe(fieldValues, data => {
-                  setSubmitting(false);
-                  if(data.errorMessage){
-                    openAlert(data.errorMessage);
-                  }else{
-                    openAlert(data.successMessage);
-                    resetFields(getInitialFieldValues());
+                  setSubmitting(false)
+                  if (data.errorMessage) {
+                    openAlert(data.errorMessage)
+                  } else {
+                    openAlert(data.successMessage)
+                    resetFields(getInitialFieldValues())
                   }
-                });
-              }, [ submitting ])
+                })
+              }, [submitting])
             }) }
           >
             <SC.Input
@@ -80,7 +80,7 @@ const Subscribe = () => {
       </SC.ContentWrapper>
       <Footer/>
     </SC.Section>
-  );
+  )
 }
 
-export default Subscribe;
+export default Subscribe

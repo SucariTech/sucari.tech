@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 /* Header */
 export const Header = styled.header`
@@ -11,7 +11,7 @@ export const Header = styled.header`
   @media screen and (max-width: 1024px){
     padding: 20px;
   }
-`;
+`
 
 /* Nav */
 export const Nav = styled.nav`
@@ -19,7 +19,7 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   height: 100%;
-`;
+`
 
 export const Title = styled.p`
   font-size: 30px;
@@ -34,7 +34,7 @@ export const Title = styled.p`
     font-size: 22px;
     letter-spacing: 2px;
   }
-`;
+`
 
 /* Button */
 export const ButtonWrapper = styled.div`
@@ -45,14 +45,14 @@ export const ButtonWrapper = styled.div`
   height: 40px;
   margin: 4px;
   cursor: pointer;
-`;
+`
 
 const buttonBase = css`
   width: 40px;
   height: 3px;
   background: var(--main-light);
   border-radius: 10px;
-`;
+`
 
 const toClose = css`
   background: transparent;
@@ -62,7 +62,7 @@ const toClose = css`
   ::after{
     transform: rotate3d(0, 0, 1, -40deg);
   }
-`;
+`
 const toOpen = css`
   ::before{
     transform: translate3d(0, calc(45px / 3.5), 0);
@@ -70,7 +70,7 @@ const toOpen = css`
   ::after{
     transform: translate3d(0, calc(-45px / 3.5), 0);
   }
-`;
+`
 
 export const Button = styled.div`
   ${buttonBase}
@@ -82,7 +82,7 @@ export const Button = styled.div`
     ${buttonBase}
   }
   ${({ isOpen = false }) => isOpen ? toClose : toOpen}
-`;
+`
 
 /* Menu */
 export const MenuWrapper = styled.div`
@@ -99,14 +99,14 @@ export const MenuWrapper = styled.div`
   background-size: 3px 3px;
   background-image:  repeating-linear-gradient(0deg, var(--main-dark), var(--main-dark) 2.2px, transparent 2.2px, transparent);
   transition: right 0.5s ease-in-out;
-`;
+`
 
 /* Menu Header */
 export const MenuHeader = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-`;
+`
 
 export const Logo = styled.img`
   display: block;
@@ -116,7 +116,7 @@ export const Logo = styled.img`
     width: 50px;
     height: 50px;
   }
-`;
+`
 
 /* Menu Footer */
 export const MenuFooter = styled.div`
@@ -126,13 +126,13 @@ export const MenuFooter = styled.div`
   margin: 10px auto 0;
   width: 100%;
   border-top: 2px solid var(--main-light);
-`;
+`
 
 /* Menu Content */
 export const MenuContent = styled.div`
   display: flex;
   flex: 1;
-`;
+`
 
 export const MenuList = styled.ul`
   display: flex;
@@ -142,13 +142,13 @@ export const MenuList = styled.ul`
   position: relative;
   flex: 1;
   width: 100%;
-`;
+`
 
 const activeOption = css`
   ::before{
     width: 100%;
   }
-`;
+`
 
 export const MenuOption = styled.li`
   position: relative;
@@ -179,4 +179,4 @@ export const MenuOption = styled.li`
     font-size: 24px;
     letter-spacing: 0;
   }
-`;
+`

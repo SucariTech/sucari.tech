@@ -1,24 +1,24 @@
-import React from 'react';
+import React from 'react'
 
 /* Hooks */
 import {
   useContent,
   useAlert,
   useAPI
-} from '@contexts';
-import { useForm } from '@hooks';
+} from '@contexts'
+import { useForm } from '@hooks'
 
 /* Validations */
 import {
   isStringValid,
   isEmailValid
-} from '@utils/validations';
+} from '@utils/validations'
 
 /* Loaders */
-import { SimpleLoader as Loader } from '@components/loaders';
+import { SimpleLoader as Loader } from '@components/loaders'
 
 /* Styles */
-import * as SC from './styles';
+import * as SC from './styles'
 
 const getInitialFieldValues = () => ({
   firstName: {
@@ -51,17 +51,17 @@ const getInitialFieldValues = () => ({
     valid: null,
     validator: value => isStringValid(value, 3000, 1)
   }
-});
+})
 
 const GetInTouch = () => {
   const {
     contacts,
     sections: { getInTouch }
-  } = useContent();
-  const [ onChange, onSubmit, fields, resetFields ] = useForm(getInitialFieldValues());
-  const { openAlert } = useAlert();
-  const { sendContactEmail } = useAPI();
-  const [ submitting, setSubmitting ] = React.useState(false);
+  } = useContent()
+  const [onChange, onSubmit, fields, resetFields] = useForm(getInitialFieldValues())
+  const { openAlert } = useAlert()
+  const { sendContactEmail } = useAPI()
+  const [submitting, setSubmitting] = React.useState(false)
   return (
     <SC.Section data-section-name="getInTouch">
       <SC.Title data-effect="fade-in">
@@ -72,17 +72,17 @@ const GetInTouch = () => {
           <SC.Form
             onSubmit={ onSubmit({
               onSuccess: React.useCallback(fieldValues => {
-                setSubmitting(true);
+                setSubmitting(true)
                 sendContactEmail(fieldValues, data => {
-                  setSubmitting(false);
-                  if(data.errorMessage){
-                    openAlert(data.errorMessage);
-                  }else{
-                    openAlert(data.successMessage);
-                    resetFields(getInitialFieldValues());
+                  setSubmitting(false)
+                  if (data.errorMessage) {
+                    openAlert(data.errorMessage)
+                  } else {
+                    openAlert(data.successMessage)
+                    resetFields(getInitialFieldValues())
                   }
-                });
-              }, [ submitting ])
+                })
+              }, [submitting])
             }) }
           >
             <SC.Input
@@ -141,14 +141,16 @@ const GetInTouch = () => {
             />
             <SC.Notice data-effect="fade-in">
               {
-                getInTouch.notice.map((part, index) => part.to ? (
-                  <SC.NoticeLink
-                    key={ index }
-                    to={ part.to }
-                  >
-                    { part.label }
-                  </SC.NoticeLink>
-                ) : part.label)
+                getInTouch.notice.map((part, index) => part.to
+                  ? (
+                    <SC.NoticeLink
+                      key={ index }
+                      to={ part.to }
+                    >
+                      { part.label }
+                    </SC.NoticeLink>
+                  )
+                  : part.label)
               }
             </SC.Notice>
             <SC.Button
@@ -195,7 +197,7 @@ const GetInTouch = () => {
         </SC.Right>
       </SC.Content>
     </SC.Section>
-  );
+  )
 }
 
-export default GetInTouch;
+export default GetInTouch

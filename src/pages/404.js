@@ -1,19 +1,19 @@
-import React from 'react';
+import React from 'react'
 
 /* Gatsby */
-import { Link } from 'gatsby';
+import { Link } from 'gatsby'
 
 /* Styled Components */
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 /* Config */
-import config from '@config';
+import config from '@config'
 
 /* Styles */
 const lineBase = css`
   margin: 10px 0;
   letter-spacing: 1px;
-`;
+`
 
 const Container = styled.main`
   padding: 20px;
@@ -27,23 +27,23 @@ const Container = styled.main`
     font-style: italic;
     color: var(--third-light);
   }
-`;
+`
 
 const Wrapper = styled.div`
   margin: 40px 0;
-`;
+`
 
 const Title = styled.h1`
   ${lineBase}
   font-size: 30px;
-`;
+`
 
 const Subtitle = styled.h2`
   ${lineBase}
   font-size: 22px;
   font-weight: lighter;
   font-style: italic;
-`;
+`
 
 export const Head = () => {
   return (
@@ -62,7 +62,7 @@ export const Head = () => {
         ))
       }
     </>
-  );
+  )
 }
 
 const PageNotFound = () => {
@@ -72,11 +72,11 @@ const PageNotFound = () => {
       <Subtitle>Sorry, we couldn't find what you were looking for</Subtitle>
       <Wrapper>
         <p><strong>Need help finding something?</strong></p>
-        <p>Email info@sucari.tech and we’ll help you.</p>
+        <p>Email info@sucari.tech and we'll help you.</p>
       </Wrapper>
       <Link to="/">— Back to home</Link>
     </Container>
-  );
+  )
 }
 
-export default PageNotFound;
+export default PageNotFound

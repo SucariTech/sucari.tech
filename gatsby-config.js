@@ -1,14 +1,30 @@
-const { resolve } = require('path');
+const path = require('path')
 
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
-});
+})
 
 module.exports = {
   siteMetadata: {
     siteUrl: process.env.GATSBY_URL_ROOT
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        cacheLocation: path.resolve(__dirname, '.cache', '.eslintcache'),
+        rulePaths: [
+          path.resolve(
+            __dirname,
+            'node_modules',
+            'gatsby',
+            'dist',
+            'utils',
+            'eslint-rules'
+          )
+        ]
+      }
+    },
     'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-mdx',
@@ -25,7 +41,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'content',
-        path: resolve(__dirname, './content')
+        path: path.resolve(__dirname, './content')
       }
     },
     {
@@ -48,7 +64,7 @@ module.exports = {
         name: 'Sucari Tech',
         short_name: 'sucari.tech',
         crossOrigin: 'use-credentials',
-        icon: resolve(__dirname, './static/images/logo.png')
+        icon: path.resolve(__dirname, './static/images/logo.png')
       }
     },
     process.env.GOOGLE_ANALYTICS_ID && {
@@ -58,4 +74,4 @@ module.exports = {
       }
     }
   ].filter(Boolean)
-};
+}

@@ -1,1 +1,1 @@
-export { default as SimpleAlert } from './simple-alert';
+export { default as SimpleAlert } from './simple-alert'

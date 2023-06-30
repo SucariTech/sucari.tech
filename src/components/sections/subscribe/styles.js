@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 /* Shared */
-import { sectionBase } from '@components/sections/shared/styles';
+import { sectionBase } from '@components/sections/shared/styles'
 
 export const Section = styled.section`
   ${sectionBase}
@@ -15,7 +15,7 @@ export const Section = styled.section`
          screen and (max-width: 380px){
     padding-bottom: 0;
   }
-`;
+`
 
 export const ContentWrapper = styled.div`
   display: flex;
@@ -26,9 +26,9 @@ export const ContentWrapper = styled.div`
   width: 100%;
   padding: 60px 0;
   margin: 0 auto;
-`;
+`
 
-export const Content = styled.div``;
+export const Content = styled.div``
 
 const lineBase = css`
   margin: 80px 0;
@@ -54,30 +54,30 @@ const lineBase = css`
   @media screen and (max-width: 768px){
     font-size: 17px;
   }
-`;
+`
 
 export const Description = styled.p`
   ${lineBase}
   font-style: italic;
-`;
+`
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-`;
+`
 
 const inputDefaultAttributes = {
   spellCheck: 'false',
   autoComplete: 'off'
-};
+}
 
 const validInput = css`
   border-bottom: 2px solid var(--success);
-`;
+`
 
 const invalidInput = css`
   border-bottom: 2px solid var(--danger);
-`;
+`
 
 export const Input = styled.input.attrs(inputDefaultAttributes)`
   ${lineBase}
@@ -92,7 +92,7 @@ export const Input = styled.input.attrs(inputDefaultAttributes)`
   ::placeholder{
     color: var(--main-light);
   }
-`;
+`
 
 export const Button = styled.button`
   ${lineBase}
@@ -107,4 +107,4 @@ export const Button = styled.button`
   :disabled{
     cursor: auto;
   }
-`;
+`

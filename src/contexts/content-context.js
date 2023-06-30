@@ -1,20 +1,26 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const ContentContext = React.createContext();
+const ContentContext = React.createContext()
 
-export const useContent = () => React.useContext(ContentContext);
+export const useContent = () => React.useContext(ContentContext)
 
 export const ContentProvider = ({
   content = {},
   children
 }) => {
-  
-  const value = React.useMemo(() => content, [ content ]);
+  const value = React.useMemo(() => content, [content])
 
   return (
     <ContentContext.Provider
       value={ value }
-      children={ children }
-    />
-  );
+    >
+      { children }
+    </ContentContext.Provider>
+  )
+}
+
+ContentProvider.propTypes = {
+  content: PropTypes.object,
+  children: PropTypes.node
 }
