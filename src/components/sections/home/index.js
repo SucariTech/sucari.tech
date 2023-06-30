@@ -1,20 +1,20 @@
-import React from 'react';
+import React from 'react'
 
 /* Gatsby Plugin Image */
-import { getImage } from 'gatsby-plugin-image';
+import { getImage } from 'gatsby-plugin-image'
 
 /* Hooks */
-import { useContent } from '@contexts';
+import { useContent } from '@contexts'
 
 /* Layout Hooks */
-import { useMenu } from '@layouts/main-layout';
+import { useMenu } from '@layouts/main-layout'
 
 /* Styles */
-import * as SC from './styles';
+import * as SC from './styles'
 
 const Home = () => {
-  const { sections: { home } } = useContent();
-  const { scrollToSection } = useMenu();
+  const { sections: { home } } = useContent()
+  const { scrollToSection } = useMenu()
   return (
     <SC.Section data-section-name="home">
       <SC.Content>
@@ -55,7 +55,7 @@ const Home = () => {
         </SC.Right>
       </SC.Content>
     </SC.Section>
-  );
+  )
 }
 
-export default Home;
+export default Home

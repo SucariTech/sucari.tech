@@ -1,7 +1,7 @@
-const { resolve } = require('path');
+const { resolve } = require('path')
 
 module.exports = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
 
   /* MDX */
   const MDXresult = await graphql(`
@@ -18,36 +18,36 @@ module.exports = async ({ graphql, actions }) => {
         }
       }
     }
-  `);
+  `)
 
-  if(MDXresult.errors){
-    console.error(MDXresult.errors);
-    throw Error(MDXresult.errors);
+  if (MDXresult.errors) {
+    console.error(MDXresult.errors)
+    throw Error(MDXresult.errors)
   }
 
   /* MDX Templates */
-  const privacyPolicyPageTemplate = resolve(__dirname, '../src/templates/privacy-policy/index.js');
+  const privacyPolicyPageTemplate = resolve(__dirname, '../src/templates/privacy-policy/index.js')
 
   MDXresult.data.allMdx.nodes.forEach(node => {
-    let template = null,
-        path = node.fields.slug;
+    let template = null
+    const path = node.fields.slug
 
-    const slug = node.fields.slug;
-    
-    if(slug.includes('privacy-policy/')){
-      template = privacyPolicyPageTemplate;
+    const slug = node.fields.slug
+
+    if (slug.includes('privacy-policy/')) {
+      template = privacyPolicyPageTemplate
     }
 
-    if(template){
+    if (template) {
       createPage({
         path,
         component: `${template}?__contentFilePath=${node.internal.contentFilePath}`,
         context: {
           id: node.id
         }
-      });
+      })
     }
-  });
+  })
 
   /* JSON */
   const JSONresult = await graphql(`
@@ -61,35 +61,35 @@ module.exports = async ({ graphql, actions }) => {
         }
       }
     }
-  `);
+  `)
 
-  if(JSONresult.errors){
-    console.error(JSONresult.errors);
-    throw Error(JSONresult.errors);
+  if (JSONresult.errors) {
+    console.error(JSONresult.errors)
+    throw Error(JSONresult.errors)
   }
 
   /* JSON Templates */
-  const homePageTemplate = resolve(__dirname, '../src/templates/home/index.js');
+  const homePageTemplate = resolve(__dirname, '../src/templates/home/index.js')
 
   JSONresult.data.allJson.nodes.forEach(node => {
-    let template = null,
-        path = node.fields.slug;
+    let template = null
+    let path = node.fields.slug
 
-    const slug = node.fields.slug;
-    
-    if(slug.includes('home/')){
-      template = homePageTemplate;
-      path = slug.replace('home/', '');
+    const slug = node.fields.slug
+
+    if (slug.includes('home/')) {
+      template = homePageTemplate
+      path = slug.replace('home/', '')
     }
 
-    if(template){
+    if (template) {
       createPage({
         path,
         component: template,
         context: {
           id: node.id
         }
-      });
+      })
     }
-  });
+  })
 }

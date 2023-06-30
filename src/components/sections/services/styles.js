@@ -1,24 +1,24 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 /* Gatsby Plugin Image */
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 /* Shared */
 import {
   titleBase,
   sectionBase
-} from '@components/sections/shared/styles';
+} from '@components/sections/shared/styles'
 
 export const Section = styled.section`
   ${sectionBase}
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-`;
+`
 
 export const Title = styled.h3`
   ${titleBase}
-`;
+`
 
 export const CardContainer = styled.ul`
   display: flex;
@@ -30,7 +30,7 @@ export const CardContainer = styled.ul`
     flex-direction: column;
     margin: 10px 0;
   }
-`;
+`
 
 export const Card = styled.li`
   width: 27%;
@@ -71,7 +71,7 @@ export const Card = styled.li`
       transform: scale(1);
     }
   }
-`;
+`
 
 export const CardImage = styled(GatsbyImage)`
   display: block;
@@ -97,7 +97,7 @@ export const CardImage = styled(GatsbyImage)`
   @media screen and (max-width: 480px){
     margin: 0 10px 0 0;
   }
-`;
+`
 
 export const CardName = styled.p`
   text-align: center;
@@ -115,4 +115,4 @@ export const CardName = styled.p`
   @media screen and (max-width: 480px){
     letter-spacing: 0;
   }
-`;
+`

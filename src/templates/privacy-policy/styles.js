@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 /* Gatsby */
-import { Link as GatsbyLink } from 'gatsby';
+import { Link as GatsbyLink } from 'gatsby'
 
 export const Header = styled.header`
   display: flex;
@@ -13,18 +13,18 @@ export const Header = styled.header`
   @media screen and (max-width: 520px){
     padding: 30px 20px;
   }
-`;
+`
 
 export const Label = styled.p`
   font-size: 24px;
   font-weight: bold;
   letter-spacing: 2px;
-`;
+`
 
 export const Link = styled(GatsbyLink)`
   text-decoration: underline;
   font-style: italic;
-`;
+`
 
 export const Container = styled.main`
   position: relative;
@@ -44,48 +44,48 @@ export const Container = styled.main`
   @media screen and (max-width: 520px){
     padding: 20px;
   }
-`;
+`
 
 const textBase = css`
   letter-spacing: 1px;
   color: var(--second-light);
-`;
+`
 
 const titleBase = css`
   ${textBase}
   margin: 20px 0;
   font-family: secondFont;
   line-height: 2rem;
-`;
+`
 
 const lineBase = css`
   ${textBase}
   margin: 10px 0;
   line-height: 1.8rem;
-`;
+`
 
 export const P = styled.p`
   ${lineBase}
-`;
+`
 
 export const H1 = styled.h1`
   ${titleBase}
-`;
+`
 
 export const H2 = styled.h2`
   ${titleBase}
-`;
+`
 
 export const H3 = styled.h3`
   ${titleBase}
-`;
+`
 
 export const Ul = styled.ul`
   list-style: disc;
   margin: 15px 0 15px 10px;
   padding: 0 0 0 30px;
-`;
+`
 
 export const Li = styled.li`
   ${lineBase}
-`;
+`

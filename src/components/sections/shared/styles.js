@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from 'styled-components'
 
 export const titleBase = css`
   font-style: italic;
@@ -14,7 +14,7 @@ export const titleBase = css`
   @media screen and (max-width: 768px){
     font-size: 18px;
   }
-`;
+`
 
 export const sectionBase = css`
   width: 100%;
@@ -36,4 +36,4 @@ export const sectionBase = css`
   @media screen and (max-width: 380px){
     padding: 40px 20px;
   }
-`;
+`

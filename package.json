@@ -7,10 +7,15 @@
   "private": true,
   "repository": "git@github.com:SucariTech/sucari.tech.git",
   "scripts": {
-    "dev": "gatsby develop -H 0.0.0.0",
     "build": "gatsby build",
-    "serve": "gatsby serve -H 0.0.0.0",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "commitlint": "commitlint",
+    "dev": "gatsby develop -H 0.0.0.0",
+    "eslint": "eslint",
+    "lint:eslint": "eslint gatsby src --cache --cache-location .cache/.eslintcache --rule 'limited-exports-page-templates: off' --rule 'no-anonymous-exports-page-templates: off' ",
+    "lint:fix": "yarn lint:eslint --fix",
+    "lint": "yarn lint:fix",
+    "serve": "gatsby serve -H 0.0.0.0"
   },
   "dependencies": {
     "@mdx-js/react": "2.1.3",
@@ -27,10 +32,22 @@
     "gatsby-source-filesystem": "^4.20.0",
     "gatsby-transformer-json": "^4.20.0",
     "gatsby-transformer-sharp": "^4.20.0",
-    "jwt-decode": "^3.1.2",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.5"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "eslint": "^8.43.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^16.0.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-webpack-plugin": "^4.0.1",
+    "gatsby-plugin-eslint": "^4.0.4"
   },
   "engines": {
     "node": ">=18.0.0"

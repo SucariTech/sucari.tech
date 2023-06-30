@@ -1,35 +1,35 @@
-import React from 'react';
+import React from 'react'
 
 /* Config */
-import config from '@config';
+import config from '@config'
 
 /* Hooks */
-import { useContent } from '@contexts';
+import { useContent } from '@contexts'
 
 /* Context */
-import { useMenu } from '../contexts';
+import { useMenu } from '../contexts'
 
 /* Images */
-import secondaryLogoSrc from '@images/secondary-logo.png';
+import secondaryLogoSrc from '@images/secondary-logo.png'
 
 /* Styles */
 import {
   NetworkList,
   Network,
   NetworkLink
-} from '../shared/styles';
+} from '../shared/styles'
 
-import * as SC from './styles';
+import * as SC from './styles'
 
 const Header = () => {
-  const { sections } = useContent();
+  const { sections } = useContent()
   const {
     isOpen: isOpenMenu,
     currentSection,
     openMenu,
     closeMenu,
     scrollToSection
-  } = useMenu();
+  } = useMenu()
   return (
     <SC.Header>
       <SC.Nav>
@@ -52,16 +52,18 @@ const Header = () => {
           <SC.MenuContent>
             <SC.MenuList>
               {
-                Object.keys(sections).map(sectionKey => !sections[sectionKey].skippable ? (
-                  <SC.MenuOption
-                    key={ sectionKey }
-                    active={ currentSection === sectionKey }
-                  >
-                    <span onClick={ () => scrollToSection(sectionKey) }>
-                      { sections[sectionKey].name }
-                    </span>
-                  </SC.MenuOption>
-                ) : null)
+                Object.keys(sections).map(sectionKey => !sections[sectionKey].skippable
+                  ? (
+                    <SC.MenuOption
+                      key={ sectionKey }
+                      active={ currentSection === sectionKey }
+                    >
+                      <span onClick={ () => scrollToSection(sectionKey) }>
+                        { sections[sectionKey].name }
+                      </span>
+                    </SC.MenuOption>
+                  )
+                  : null)
               }
             </SC.MenuList>
           </SC.MenuContent>
@@ -85,7 +87,7 @@ const Header = () => {
         </SC.MenuWrapper>
       </SC.Nav>
     </SC.Header>
-  );
+  )
 }
 
-export default Header;
+export default Header

@@ -1,13 +1,13 @@
-import React from 'react';
+import React from 'react'
 
 /* Hooks */
-import { useContent } from '@contexts';
+import { useContent } from '@contexts'
 
 /* Styles */
-import * as SC from './styles';
+import * as SC from './styles'
 
 const About = () => {
-  const { sections: { about } } = useContent();
+  const { sections: { about } } = useContent()
   return (
     <SC.Section data-section-name="about">
       <SC.Title data-effect="fade-in">
@@ -22,7 +22,7 @@ const About = () => {
         { about.founder.message }
       </SC.Paragraph>
     </SC.Section>
-  );
+  )
 }
 
-export default About;
+export default About

@@ -1,12 +1,12 @@
 /* Icons */
-import FacebookIcon from '@icons/facebook.svg';
-import GitHubIcon from '@icons/github.svg';
-import LinkedInIcon from '@icons/linkedin.svg';
-import TwitterIcon from '@icons/twitter.svg';
+import FacebookIcon from '@icons/facebook.svg'
+import GitHubIcon from '@icons/github.svg'
+import LinkedInIcon from '@icons/linkedin.svg'
+import TwitterIcon from '@icons/twitter.svg'
 
 /* Fonts */
-import MontserratSemiBold from '@fonts/montserrat/montserrat-semi-bold.ttf';
-import MontserratRegular from '@fonts/montserrat/montserrat-regular.ttf';
+import MontserratSemiBold from '@fonts/montserrat/montserrat-semi-bold.ttf'
+import MontserratRegular from '@fonts/montserrat/montserrat-regular.ttf'
 
 export default {
   domain: process.env.GATSBY_DOMAIN,
@@ -47,4 +47,4 @@ export default {
       icon: TwitterIcon
     }
   ]
-};
+}

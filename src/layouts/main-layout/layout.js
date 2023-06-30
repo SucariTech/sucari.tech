@@ -1,17 +1,18 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 /* Contexts */
-import { MenuProvider } from './contexts';
-import { AlertProvider } from '@contexts';
-
-/* Dimensions */
-import { DimensionsProvider } from '@contexts';
+import { MenuProvider } from './contexts'
+import {
+  AlertProvider,
+  DimensionsProvider
+} from '@contexts'
 
 /* Alerts */
-import { SimpleAlert } from '@components/alerts';
+import { SimpleAlert } from '@components/alerts'
 
 /* Header */
-import Header from './header';
+import Header from './header'
 
 const Layout = ({ children }) => {
   return (
@@ -23,7 +24,11 @@ const Layout = ({ children }) => {
         </AlertProvider>
       </MenuProvider>
     </DimensionsProvider>
-  );
+  )
 }
 
-export default Layout;
+Layout.propTypes = {
+  children: PropTypes.node
+}
+
+export default Layout

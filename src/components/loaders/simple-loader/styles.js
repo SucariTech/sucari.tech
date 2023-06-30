@@ -1,6 +1,6 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 
-const getAnimationDuration = n => n * 0.1 * 2;
+const getAnimationDuration = n => n * 0.1 * 2
 
 const rectangleAnimation = keyframes`
   0%, 40%, 100%{
@@ -8,7 +8,7 @@ const rectangleAnimation = keyframes`
   }20%{
     transform: scale3d(1, 1, 1);
   }
-`;
+`
 
 export const Container = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ export const Container = styled.div`
   margin: 0 auto;
   width: fit-content;
   height: 1em;
-`;
+`
 
 export const Rectangle = styled.div`
   height: 1em;
@@ -29,4 +29,4 @@ export const Rectangle = styled.div`
   animation-delay: ${({ order, numberOfRectangles }) => `-${getAnimationDuration(numberOfRectangles) - 0.1 * order}s`};
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
-`;
+`

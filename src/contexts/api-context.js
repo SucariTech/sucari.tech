@@ -1,74 +1,79 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 /* Config */
-import config from '@config';
+import config from '@config'
 
 /* Hooks */
-import { useContent } from '@contexts';
+import { useContent } from '@contexts'
 
 /* Setup */
-const apiHost = config.apiHost;
+const apiHost = config.apiHost
 
 /* Context */
-const APIContext = React.createContext();
+const APIContext = React.createContext()
 
 /* Hooks */
-export const useAPI = () => React.useContext(APIContext);
+export const useAPI = () => React.useContext(APIContext)
 
 /* Setup */
 const defaultHeaders = {
   'Accept-Language': config.language,
   'Content-Type': 'application/json'
-};
+}
 
 export const APIProvider = ({ children }) => {
-  const { api: apiContent } = useContent();
+  const { api: apiContent } = useContent()
 
   const prepareBody = React.useCallback(data => JSON.stringify({
     ...data,
     language: config.language,
     hyperlink: config.url,
     logoSrc: config.logoSrc
-  }), []);
+  }), [])
 
-  const fetchData = React.useCallback((URI, PARAMS, callback) => {
+  const fetchData = React.useCallback((URI, PARAMS, fn) => {
     fetch(URI, PARAMS)
       .then(response => response.json())
-      .then(result => callback(result))
+      .then(result => fn(result))
       .catch(reason => {
-        console.error(reason);
-        callback({ errorMessage: apiContent.errorMessage });
-      });
-  }, [ apiContent ]);
+        console.error(reason)
+        fn({ errorMessage: apiContent.errorMessage })
+      })
+  }, [apiContent])
 
   const sendContactEmail = React.useCallback((data, callback) => {
-    const URI = `${apiHost}/contacts/get-in-touch`;
+    const URI = `${apiHost}/contacts/get-in-touch`
     const PARAMS = {
       method: 'POST',
       headers: defaultHeaders,
       body: prepareBody(data)
-    };
-    return fetchData(URI, PARAMS, callback);
-  }, []);
+    }
+    return fetchData(URI, PARAMS, callback)
+  }, [])
 
   const sendToSubscribe = React.useCallback((data, callback) => {
-    const URI = `${apiHost}/contacts/subscribe`;
+    const URI = `${apiHost}/contacts/subscribe`
     const PARAMS = {
       method: 'POST',
       headers: defaultHeaders,
       body: prepareBody(data)
-    };
-    return fetchData(URI, PARAMS, callback);
-  }, []);
-  
+    }
+    return fetchData(URI, PARAMS, callback)
+  }, [])
+
   const value = React.useMemo(() => ({
     sendContactEmail,
     sendToSubscribe
-  }), [ prepareBody, fetchData ]);
+  }), [prepareBody, fetchData])
 
   return (
     <APIContext.Provider value={ value }>
       { children }
     </APIContext.Provider>
-  );
+  )
+}
+
+APIProvider.propTypes = {
+  children: PropTypes.node
 }

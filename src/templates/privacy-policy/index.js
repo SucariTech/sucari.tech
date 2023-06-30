@@ -1,20 +1,21 @@
-import React from 'react';
+import React from 'react'
 
 /* Gatsby */
-import { graphql } from 'gatsby';
+import { graphql } from 'gatsby'
 
 /* Config */
-import config from '@config';
+import config from '@config'
 
 /* Head */
-import SiteHead from '@head';
+import SiteHead from '@head'
 
 /* MDX */
-import { MDXProvider } from '@mdx-js/react';
+import { MDXProvider } from '@mdx-js/react'
 
 /* Styles */
-import * as SC from './styles';
+import * as SC from './styles'
 
+/* eslint-disable react/prop-types */
 export const Head = ({ data: { content } }) => {
   return (
     <SiteHead
@@ -23,7 +24,7 @@ export const Head = ({ data: { content } }) => {
       keywords={ content.frontmatter.keywords }
       canonicalUrl={ `${config.url}${content.fields.slug}` }
     />
-  );
+  )
 }
 
 const PrivacyPolicyPageTemplate = ({
@@ -51,7 +52,7 @@ const PrivacyPolicyPageTemplate = ({
         </SC.Container>
       </MDXProvider>
     </>
-  );
+  )
 }
 
 export const query = graphql`
@@ -73,6 +74,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default PrivacyPolicyPageTemplate;
+export default PrivacyPolicyPageTemplate
