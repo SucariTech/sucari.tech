@@ -11,10 +11,12 @@
     "clean": "gatsby clean",
     "commitlint": "commitlint",
     "dev": "gatsby develop -H 0.0.0.0",
-    "eslint": "eslint",
+    "husky": "husky",
+    "lint-staged": "lint-staged",
     "lint:eslint": "eslint gatsby src --cache --cache-location .cache/.eslintcache --rule 'limited-exports-page-templates: off' --rule 'no-anonymous-exports-page-templates: off' ",
     "lint:fix": "yarn lint:eslint --fix",
     "lint": "yarn lint:fix",
+    "postinstall": "is-ci || husky install",
     "serve": "gatsby serve -H 0.0.0.0"
   },
   "dependencies": {
@@ -47,7 +49,10 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-webpack-plugin": "^4.0.1",
-    "gatsby-plugin-eslint": "^4.0.4"
+    "gatsby-plugin-eslint": "^4.0.4",
+    "husky": "^8.0.3",
+    "is-ci": "^3.0.1",
+    "lint-staged": "^13.2.3"
   },
   "engines": {
     "node": ">=18.0.0"
