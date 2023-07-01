@@ -1,2 +1,2 @@
-"*.{js,jsx}":
+"*.{js,jsx,ts,tsx}":
   - yarn lint

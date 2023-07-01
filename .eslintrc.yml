@@ -3,19 +3,39 @@ env:
   browser: true
   es6: true
 extends:
-  - plugin:react/recommended
-  - standard
+  - react-app
+  - standard-with-typescript
+parser: "@typescript-eslint/parser"
 parserOptions:
   ecmaVersion: latest
+  project:
+    - tsconfig.json
   sourceType: module
 plugins:
-  - react
+  - "@typescript-eslint/eslint-plugin"
 rules:
+  "@typescript-eslint/array-type":
+    - error
+    - default: generic
+      readonly: generic
+  "@typescript-eslint/consistent-type-imports":
+    - error
+    - prefer: no-type-imports
+  "@typescript-eslint/no-unused-vars": off
+  "@typescript-eslint/prefer-optional-chain": off
+  "@typescript-eslint/restrict-template-expressions": off
+  "@typescript-eslint/strict-boolean-expressions": off
   indent:
     - error
     - 2
+    - SwitchCase: 1
+      flatTernaryExpressions: false
+      offsetTernaryExpressions: true
   limited-exports-page-templates: warn
   no-anonymous-exports-page-templates: warn
+  operator-linebreak:
+    - error
+    - before
   react/function-component-definition:
     - error
     - namedComponents: arrow-function
