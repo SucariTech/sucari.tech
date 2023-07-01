@@ -1,0 +1,70 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@config": [
+        "src/config"
+      ],
+      "@contexts": [
+        "src/contexts"
+      ],
+      "@contexts/*": [
+        "src/contexts/*"
+      ],
+      "@fonts/*": [
+        "src/fonts/*"
+      ],
+      "@head": [
+        "src/head"
+      ],
+      "@hooks": [
+        "src/hooks"
+      ],
+      "@hooks/*": [
+        "src/hooks/*"
+      ],
+      "@icons/*": [
+        "src/icons/*"
+      ],
+      "@images/*": [
+        "src/images/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@templates/*": [
+        "src/templates/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ]
+    },
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ESNext"
+  },
+  "include": [
+    "src",
+    "gatsby-browser.tsx",
+    "gatsby-config.ts",
+    "gatsby-node.ts",
+    "gatsby-ssr.tsx"
+  ]
+}
