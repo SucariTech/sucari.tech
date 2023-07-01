@@ -6,7 +6,7 @@ import { useContent } from '@contexts'
 /* Styles */
 import * as SC from './styles'
 
-const About = () => {
+const About: React.FC = () => {
   const { sections: { about } } = useContent()
   return (
     <SC.Section data-section-name="about">

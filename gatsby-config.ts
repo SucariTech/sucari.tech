@@ -1,10 +1,14 @@
-const path = require('path')
+import path from 'path'
 
-require('dotenv').config({
+/* Dependencies */
+import dotenv from 'dotenv'
+import { GatsbyConfig } from 'gatsby'
+
+dotenv.config({
   path: `.env.${process.env.NODE_ENV}`
 })
 
-module.exports = {
+const config: GatsbyConfig = {
   siteMetadata: {
     siteUrl: process.env.GATSBY_URL_ROOT
   },
@@ -54,7 +58,7 @@ module.exports = {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /\.svg$/,
+          include: /\.svg$/
         }
       }
     },
@@ -67,11 +71,15 @@ module.exports = {
         icon: path.resolve(__dirname, './static/images/logo.png')
       }
     },
-    process.env.GOOGLE_ANALYTICS_ID && {
+    {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingIds: [ process.env.GOOGLE_ANALYTICS_ID ]
+        trackingIds: [
+          process.env.GOOGLE_ANALYTICS_ID
+        ].filter(Boolean)
       }
     }
-  ].filter(Boolean)
+  ]
 }
+
+export default config

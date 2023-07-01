@@ -92,7 +92,11 @@ export const Title = styled.h1`
   }
 `
 
-export const Word = styled.span`
+export interface WordProps {
+  decorate: boolean
+}
+
+export const Word = styled.span<WordProps>`
   ${({ decorate = false }) => decorate ? 'color: var(--third-light);' : ''}
 `
 

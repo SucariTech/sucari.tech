@@ -1,15 +1,19 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 /* Styles */
 import * as SC from './styles'
 
-const SimpleAlert = ({
+export interface SimpleAlertProps extends React.PropsWithChildren {
+  callback: React.MouseEventHandler
+  visible: boolean
+}
+
+const SimpleAlert: React.FC<SimpleAlertProps> = ({
   callback,
   children,
   visible
 }) => {
-  const barrierRef = React.useRef(null)
+  const barrierRef = React.useRef<null | HTMLDivElement>(null)
 
   React.useEffect(() => {
     if (visible) {
@@ -17,30 +21,22 @@ const SimpleAlert = ({
     }
   }, [visible])
 
-  return (
-    visible
-      ? (
-        <SC.Container>
-          <SC.Barrier
-            ref={ barrierRef }
-            tabIndex="0"
-          />
-          <SC.Modal>
-            { children }
-            <SC.OptionContainer>
-              <SC.Option onClick={ callback }>OK</SC.Option>
-            </SC.OptionContainer>
-          </SC.Modal>
-        </SC.Container>
-      )
-      : null
-  )
-}
+  if (!visible) return null
 
-SimpleAlert.propTypes = {
-  callback: PropTypes.func,
-  children: PropTypes.node,
-  visible: PropTypes.bool
+  return (
+    <SC.Container>
+      <SC.Barrier
+        ref={ barrierRef }
+        tabIndex={ 0 }
+      />
+      <SC.Modal>
+        { children }
+        <SC.OptionContainer>
+          <SC.Option onClick={ callback }>OK</SC.Option>
+        </SC.OptionContainer>
+      </SC.Modal>
+    </SC.Container>
+  )
 }
 
 export default SimpleAlert

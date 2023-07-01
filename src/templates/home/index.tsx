@@ -1,7 +1,11 @@
 import React from 'react'
 
 /* Gatsby */
-import { graphql } from 'gatsby'
+import {
+  HeadProps,
+  PageProps,
+  graphql
+} from 'gatsby'
 
 /* Config */
 import config from '@config'
@@ -28,8 +32,7 @@ import {
   Subscribe
 } from '@components/sections'
 
-/* eslint-disable react/prop-types */
-export const Head = ({
+export const Head: React.FC<HeadProps<any>> = ({
   data: {
     content
   }
@@ -44,7 +47,11 @@ export const Head = ({
   )
 }
 
-const HomePageTemplate = ({ data: { content } }) => {
+const HomePageTemplate: React.FC<PageProps<any>> = ({
+  data: {
+    content
+  }
+}) => {
   return (
     <ContentProvider content={ content }>
       <APIProvider>

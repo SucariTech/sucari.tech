@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 /* Contexts */
 import { MenuProvider } from './contexts'
@@ -14,7 +13,7 @@ import { SimpleAlert } from '@components/alerts'
 /* Header */
 import Header from './header'
 
-const Layout = ({ children }) => {
+const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <DimensionsProvider>
       <MenuProvider>
@@ -25,10 +24,6 @@ const Layout = ({ children }) => {
       </MenuProvider>
     </DimensionsProvider>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node
 }
 
 export default Layout

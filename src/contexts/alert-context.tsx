@@ -1,20 +1,28 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 /* Context */
-const AlertContext = React.createContext()
+const AlertContext = React.createContext({})
 
 /* Hooks */
-export const useAlert = () => React.useContext(AlertContext)
+export interface AlertContextType {
+  openAlert?: (content: any) => void
+  closeAlert?: () => void
+}
 
-export const AlertProvider = ({
+export const useAlert = (): AlertContextType => React.useContext<AlertContextType>(AlertContext)
+
+export interface AlertProviderProps extends React.PropsWithChildren {
+  component: React.ElementType
+}
+
+export const AlertProvider: React.FC<AlertProviderProps> = ({
   children,
   component: Alert
 }) => {
   const [visible, setVisible] = React.useState(false)
   const [content, setContent] = React.useState(null)
 
-  const openAlert = React.useCallback(content => {
+  const openAlert = React.useCallback((content: any) => {
     setContent(content)
     setVisible(true)
   }, [visible])
@@ -25,12 +33,14 @@ export const AlertProvider = ({
   }, [])
 
   React.useEffect(() => {
-    const keydown = e => e.key === 'Escape' && closeAlert()
-    addEventListener('keydown', keydown)
+    const keydown = (e: KeyboardEvent): void => {
+      e.key === 'Escape' && closeAlert()
+    }
+    window.addEventListener('keydown', keydown)
     return () => {
       setVisible(false)
       setContent(null)
-      removeEventListener('keydown', keydown)
+      window.removeEventListener('keydown', keydown)
     }
   }, [])
 
@@ -50,9 +60,4 @@ export const AlertProvider = ({
       </Alert>
     </AlertContext.Provider>
   )
-}
-
-AlertProvider.propTypes = {
-  children: PropTypes.node,
-  component: PropTypes.elementType.isRequired
 }

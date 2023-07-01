@@ -45,7 +45,7 @@ const Subtitle = styled.h2`
   font-style: italic;
 `
 
-export const Head = () => {
+export const Head: React.FC = () => {
   return (
     <>
       <title>Sucari Tech - Page Not Found</title>
@@ -65,7 +65,7 @@ export const Head = () => {
   )
 }
 
-const PageNotFound = () => {
+const PageNotFound: React.FC = () => {
   return (
     <Container>
       <Title>Page Not Found</Title>

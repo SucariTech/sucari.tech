@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 /* Config */
 import config from '@config'
@@ -11,10 +10,15 @@ import { useContent } from '@contexts'
 const apiHost = config.apiHost
 
 /* Context */
-const APIContext = React.createContext()
+const APIContext = React.createContext({})
 
 /* Hooks */
-export const useAPI = () => React.useContext(APIContext)
+export interface APIContextType {
+  sendContactEmail?: (data: any, callback: (data: any) => void) => void
+  sendToSubscribe?: (data: any, callback: (data: any) => void) => void
+}
+
+export const useAPI = (): APIContextType => React.useContext<APIContextType>(APIContext)
 
 /* Setup */
 const defaultHeaders = {
@@ -22,44 +26,44 @@ const defaultHeaders = {
   'Content-Type': 'application/json'
 }
 
-export const APIProvider = ({ children }) => {
-  const { api: apiContent } = useContent()
+export const APIProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+  const content = useContent()
 
-  const prepareBody = React.useCallback(data => JSON.stringify({
+  const prepareBody = React.useCallback((data: any) => JSON.stringify({
     ...data,
     language: config.language,
     hyperlink: config.url,
     logoSrc: config.logoSrc
   }), [])
 
-  const fetchData = React.useCallback((URI, PARAMS, fn) => {
+  const fetchData = React.useCallback((URI: string, PARAMS: object, fn: (data: any) => void) => {
     fetch(URI, PARAMS)
-      .then(response => response.json())
-      .then(result => fn(result))
+      .then(async response => await response.json())
+      .then(result => { fn(result) })
       .catch(reason => {
         console.error(reason)
-        fn({ errorMessage: apiContent.errorMessage })
+        fn({ errorMessage: content.api.errorMessage })
       })
-  }, [apiContent])
+  }, [content.api])
 
-  const sendContactEmail = React.useCallback((data, callback) => {
+  const sendContactEmail = React.useCallback((data: any, callback: (data: any) => void) => {
     const URI = `${apiHost}/contacts/get-in-touch`
     const PARAMS = {
       method: 'POST',
       headers: defaultHeaders,
       body: prepareBody(data)
     }
-    return fetchData(URI, PARAMS, callback)
+    fetchData(URI, PARAMS, callback)
   }, [])
 
-  const sendToSubscribe = React.useCallback((data, callback) => {
+  const sendToSubscribe = React.useCallback((data: any, callback: (data: any) => void) => {
     const URI = `${apiHost}/contacts/subscribe`
     const PARAMS = {
       method: 'POST',
       headers: defaultHeaders,
       body: prepareBody(data)
     }
-    return fetchData(URI, PARAMS, callback)
+    fetchData(URI, PARAMS, callback)
   }, [])
 
   const value = React.useMemo(() => ({
@@ -72,8 +76,4 @@ export const APIProvider = ({ children }) => {
       { children }
     </APIContext.Provider>
   )
-}
-
-APIProvider.propTypes = {
-  children: PropTypes.node
 }

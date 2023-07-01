@@ -1,4 +1,4 @@
-export const getRelativePosition = (target, parent) => {
+export const getRelativePosition = (target: HTMLElement, parent: HTMLElement): Record<string, number> => {
   const containerPosition = parent.getBoundingClientRect()
   const targetPosition = target.getBoundingClientRect()
 

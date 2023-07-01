@@ -1,6 +1,6 @@
 import React from 'react'
 
-const useForm = initialFieldValues => {
+const useForm = (initialFieldValues: any): Array<any> => {
   const [fields, setFields] = React.useState(initialFieldValues)
   const [validForm, setValidForm] = React.useState(false)
 
@@ -21,14 +21,14 @@ const useForm = initialFieldValues => {
   }, [fields, validForm])
 
   const getFieldAttribute = React.useCallback((key = 'value') => {
-    const values = {}
+    const values: any = {}
     Object.keys(fields).map(name => (
       values[name] = fields[name][key]
     ))
     return values
   }, [fields])
 
-  const resetFields = React.useCallback(input => {
+  const resetFields = React.useCallback((input: any) => {
     setFields({
       ...fields,
       ...input
@@ -37,7 +37,7 @@ const useForm = initialFieldValues => {
   }, [validForm, fields])
 
   /* Events */
-  const onChange = React.useCallback(e => {
+  const onChange = React.useCallback((e: React.ChangeEvent<any>): void => {
     const buffer = fields
     const currentTargetName = e.target.name
     const currentTargetValue = e.target.value
@@ -61,17 +61,17 @@ const useForm = initialFieldValues => {
     }
   }, [fields, validForm])
 
-  const onSubmit = React.useCallback(args => e => {
-    const {
-      onSuccess = fieldValues => null,
-      onFailed = fieldValidations => null
-    } = args
+  const onSubmit = React.useCallback((args: {
+    onSuccess?: (fieldValues: any) => void
+    onFailed?: (fieldValidations: any) => void
+  }) => (e: React.FormEvent<HTMLFormElement>): void => {
+    const { onSuccess, onFailed } = args
     e.preventDefault()
     if (validForm) {
-      onSuccess(getFieldAttribute('value'))
+      onSuccess?.(getFieldAttribute('value'))
     } else {
       validateAllFields()
-      onFailed(getFieldAttribute('valid'))
+      onFailed?.(getFieldAttribute('valid'))
     }
   }, [validForm])
 

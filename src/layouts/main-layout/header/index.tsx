@@ -21,7 +21,7 @@ import {
 
 import * as SC from './styles'
 
-const Header = () => {
+const Header: React.FC = () => {
   const { sections } = useContent()
   const {
     isOpen: isOpenMenu,
@@ -34,7 +34,7 @@ const Header = () => {
     <SC.Header>
       <SC.Nav>
         <SC.Title>{ config.domain }</SC.Title>
-        <SC.ButtonWrapper onClick={ openMenu }>
+        <SC.ButtonWrapper onClick={ openMenu as React.MouseEventHandler }>
           <SC.Button/>
         </SC.ButtonWrapper>
         <SC.MenuWrapper open={ isOpenMenu }>
@@ -45,25 +45,26 @@ const Header = () => {
               width="100"
               height="100"
             />
-            <SC.ButtonWrapper onClick={ closeMenu }>
+            <SC.ButtonWrapper onClick={ closeMenu as React.MouseEventHandler }>
               <SC.Button isOpen/>
             </SC.ButtonWrapper>
           </SC.MenuHeader>
           <SC.MenuContent>
             <SC.MenuList>
               {
-                Object.keys(sections).map(sectionKey => !sections[sectionKey].skippable
-                  ? (
-                    <SC.MenuOption
-                      key={ sectionKey }
-                      active={ currentSection === sectionKey }
-                    >
-                      <span onClick={ () => scrollToSection(sectionKey) }>
-                        { sections[sectionKey].name }
-                      </span>
-                    </SC.MenuOption>
-                  )
-                  : null)
+                Object.keys(sections).map(sectionKey =>
+                  !sections[sectionKey].skippable
+                    ? (
+                        <SC.MenuOption
+                          key={ sectionKey }
+                          active={ currentSection === sectionKey }
+                        >
+                          <span onClick={ () => scrollToSection?.(sectionKey) }>
+                            { sections[sectionKey].name }
+                          </span>
+                        </SC.MenuOption>
+                      )
+                    : null)
               }
             </SC.MenuList>
           </SC.MenuContent>
@@ -73,7 +74,6 @@ const Header = () => {
                 <Network key={ index }>
                   <NetworkLink
                     aria-label={ network.label }
-                    alt={ network.alt }
                     href={ network.to }
                     rel="noreferrer"
                     target="_blank"

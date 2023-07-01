@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 /* Utils */
 import { getRelativePosition } from '@utils/helpers'
@@ -7,7 +6,16 @@ import { getRelativePosition } from '@utils/helpers'
 /* Styles */
 import * as SC from './styles'
 
-const FadeInEffect = React.forwardRef(({
+export interface FadeInEffectProps extends React.ComponentPropsWithRef<'div'> {
+  transitionDuration?: string
+  transitionTimingFunction?: string
+  initialOpacity?: string
+  finalOpacity?: string
+  initialScale?: string
+  finalScale?: string
+}
+
+const FadeInEffect = React.forwardRef<HTMLDivElement, FadeInEffectProps>(({
   children,
   transitionDuration = '0.4s',
   transitionTimingFunction = 'ease-in-out',
@@ -17,31 +25,36 @@ const FadeInEffect = React.forwardRef(({
   finalScale = '1',
   ...props
 }, ref) => {
-  const containerRef = React.useRef(null)
+  const containerRef = React.useRef<null | HTMLDivElement>(null)
 
   React.useEffect(() => {
-    containerRef.current = ref?.current || containerRef.current
+    containerRef.current = (ref as any)?.current || containerRef.current
     const container = containerRef.current
-    const targets = container.querySelectorAll('[data-effect="fade-in"]')
 
-    const fadeIn = target => {
+    if (!container) return
+
+    const targets = container.querySelectorAll<HTMLElement>('[data-effect="fade-in"]')
+
+    const fadeIn = (target: HTMLElement): void => {
       target.style.transitionDuration = transitionDuration
       target.style.opacity = finalOpacity
       target.style.transform = `scale3d(${finalScale}, ${finalScale}, 1)`
     }
-    const fadeOut = target => {
+    const fadeOut = (target: HTMLElement): void => {
       target.style.transitionDuration = '0'
       target.style.opacity = initialOpacity
       target.style.transform = `scale3d(${initialScale}, ${initialScale}, 1)`
     }
 
-    const init = () => targets.forEach(target => {
-      target.style.transitionProperty = 'opacity, transform'
-      target.style.transitionTimingFunction = transitionTimingFunction
-      fadeOut(target)
-    })
+    const init = (): void => {
+      targets.forEach(target => {
+        target.style.transitionProperty = 'opacity, transform'
+        target.style.transitionTimingFunction = transitionTimingFunction
+        fadeOut(target)
+      })
+    }
 
-    const effect = () => {
+    const effect = (): void => {
       targets.forEach(target => {
         const { top } = getRelativePosition(target, container)
         if (top < container.offsetHeight) fadeIn(target)
@@ -57,29 +70,25 @@ const FadeInEffect = React.forwardRef(({
     return () => {
       container.removeEventListener('scroll', effect)
     }
-  }, [children])
+  }, [
+    children,
+    transitionDuration,
+    transitionTimingFunction,
+    initialOpacity,
+    finalOpacity,
+    initialScale,
+    finalScale
+  ])
 
   return (
     <SC.Container
-      ref={ ref || containerRef }
-      tabIndex="0"
+      ref={ ref as any || containerRef }
+      tabIndex={ 0 }
       { ...props }
     >
       { children }
     </SC.Container>
   )
 })
-
-FadeInEffect.displayName = 'FadeInEffect'
-
-FadeInEffect.propTypes = {
-  children: PropTypes.node,
-  transitionDuration: PropTypes.string,
-  transitionTimingFunction: PropTypes.string,
-  initialOpacity: PropTypes.string,
-  finalOpacity: PropTypes.string,
-  initialScale: PropTypes.string,
-  finalScale: PropTypes.string
-}
 
 export default FadeInEffect

@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 
-const getAnimationDuration = n => n * 0.1 * 2
+const getAnimationDuration = (n: number): number => n * 0.1 * 2
 
 const rectangleAnimation = keyframes`
   0%, 40%, 100%{
@@ -19,7 +19,12 @@ export const Container = styled.div`
   height: 1em;
 `
 
-export const Rectangle = styled.div`
+export interface RectangleProps {
+  numberOfRectangles: number
+  order: number
+}
+
+export const Rectangle = styled.div<RectangleProps>`
   height: 1em;
   width: 0.3em;
   margin: 0.1em;

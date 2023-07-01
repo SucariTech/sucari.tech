@@ -1,10 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 /* Styles */
 import * as SC from './styles'
 
-const SimpleLoader = ({ numberOfRectangles = 6 }) => {
+export interface SimpleLoaderProps {
+  numberOfRectangles?: number
+}
+
+const SimpleLoader: React.FC<SimpleLoaderProps> = ({ numberOfRectangles = 6 }) => {
   return (
     <SC.Container>
       {
@@ -18,10 +21,6 @@ const SimpleLoader = ({ numberOfRectangles = 6 }) => {
       }
     </SC.Container>
   )
-}
-
-SimpleLoader.propTypes = {
-  numberOfRectangles: PropTypes.number
 }
 
 export default SimpleLoader

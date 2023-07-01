@@ -72,7 +72,11 @@ const toOpen = css`
   }
 `
 
-export const Button = styled.div`
+export interface ButtonProps {
+  isOpen?: boolean
+}
+
+export const Button = styled.div<ButtonProps>`
   ${buttonBase}
   ::before, ::after{
     content: '';
@@ -85,7 +89,11 @@ export const Button = styled.div`
 `
 
 /* Menu */
-export const MenuWrapper = styled.div`
+export interface MenuWrapperProps {
+  open?: boolean
+}
+
+export const MenuWrapper = styled.div<MenuWrapperProps>`
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -150,7 +158,11 @@ const activeOption = css`
   }
 `
 
-export const MenuOption = styled.li`
+export interface MenuOptionProps {
+  active?: boolean
+}
+
+export const MenuOption = styled.li<MenuOptionProps>`
   position: relative;
   max-width: max-content;
   text-transform: uppercase;

@@ -1,7 +1,10 @@
 import React from 'react'
 
 /* Gatsby Plugin Image */
-import { getImage } from 'gatsby-plugin-image'
+import {
+  IGatsbyImageData,
+  getImage
+} from 'gatsby-plugin-image'
 
 /* Hooks */
 import { useContent } from '@contexts'
@@ -12,7 +15,7 @@ import { useMenu } from '@layouts/main-layout'
 /* Styles */
 import * as SC from './styles'
 
-const Home = () => {
+const Home: React.FC = () => {
   const { sections: { home } } = useContent()
   const { scrollToSection } = useMenu()
   return (
@@ -20,7 +23,7 @@ const Home = () => {
       <SC.Content>
         <SC.Left data-effect="fade-in">
           <SC.Image
-            image={ getImage(home.image) }
+            image={ getImage(home.image) as IGatsbyImageData }
             alt={ home.name }
             objectFit="contain"
           />
@@ -28,7 +31,7 @@ const Home = () => {
         <SC.Right>
           <SC.Title data-effect="fade-in">
             {
-              home.title.map((part, index) => (
+              home.title.map((part: any, index: number) => (
                 <SC.Word
                   key={ index }
                   decorate={ part.decorate }
@@ -41,11 +44,11 @@ const Home = () => {
           <SC.Paragraph data-effect="fade-in">{ home.paragraph }</SC.Paragraph>
           <SC.Links>
             {
-              home.links.map((link, index) => (
+              home.links.map((link: any, index: number) => (
                 <li
                   key={ index }
                   data-effect="fade-in"
-                  onClick={ () => scrollToSection(link.to) }
+                  onClick={ () => scrollToSection?.(link.to) }
                 >
                   { link.label }
                 </li>

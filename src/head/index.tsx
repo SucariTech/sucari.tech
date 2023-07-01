@@ -1,10 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 /* Config */
 import config from '@config'
 
-const Head = ({
+export interface SiteHeadProps extends React.PropsWithChildren {
+  canonicalUrl: string
+  description: string
+  keywords: Array<string>
+  title: string
+}
+
+const SiteHead: React.FC<SiteHeadProps> = ({
   canonicalUrl,
   children,
   description,
@@ -12,7 +18,7 @@ const Head = ({
   title
 }) => {
   return (
-    <>
+    <React.Fragment>
       <title>{ title }</title>
       <meta name="description" content={ description }/>
       <meta name="google" content="notranslate"/>
@@ -49,16 +55,8 @@ const Head = ({
         ))
       }
       { children }
-    </>
+    </React.Fragment>
   )
 }
 
-Head.propTypes = {
-  children: PropTypes.node,
-  canonicalUrl: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired
-}
-
-export default Head
+export default SiteHead

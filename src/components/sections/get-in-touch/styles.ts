@@ -71,7 +71,7 @@ export const Form = styled.form`
 const inputDefaultAttributes = {
   spellCheck: 'false',
   autoComplete: 'off'
-}
+} as any
 
 const validInput = css`
   border: 1px solid var(--success);
@@ -81,7 +81,7 @@ const invalidInput = css`
   border: 1px solid var(--danger);
 `
 
-const inputBase = css`
+const inputBase = css<{ valid: null | boolean }>`
   padding: 10px 12px;
   margin: 0 0 22px;
   width: 100%;

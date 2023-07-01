@@ -1,7 +1,10 @@
 import React from 'react'
 
 /* Gatsby Plugin Image */
-import { getImage } from 'gatsby-plugin-image'
+import {
+  IGatsbyImageData,
+  getImage
+} from 'gatsby-plugin-image'
 
 /* Hooks */
 import { useContent } from '@contexts'
@@ -12,7 +15,7 @@ import { useMenu } from '@layouts/main-layout'
 /* Styles */
 import * as SC from './styles'
 
-const Cycle = () => {
+const Cycle: React.FC = () => {
   const {
     months,
     sections: { cycle }
@@ -28,14 +31,14 @@ const Cycle = () => {
         <SC.Left>
           <SC.PhaseList data-effect="fade-in">
             {
-              cycle.phases.map((phase, index) => (
+              cycle.phases.map((phase: any, index: number) => (
                 <SC.Phase
                   key={ phase.name }
                   partIndex={ index }
                   numberOfParts={ cycle.phases.length }
                 >
                   <SC.PhaseImage
-                    image={ getImage(phase.image) }
+                    image={ getImage(phase.image) as IGatsbyImageData }
                     alt={ phase.name }
                   />
                   <SC.PhaseName>{ phase.name }</SC.PhaseName>
@@ -51,7 +54,7 @@ const Cycle = () => {
             <SC.RightItem data-effect="fade-in">{ cycle.aside.message }</SC.RightItem>
             <SC.RightItem
               data-effect="fade-in"
-              onClick={ () => scrollToSection(cycle.aside.link.to) }
+              onClick={ () => scrollToSection?.(cycle.aside.link.to) }
             >
               { cycle.aside.link.label }
             </SC.RightItem>

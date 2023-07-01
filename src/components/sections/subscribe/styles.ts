@@ -69,7 +69,7 @@ export const Form = styled.form`
 const inputDefaultAttributes = {
   spellCheck: 'false',
   autoComplete: 'off'
-}
+} as any
 
 const validInput = css`
   border-bottom: 2px solid var(--success);

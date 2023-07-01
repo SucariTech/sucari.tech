@@ -1,7 +1,11 @@
 import React from 'react'
 
 /* Gatsby */
-import { graphql } from 'gatsby'
+import {
+  HeadProps,
+  PageProps,
+  graphql
+} from 'gatsby'
 
 /* Config */
 import config from '@config'
@@ -15,8 +19,11 @@ import { MDXProvider } from '@mdx-js/react'
 /* Styles */
 import * as SC from './styles'
 
-/* eslint-disable react/prop-types */
-export const Head = ({ data: { content } }) => {
+export const Head: React.FC<HeadProps<any>> = ({
+  data: {
+    content
+  }
+}) => {
   return (
     <SiteHead
       title={ content.frontmatter.title }
@@ -27,7 +34,7 @@ export const Head = ({ data: { content } }) => {
   )
 }
 
-const PrivacyPolicyPageTemplate = ({
+const PrivacyPolicyPageTemplate: React.FC<PageProps<any>> = ({
   data: {
     content
   },

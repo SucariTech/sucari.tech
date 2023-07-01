@@ -1,35 +1,46 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 /* Theme */
 import { ThemeProvider } from 'styled-components'
 
-const useDimensions = () => {
-  const [dimensions, setDimensions] = React.useState({ innerWidth, innerHeight })
+interface UseDimensionsReturnType {
+  innerWidth: number
+  innerHeight: number
+}
 
-  const resize = React.useCallback(() => setDimensions({ innerWidth, innerHeight }), [])
+const useDimensions = (): UseDimensionsReturnType => {
+  const [dimensions, setDimensions] = React.useState({
+    innerWidth: window.innerWidth,
+    innerHeight: window.innerHeight
+  })
+
+  const resize = React.useCallback(() => {
+    setDimensions({
+      innerWidth: window.innerWidth,
+      innerHeight: window.innerHeight
+    })
+  }, [])
 
   React.useLayoutEffect(() => {
     resize()
-    addEventListener('resize', resize)
+    window.addEventListener('resize', resize)
     return () => {
-      removeEventListener('resize', resize)
+      window.removeEventListener('resize', resize)
     }
   }, [])
 
   return dimensions
 }
 
-export const DimensionsProvider = ({ children }) => {
+export const DimensionsProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   if (typeof window === 'undefined') return null
+
+  /* eslint-disable-next-line react-hooks/rules-of-hooks */
   const dimensions = useDimensions()
+
   return (
     <ThemeProvider theme={{ dimensions }}>
       { children }
     </ThemeProvider>
   )
-}
-
-DimensionsProvider.propTypes = {
-  children: PropTypes.node
 }

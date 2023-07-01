@@ -1,11 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-const ContentContext = React.createContext()
+const ContentContext = React.createContext({})
 
-export const useContent = () => React.useContext(ContentContext)
+export const useContent = (): any => React.useContext<any>(ContentContext)
 
-export const ContentProvider = ({
+export interface ContentProviderProps extends React.PropsWithChildren {
+  content: any
+}
+
+export const ContentProvider: React.FC<ContentProviderProps> = ({
   content = {},
   children
 }) => {
@@ -18,9 +21,4 @@ export const ContentProvider = ({
       { children }
     </ContentContext.Provider>
   )
-}
-
-ContentProvider.propTypes = {
-  content: PropTypes.object,
-  children: PropTypes.node
 }

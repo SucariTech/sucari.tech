@@ -13,6 +13,8 @@ export default {
   name: process.env.GATSBY_APP_NAME,
   language: process.env.GATSBY_LANGUAGE,
   url: process.env.GATSBY_URL_ROOT,
+
+  /* eslint-disable-next-line */
   logoSrc: `${process.env.GATSBY_URL_ROOT}/images/logo.png`,
   ogImageSrc: `${process.env.GATSBY_URL_ROOT}/images/og-image.png`,
   year: new Date().getFullYear(),

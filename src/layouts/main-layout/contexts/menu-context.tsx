@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 /* Utils */
 import { getRelativePosition } from '@utils/helpers'
@@ -7,34 +6,48 @@ import { getRelativePosition } from '@utils/helpers'
 /* Styles */
 import * as SC from '../shared/styles'
 
-const MenuContext = React.createContext()
+const MenuContext = React.createContext({})
 
-export const useMenu = () => React.useContext(MenuContext)
+export interface MenuContextType {
+  currentSection?: string
+  isOpen?: boolean
+  setCurrentSection?: React.Dispatch<React.SetStateAction<string | undefined>>
+  openMenu?: () => void
+  closeMenu?: () => void
+  scrollToSection?: (sectionName?: string | undefined) => void
+}
 
-export const MenuProvider = ({ children }) => {
-  const containerRef = React.useRef(null)
+export const useMenu = (): MenuContextType => React.useContext<MenuContextType>(MenuContext)
+
+export const MenuProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+  const containerRef = React.useRef<null | HTMLDivElement>(null)
 
   const [isOpen, setIsOpen] = React.useState(false)
-  const [currentSection, setCurrentSection] = React.useState('')
-  const [sections, setSections] = React.useState([])
+  const [currentSection, setCurrentSection] = React.useState<string | undefined>(undefined)
+  const [sections, setSections] = React.useState<Array<HTMLElement>>([])
 
-  const openMenu = React.useCallback(() => setIsOpen(true), [isOpen])
-  const closeMenu = React.useCallback(() => setIsOpen(false), [isOpen])
+  const openMenu = React.useCallback(() => { setIsOpen(true) }, [isOpen])
+  const closeMenu = React.useCallback(() => { setIsOpen(false) }, [isOpen])
 
-  const scrollToSection = React.useCallback(sectionName => {
-    const section = containerRef.current.querySelector(`[data-section-name="${sectionName}"]`)
-    if (section) {
-      setCurrentSection(sectionName)
-      section.scrollIntoView({ behavior: 'smooth' })
-      closeMenu()
+  const scrollToSection = React.useCallback((sectionName?: string) => {
+    if (containerRef.current) {
+      const section = containerRef.current.querySelector(`[data-section-name="${sectionName}"]`)
+      if (section) {
+        setCurrentSection(sectionName)
+        section.scrollIntoView({ behavior: 'smooth' })
+        closeMenu()
+      }
     }
   }, [])
 
-  const isScrollIntoSection = React.useCallback(section => {
+  const isScrollIntoSection = React.useCallback((section: HTMLElement): boolean => {
     const container = containerRef.current
-    const { top, bottom } = getRelativePosition(section, container)
-    const offset = container.offsetHeight * 0.5
-    return top + offset < container.offsetHeight && bottom - offset > 0
+    if (container) {
+      const { top, bottom } = getRelativePosition(section, container)
+      const offset = container.offsetHeight * 0.5
+      return top + offset < container.offsetHeight && bottom - offset > 0
+    }
+    return false
   }, [])
 
   const observeSections = React.useCallback(() => {
@@ -47,8 +60,10 @@ export const MenuProvider = ({ children }) => {
   }, [sections])
 
   React.useEffect(() => {
-    const targets = containerRef.current.querySelectorAll('[data-section-name]')
-    setSections(targets)
+    if (containerRef.current) {
+      const targets = containerRef.current.querySelectorAll<HTMLElement>('[data-section-name]') as any
+      setSections(targets)
+    }
   }, [])
 
   React.useEffect(() => {
@@ -74,8 +89,4 @@ export const MenuProvider = ({ children }) => {
       </SC.Container>
     </MenuContext.Provider>
   )
-}
-
-MenuProvider.propTypes = {
-  children: PropTypes.node
 }

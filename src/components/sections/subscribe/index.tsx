@@ -20,15 +20,15 @@ import { Footer } from '@layouts/main-layout'
 /* Styles */
 import * as SC from './styles'
 
-const getInitialFieldValues = () => ({
+const getInitialFieldValues = (): any => ({
   email: {
     value: '',
     valid: null,
-    validator: value => isEmailValid(value)
+    validator: (value: any) => isEmailValid(value)
   }
 })
 
-const Subscribe = () => {
+const Subscribe: React.FC = () => {
   const { sections: { subscribe } } = useContent()
   const [onChange, onSubmit, fields, resetFields] = useForm(getInitialFieldValues())
   const { openAlert } = useAlert()
@@ -41,18 +41,18 @@ const Subscribe = () => {
           <SC.Description data-effect="fade-in">{ subscribe.description }</SC.Description>
           <SC.Form
             onSubmit={ onSubmit({
-              onSuccess: React.useCallback(fieldValues => {
+              onSuccess: React.useCallback((fieldValues: any) => {
                 setSubmitting(true)
-                sendToSubscribe(fieldValues, data => {
+                sendToSubscribe?.(fieldValues, (data: any) => {
                   setSubmitting(false)
                   if (data.errorMessage) {
-                    openAlert(data.errorMessage)
+                    openAlert?.(data.errorMessage)
                   } else {
-                    openAlert(data.successMessage)
+                    openAlert?.(data.successMessage)
                     resetFields(getInitialFieldValues())
                   }
                 })
-              }, [submitting])
+              }, [openAlert, sendToSubscribe, submitting])
             }) }
           >
             <SC.Input

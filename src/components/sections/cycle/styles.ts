@@ -9,7 +9,7 @@ import {
   sectionBase
 } from '@components/sections/shared/styles'
 
-const getDistributedDistance = (partIndex, numberOfParts) => {
+const getDistributedDistance = (partIndex: number, numberOfParts: number): string => {
   const percentage = 100 / numberOfParts
   const value = `${Math.floor(percentage * (partIndex + 1) - percentage * 0.5)}%`
   return value
@@ -65,7 +65,12 @@ export const PhaseList = styled.ul`
   counter-reset: code 0;
 `
 
-export const Phase = styled.li`
+export interface PhaseProps {
+  partIndex: number
+  numberOfParts: number
+}
+
+export const Phase = styled.li<PhaseProps>`
   display: flex;
   align-items: center;
   margin: 30px 0;
