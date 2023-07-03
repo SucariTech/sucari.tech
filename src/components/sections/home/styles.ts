@@ -93,11 +93,11 @@ export const Title = styled.h1`
 `
 
 export interface WordProps {
-  decorate: boolean
+  $decorate: boolean
 }
 
 export const Word = styled.span<WordProps>`
-  ${({ decorate = false }) => decorate ? 'color: var(--third-light);' : ''}
+  ${({ $decorate = false }) => $decorate ? 'color: var(--third-light);' : ''}
 `
 
 export const Paragraph = styled.p`

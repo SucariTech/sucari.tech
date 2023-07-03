@@ -34,7 +34,7 @@ const Home: React.FC = () => {
               home.title.map((part: any, index: number) => (
                 <SC.Word
                   key={ index }
-                  decorate={ part.decorate }
+                  $decorate={ part.decorate }
                 >
                   { part.label }
                 </SC.Word>

@@ -27,7 +27,7 @@ const useDimensions = (): UseDimensionsReturnType => {
     return () => {
       window.removeEventListener('resize', resize)
     }
-  }, [])
+  }, [resize])
 
   return dimensions
 }

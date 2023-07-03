@@ -25,7 +25,7 @@ export const AlertProvider: React.FC<AlertProviderProps> = ({
   const openAlert = React.useCallback((content: any) => {
     setContent(content)
     setVisible(true)
-  }, [visible])
+  }, [])
 
   const closeAlert = React.useCallback(() => {
     setContent(null)
@@ -42,7 +42,7 @@ export const AlertProvider: React.FC<AlertProviderProps> = ({
       setContent(null)
       window.removeEventListener('keydown', keydown)
     }
-  }, [])
+  }, [closeAlert])
 
   const value = React.useMemo(() => ({
     openAlert,

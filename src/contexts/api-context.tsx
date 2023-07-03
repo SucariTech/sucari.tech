@@ -54,7 +54,7 @@ export const APIProvider: React.FC<React.PropsWithChildren> = ({ children }) => 
       body: prepareBody(data)
     }
     fetchData(URI, PARAMS, callback)
-  }, [])
+  }, [fetchData, prepareBody])
 
   const sendToSubscribe = React.useCallback((data: any, callback: (data: any) => void) => {
     const URI = `${apiHost}/contacts/subscribe`
@@ -64,12 +64,15 @@ export const APIProvider: React.FC<React.PropsWithChildren> = ({ children }) => 
       body: prepareBody(data)
     }
     fetchData(URI, PARAMS, callback)
-  }, [])
+  }, [fetchData, prepareBody])
 
   const value = React.useMemo(() => ({
     sendContactEmail,
     sendToSubscribe
-  }), [prepareBody, fetchData])
+  }), [
+    sendContactEmail,
+    sendToSubscribe
+  ])
 
   return (
     <APIContext.Provider value={ value }>

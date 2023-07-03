@@ -14,8 +14,8 @@ const SimpleLoader: React.FC<SimpleLoaderProps> = ({ numberOfRectangles = 6 }) =
         Array(numberOfRectangles).fill(null).map((_, index) => (
           <SC.Rectangle
             key={ index }
-            order={ index + 1 }
-            numberOfRectangles={ numberOfRectangles }
+            $order={ index + 1 }
+            $numberOfRectangles={ numberOfRectangles }
           />
         ))
       }

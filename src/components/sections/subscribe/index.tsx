@@ -52,7 +52,7 @@ const Subscribe: React.FC = () => {
                     resetFields(getInitialFieldValues())
                   }
                 })
-              }, [openAlert, sendToSubscribe, submitting])
+              }, [openAlert, sendToSubscribe, resetFields])
             }) }
           >
             <SC.Input
@@ -62,7 +62,7 @@ const Subscribe: React.FC = () => {
               aria-label={ subscribe.form.fields.email.label }
               placeholder={ subscribe.form.fields.email.placeholder }
               value={ fields.email.value }
-              valid={ fields.email.valid }
+              $valid={ fields.email.valid }
             />
             <SC.Button
               data-effect="fade-in"

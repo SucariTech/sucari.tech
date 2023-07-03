@@ -81,7 +81,11 @@ const invalidInput = css`
   border: 1px solid var(--danger);
 `
 
-const inputBase = css<{ valid: null | boolean }>`
+export interface InputBaseProps {
+  $valid: null | boolean
+}
+
+const inputBase = css<InputBaseProps>`
   padding: 10px 12px;
   margin: 0 0 22px;
   width: 100%;
@@ -92,18 +96,18 @@ const inputBase = css<{ valid: null | boolean }>`
   background: transparent;
   font-style: italic;
   font-size: 16px;
-  ${({ valid = null }) => valid !== null && (valid ? validInput : invalidInput)}
+  ${({ $valid = null }) => $valid !== null && ($valid ? validInput : invalidInput)}
   @media screen and (max-width: 1366px){
     padding: 8px 10px;
     font-size: 15px;
   }
 `
 
-export const Input = styled.input.attrs(inputDefaultAttributes)`
+export const Input = styled.input.attrs(inputDefaultAttributes)<InputBaseProps>`
   ${inputBase}
 `
 
-export const Textarea = styled.textarea.attrs(inputDefaultAttributes)`
+export const Textarea = styled.textarea.attrs(inputDefaultAttributes)<InputBaseProps>`
   ${inputBase}
   resize: none;
   height: 100px;
