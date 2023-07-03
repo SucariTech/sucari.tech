@@ -8,13 +8,12 @@ import TwitterIcon from '@icons/twitter.svg'
 import MontserratSemiBold from '@fonts/montserrat/montserrat-semi-bold.ttf'
 import MontserratRegular from '@fonts/montserrat/montserrat-regular.ttf'
 
+/* eslint-disable-next-line import/no-anonymous-default-export */
 export default {
   domain: process.env.GATSBY_DOMAIN,
   name: process.env.GATSBY_APP_NAME,
   language: process.env.GATSBY_LANGUAGE,
   url: process.env.GATSBY_URL_ROOT,
-
-  /* eslint-disable-next-line */
   logoSrc: `${process.env.GATSBY_URL_ROOT}/images/logo.png`,
   ogImageSrc: `${process.env.GATSBY_URL_ROOT}/images/og-image.png`,
   year: new Date().getFullYear(),

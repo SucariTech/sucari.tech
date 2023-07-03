@@ -34,8 +34,8 @@ const Cycle: React.FC = () => {
               cycle.phases.map((phase: any, index: number) => (
                 <SC.Phase
                   key={ phase.name }
-                  partIndex={ index }
-                  numberOfParts={ cycle.phases.length }
+                  $partIndex={ index }
+                  $numberOfParts={ cycle.phases.length }
                 >
                   <SC.PhaseImage
                     image={ getImage(phase.image) as IGatsbyImageData }

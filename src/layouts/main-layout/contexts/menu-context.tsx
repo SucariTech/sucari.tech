@@ -26,8 +26,8 @@ export const MenuProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
   const [currentSection, setCurrentSection] = React.useState<string | undefined>(undefined)
   const [sections, setSections] = React.useState<Array<HTMLElement>>([])
 
-  const openMenu = React.useCallback(() => { setIsOpen(true) }, [isOpen])
-  const closeMenu = React.useCallback(() => { setIsOpen(false) }, [isOpen])
+  const openMenu = React.useCallback(() => { setIsOpen(true) }, [])
+  const closeMenu = React.useCallback(() => { setIsOpen(false) }, [])
 
   const scrollToSection = React.useCallback((sectionName?: string) => {
     if (containerRef.current) {
@@ -38,7 +38,7 @@ export const MenuProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
         closeMenu()
       }
     }
-  }, [])
+  }, [closeMenu])
 
   const isScrollIntoSection = React.useCallback((section: HTMLElement): boolean => {
     const container = containerRef.current
@@ -57,7 +57,7 @@ export const MenuProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
         return
       }
     }
-  }, [sections])
+  }, [isScrollIntoSection, sections])
 
   React.useEffect(() => {
     if (containerRef.current) {
@@ -68,7 +68,7 @@ export const MenuProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
 
   React.useEffect(() => {
     observeSections()
-  }, [sections])
+  }, [observeSections])
 
   const value = React.useMemo(() => ({
     currentSection,
@@ -77,7 +77,13 @@ export const MenuProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
     openMenu,
     closeMenu,
     scrollToSection
-  }), [isOpen, currentSection])
+  }), [
+    isOpen,
+    currentSection,
+    openMenu,
+    closeMenu,
+    scrollToSection
+  ])
 
   return (
     <MenuContext.Provider value={ value }>

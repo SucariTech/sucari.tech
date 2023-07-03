@@ -73,7 +73,7 @@ const toOpen = css`
 `
 
 export interface ButtonProps {
-  isOpen?: boolean
+  $isOpen?: boolean
 }
 
 export const Button = styled.div<ButtonProps>`
@@ -85,12 +85,12 @@ export const Button = styled.div<ButtonProps>`
   ::before, ::after{
     ${buttonBase}
   }
-  ${({ isOpen = false }) => isOpen ? toClose : toOpen}
+  ${({ $isOpen = false }) => $isOpen ? toClose : toOpen}
 `
 
 /* Menu */
 export interface MenuWrapperProps {
-  open?: boolean
+  $open?: boolean
 }
 
 export const MenuWrapper = styled.div<MenuWrapperProps>`
@@ -98,7 +98,7 @@ export const MenuWrapper = styled.div<MenuWrapperProps>`
   display: flex;
   flex-direction: column;
   top: 0;
-  right: ${({ open = false }) => open ? '0' : '-100%'};
+  right: ${({ $open = false }) => $open ? '0' : '-100%'};
   max-width: 1920px;
   width: 100%;
   height: ${({ theme }) => `${theme.dimensions.innerHeight}px`};
@@ -159,7 +159,7 @@ const activeOption = css`
 `
 
 export interface MenuOptionProps {
-  active?: boolean
+  $active?: boolean
 }
 
 export const MenuOption = styled.li<MenuOptionProps>`
@@ -183,7 +183,7 @@ export const MenuOption = styled.li<MenuOptionProps>`
   :hover{
     ${activeOption}
   }
-  ${({ active = false }) => active ? activeOption : ''}
+  ${({ $active = false }) => $active ? activeOption : ''}
   @media screen and (max-width: 1550px){
     font-size: 30px;
   }

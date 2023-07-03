@@ -66,15 +66,15 @@ export const PhaseList = styled.ul`
 `
 
 export interface PhaseProps {
-  partIndex: number
-  numberOfParts: number
+  $partIndex: number
+  $numberOfParts: number
 }
 
 export const Phase = styled.li<PhaseProps>`
   display: flex;
   align-items: center;
   margin: 30px 0;
-  transform: translate3d(${({ partIndex = 0, numberOfParts = 0 }) => getDistributedDistance(partIndex, numberOfParts)}, 0, 0);
+  transform: translate3d(${({ $partIndex, $numberOfParts }) => getDistributedDistance($partIndex, $numberOfParts)}, 0, 0);
   @media screen and (max-width: 1024px){
     transform: translate3d(0, 0, 0);
   }

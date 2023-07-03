@@ -79,7 +79,11 @@ const invalidInput = css`
   border-bottom: 2px solid var(--danger);
 `
 
-export const Input = styled.input.attrs(inputDefaultAttributes)`
+export interface InputProps {
+  $valid: null | boolean
+}
+
+export const Input = styled.input.attrs(inputDefaultAttributes)<InputProps>`
   ${lineBase}
   padding: 10px 12px;
   width: 100%;
@@ -88,7 +92,7 @@ export const Input = styled.input.attrs(inputDefaultAttributes)`
   border-bottom: 2px solid var(--main-light);
   color: var(--main-light);
   background: transparent;
-  ${({ valid = null }) => valid !== null && (valid ? validInput : invalidInput)}
+  ${({ $valid = null }) => $valid !== null && ($valid ? validInput : invalidInput)}
   ::placeholder{
     color: var(--main-light);
   }

@@ -82,7 +82,7 @@ const GetInTouch: React.FC = () => {
                     resetFields(getInitialFieldValues())
                   }
                 })
-              }, [submitting])
+              }, [openAlert, sendContactEmail, resetFields])
             }) }
           >
             <SC.Input
@@ -92,7 +92,7 @@ const GetInTouch: React.FC = () => {
               aria-label={ getInTouch.form.fields.firstName.label }
               placeholder={ getInTouch.form.fields.firstName.placeholder }
               value={ fields.firstName.value }
-              valid={ fields.firstName.valid }
+              $valid={ fields.firstName.valid }
             />
             <SC.Input
               data-effect="fade-in"
@@ -101,7 +101,7 @@ const GetInTouch: React.FC = () => {
               aria-label={ getInTouch.form.fields.lastName.label }
               placeholder={ getInTouch.form.fields.lastName.placeholder }
               value={ fields.lastName.value }
-              valid={ fields.lastName.valid }
+              $valid={ fields.lastName.valid }
             />
             <SC.Input
               data-effect="fade-in"
@@ -110,7 +110,7 @@ const GetInTouch: React.FC = () => {
               aria-label={ getInTouch.form.fields.email.label }
               placeholder={ getInTouch.form.fields.email.placeholder }
               value={ fields.email.value }
-              valid={ fields.email.valid }
+              $valid={ fields.email.valid }
             />
             <SC.Input
               data-effect="fade-in"
@@ -119,7 +119,7 @@ const GetInTouch: React.FC = () => {
               aria-label={ getInTouch.form.fields.phone.label }
               placeholder={ getInTouch.form.fields.phone.placeholder }
               value={ fields.phone.value }
-              valid={ fields.phone.valid }
+              $valid={ fields.phone.valid }
             />
             <SC.Input
               data-effect="fade-in"
@@ -128,7 +128,7 @@ const GetInTouch: React.FC = () => {
               aria-label={ getInTouch.form.fields.company.label }
               placeholder={ getInTouch.form.fields.company.placeholder }
               value={ fields.company.value }
-              valid={ fields.company.valid }
+              $valid={ fields.company.valid }
             />
             <SC.Textarea
               data-effect="fade-in"
@@ -137,7 +137,7 @@ const GetInTouch: React.FC = () => {
               aria-label={ getInTouch.form.fields.message.label }
               placeholder={ getInTouch.form.fields.message.placeholder }
               value={ fields.message.value }
-              valid={ fields.message.valid }
+              $valid={ fields.message.valid }
             />
             <SC.Notice data-effect="fade-in">
               {

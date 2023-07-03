@@ -18,7 +18,7 @@ const useForm = (initialFieldValues: any): Array<any> => {
 
     setFields({ ...buffer })
     setValidForm(validCounter === bufferKeys.length)
-  }, [fields, validForm])
+  }, [fields])
 
   const getFieldAttribute = React.useCallback((key = 'value') => {
     const values: any = {}
@@ -34,7 +34,7 @@ const useForm = (initialFieldValues: any): Array<any> => {
       ...input
     })
     setValidForm(false)
-  }, [validForm, fields])
+  }, [fields])
 
   /* Events */
   const onChange = React.useCallback((e: React.ChangeEvent<any>): void => {
@@ -59,7 +59,7 @@ const useForm = (initialFieldValues: any): Array<any> => {
       })
       setValidForm(validCounter === bufferKeys.length)
     }
-  }, [fields, validForm])
+  }, [fields])
 
   const onSubmit = React.useCallback((args: {
     onSuccess?: (fieldValues: any) => void
@@ -73,7 +73,7 @@ const useForm = (initialFieldValues: any): Array<any> => {
       validateAllFields()
       onFailed?.(getFieldAttribute('valid'))
     }
-  }, [validForm])
+  }, [getFieldAttribute, validateAllFields, validForm])
 
   return [
     onChange,

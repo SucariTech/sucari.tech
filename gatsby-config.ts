@@ -29,7 +29,6 @@ const config: GatsbyConfig = {
         ]
       }
     },
-    'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-mdx',
     'gatsby-plugin-image',

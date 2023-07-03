@@ -37,7 +37,7 @@ const Header: React.FC = () => {
         <SC.ButtonWrapper onClick={ openMenu as React.MouseEventHandler }>
           <SC.Button/>
         </SC.ButtonWrapper>
-        <SC.MenuWrapper open={ isOpenMenu }>
+        <SC.MenuWrapper $open={ isOpenMenu }>
           <SC.MenuHeader>
             <SC.Logo
               src={ secondaryLogoSrc }
@@ -46,7 +46,7 @@ const Header: React.FC = () => {
               height="100"
             />
             <SC.ButtonWrapper onClick={ closeMenu as React.MouseEventHandler }>
-              <SC.Button isOpen/>
+              <SC.Button $isOpen/>
             </SC.ButtonWrapper>
           </SC.MenuHeader>
           <SC.MenuContent>
@@ -57,7 +57,7 @@ const Header: React.FC = () => {
                     ? (
                         <SC.MenuOption
                           key={ sectionKey }
-                          active={ currentSection === sectionKey }
+                          $active={ currentSection === sectionKey }
                         >
                           <span onClick={ () => scrollToSection?.(sectionKey) }>
                             { sections[sectionKey].name }
