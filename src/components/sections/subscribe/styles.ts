@@ -10,9 +10,9 @@ export const Section = styled.section`
   min-height: auto;
   padding-bottom: 0;
   @media screen and (max-width: 1366px),
-         screen and (max-width: 1024px),
-         screen and (max-width: 768px),
-         screen and (max-width: 380px){
+    screen and (max-width: 1024px),
+    screen and (max-width: 768px),
+    screen and (max-width: 380px) {
     padding-bottom: 0;
   }
 `
@@ -35,23 +35,23 @@ const lineBase = css`
   text-align: center;
   font-size: 26px;
   letter-spacing: 1px;
-  :first-child{
+  :first-child {
     margin: 0 0 80px;
   }
-  :last-child{
+  :last-child {
     margin: 0;
   }
-  @media screen and (max-width: 1550px){
+  @media screen and (max-width: 1550px) {
     margin: 55px 0;
     font-size: 22px;
-    :first-child{
+    :first-child {
       margin: 0 0 55px;
     }
   }
-  @media screen and (max-width: 1366px){
+  @media screen and (max-width: 1366px) {
     font-size: 19px;
   }
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     font-size: 17px;
   }
 `
@@ -68,7 +68,7 @@ export const Form = styled.form`
 
 const inputDefaultAttributes = {
   spellCheck: 'false',
-  autoComplete: 'off'
+  autoComplete: 'off',
 } as any
 
 const validInput = css`
@@ -92,8 +92,9 @@ export const Input = styled.input.attrs(inputDefaultAttributes)<InputProps>`
   border-bottom: 2px solid var(--main-light);
   color: var(--main-light);
   background: transparent;
-  ${({ $valid = null }) => $valid !== null && ($valid ? validInput : invalidInput)}
-  ::placeholder{
+  ${({ $valid = null }) =>
+    $valid !== null && ($valid ? validInput : invalidInput)}
+  ::placeholder {
     color: var(--main-light);
   }
 `
@@ -108,7 +109,7 @@ export const Button = styled.button`
   text-decoration: underline;
   color: var(--third-light);
   cursor: pointer;
-  :disabled{
+  :disabled {
     cursor: auto;
   }
 `

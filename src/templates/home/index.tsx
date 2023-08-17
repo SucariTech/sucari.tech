@@ -1,20 +1,14 @@
 import React from 'react'
 
 /* Gatsby */
-import {
-  HeadProps,
-  PageProps,
-  graphql
-} from 'gatsby'
+import { graphql } from 'gatsby'
+import type { HeadProps, PageProps } from 'gatsby'
 
 /* Config */
 import config from '@config'
 
 /* Providers */
-import {
-  ContentProvider,
-  APIProvider
-} from '@contexts'
+import { ContentProvider, APIProvider } from '@contexts'
 
 /* Head */
 import SiteHead from '@head'
@@ -29,40 +23,32 @@ import {
   Services,
   Cycle,
   GetInTouch,
-  Subscribe
+  Subscribe,
 } from '@components/sections'
 
-export const Head: React.FC<HeadProps<any>> = ({
-  data: {
-    content
-  }
-}) => {
+export const Head: React.FC<HeadProps<any>> = ({ data: { content } }) => {
   return (
     <SiteHead
-      title={ content.metadata.title }
-      description={ content.metadata.description }
-      keywords={ content.metadata.keywords }
-      canonicalUrl={ `${config.url}/` }
+      title={content.metadata.title}
+      description={content.metadata.description}
+      keywords={content.metadata.keywords}
+      canonicalUrl={`${config.url}/`}
     />
   )
 }
 
-const HomePageTemplate: React.FC<PageProps<any>> = ({
-  data: {
-    content
-  }
-}) => {
+const HomePageTemplate: React.FC<PageProps<any>> = ({ data: { content } }) => {
   return (
-    <ContentProvider content={ content }>
+    <ContentProvider content={content}>
       <APIProvider>
         <Layout>
           <main>
-            <Home/>
-            <About/>
-            <Services/>
-            <Cycle/>
-            <GetInTouch/>
-            <Subscribe/>
+            <Home />
+            <About />
+            <Services />
+            <Cycle />
+            <GetInTouch />
+            <Subscribe />
           </main>
         </Layout>
       </APIProvider>
@@ -71,136 +57,136 @@ const HomePageTemplate: React.FC<PageProps<any>> = ({
 }
 
 export const query = graphql`
-  query($id: String){
-    content: json(id: { eq: $id }){
-      metadata{
+  query ($id: String) {
+    content: json(id: { eq: $id }) {
+      metadata {
         title
         description
         keywords
       }
       contacts
       months
-      api{
+      api {
         errorMessage
       }
-      footer{
-        textLine{
+      footer {
+        textLine {
           label
           to
         }
       }
-      sections{
-        home{
+      sections {
+        home {
           name
-          title{
+          title {
             label
             decorate
           }
           skippable
           paragraph
-          links{
+          links {
             label
             to
           }
-          image{
-            childImageSharp{
+          image {
+            childImageSharp {
               gatsbyImageData
             }
           }
         }
-        about{
+        about {
           name
           title
           skippable
-          founder{
+          founder {
             fullNames
             rol
             message
           }
         }
-        services{
+        services {
           name
           title
           skippable
-          services{
+          services {
             name
-            image{
-              childImageSharp{
+            image {
+              childImageSharp {
                 gatsbyImageData
               }
             }
           }
         }
-        cycle{
+        cycle {
           name
           title
           skippable
-          phases{
+          phases {
             name
-            image{
-              childImageSharp{
+            image {
+              childImageSharp {
                 gatsbyImageData
               }
             }
           }
-          aside{
+          aside {
             label
             message
-            link{
+            link {
               label
               to
             }
           }
         }
-        getInTouch{
+        getInTouch {
           name
           title
           skippable
-          form{
-            fields{
-              firstName{
+          form {
+            fields {
+              firstName {
                 label
                 placeholder
               }
-              lastName{
+              lastName {
                 label
                 placeholder
               }
-              email{
+              email {
                 label
                 placeholder
               }
-              phone{
+              phone {
                 label
                 placeholder
               }
-              company{
+              company {
                 label
                 placeholder
               }
-              message{
+              message {
                 label
                 placeholder
               }
             }
             buttonText
           }
-          notice{
+          notice {
             label
             to
           }
-          information{
+          information {
             title
             steps
           }
         }
-        subscribe{
+        subscribe {
           name
           skippable
           description
-          form{
-            fields{
-              email{
+          form {
+            fields {
+              email {
                 label
                 placeholder
               }

@@ -4,10 +4,7 @@ import styled, { css } from 'styled-components'
 import { Link as GatsbyLink } from 'gatsby'
 
 /* Shared */
-import {
-  titleBase,
-  sectionBase
-} from '@components/sections/shared/styles'
+import { titleBase, sectionBase } from '@components/sections/shared/styles'
 
 export const Section = styled.section`
   ${sectionBase}
@@ -26,10 +23,10 @@ export const Content = styled.div`
   max-width: 1366px;
   width: 100%;
   margin: 24px auto;
-  @media screen and (max-width: 1550px){
+  @media screen and (max-width: 1550px) {
     max-width: 1100px;
   }
-  @media screen and (max-width: 980px){
+  @media screen and (max-width: 980px) {
     flex-direction: column;
     margin: 0;
   }
@@ -38,7 +35,7 @@ export const Content = styled.div`
 const container = css`
   flex: 1;
   padding: 22px;
-  @media screen and (max-width: 980px){
+  @media screen and (max-width: 980px) {
     max-width: 680px;
     width: 100%;
     margin: 24px 24px 0;
@@ -58,7 +55,7 @@ export const Right = styled.div`
   box-shadow: 0px 4px 20px var(--third-dark);
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
-  @media screen and (max-width: 980px){
+  @media screen and (max-width: 980px) {
     border-radius: 8px;
   }
 `
@@ -70,7 +67,7 @@ export const Form = styled.form`
 
 const inputDefaultAttributes = {
   spellCheck: 'false',
-  autoComplete: 'off'
+  autoComplete: 'off',
 } as any
 
 const validInput = css`
@@ -96,8 +93,9 @@ const inputBase = css<InputBaseProps>`
   background: transparent;
   font-style: italic;
   font-size: 16px;
-  ${({ $valid = null }) => $valid !== null && ($valid ? validInput : invalidInput)}
-  @media screen and (max-width: 1366px){
+  ${({ $valid = null }) =>
+    $valid !== null && ($valid ? validInput : invalidInput)}
+  @media screen and (max-width: 1366px) {
     padding: 8px 10px;
     font-size: 15px;
   }
@@ -107,11 +105,13 @@ export const Input = styled.input.attrs(inputDefaultAttributes)<InputBaseProps>`
   ${inputBase}
 `
 
-export const Textarea = styled.textarea.attrs(inputDefaultAttributes)<InputBaseProps>`
+export const Textarea = styled.textarea.attrs(
+  inputDefaultAttributes,
+)<InputBaseProps>`
   ${inputBase}
   resize: none;
   height: 100px;
-  @media screen and (max-width: 1550px){
+  @media screen and (max-width: 1550px) {
     height: 80px;
   }
 `
@@ -140,13 +140,14 @@ export const Button = styled.button`
   background: var(--third-dark);
   color: var(--second-light);
   cursor: pointer;
-  :hover, :disabled{
+  :hover,
+  :disabled {
     background: var(--second-dark);
   }
-  :disabled{
+  :disabled {
     cursor: auto;
   }
-  @media screen and (max-width: 1366px){
+  @media screen and (max-width: 1366px) {
     padding: 8px;
     height: 35px;
   }
@@ -154,10 +155,10 @@ export const Button = styled.button`
 
 export const Information = styled.div`
   padding: 30px;
-  @media screen and (max-width: 1550px){
+  @media screen and (max-width: 1550px) {
     padding: 20px 10px;
   }
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 1024px) {
     padding: 10px;
   }
 `
@@ -166,38 +167,38 @@ export const InformationTitle = styled.p`
   text-align: center;
   font-style: italic;
   font-size: 26px;
-  @media screen and (max-width: 1550px){
+  @media screen and (max-width: 1550px) {
     font-size: 22px;
   }
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 1024px) {
     font-size: 20px;
   }
 `
 
 export const StepContainer = styled.ul`
   margin: 50px 0;
-  li{
+  li {
     margin: 22px 0;
     letter-spacing: 2px;
     font-size: 22px;
   }
-  @media screen and (max-width: 1550px){
-    li{
+  @media screen and (max-width: 1550px) {
+    li {
       letter-spacing: 1px;
       font-size: 18px;
     }
   }
-  @media screen and (max-width: 1024px){
-    li{
+  @media screen and (max-width: 1024px) {
+    li {
       letter-spacing: 0;
       font-size: 17px;
     }
   }
-  @media screen and (max-width: 980px){
+  @media screen and (max-width: 980px) {
     margin: 0;
   }
-  @media screen and (max-width: 480px){
-    li{
+  @media screen and (max-width: 480px) {
+    li {
       font-size: 15px;
     }
   }
@@ -212,10 +213,10 @@ export const InformationContacts = styled.ul`
   font-size: 20px;
   line-height: 34px;
   letter-spacing: 1px;
-  li{
+  li {
     margin: 0 8px;
   }
-  @media screen and (max-width: 1550px){
+  @media screen and (max-width: 1550px) {
     font-size: 16px;
   }
 `

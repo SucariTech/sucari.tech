@@ -11,13 +11,13 @@ interface UseDimensionsReturnType {
 const useDimensions = (): UseDimensionsReturnType => {
   const [dimensions, setDimensions] = React.useState({
     innerWidth: window.innerWidth,
-    innerHeight: window.innerHeight
+    innerHeight: window.innerHeight,
   })
 
   const resize = React.useCallback(() => {
     setDimensions({
       innerWidth: window.innerWidth,
-      innerHeight: window.innerHeight
+      innerHeight: window.innerHeight,
     })
   }, [])
 
@@ -32,15 +32,13 @@ const useDimensions = (): UseDimensionsReturnType => {
   return dimensions
 }
 
-export const DimensionsProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+export const DimensionsProvider: React.FC<React.PropsWithChildren> = ({
+  children,
+}) => {
   if (typeof window === 'undefined') return null
 
   /* eslint-disable-next-line react-hooks/rules-of-hooks */
   const dimensions = useDimensions()
 
-  return (
-    <ThemeProvider theme={{ dimensions }}>
-      { children }
-    </ThemeProvider>
-  )
+  return <ThemeProvider theme={{ dimensions }}>{children}</ThemeProvider>
 }

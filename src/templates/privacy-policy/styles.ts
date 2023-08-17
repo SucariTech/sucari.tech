@@ -10,7 +10,7 @@ export const Header = styled.header`
   padding: 40px;
   background: var(--main-dark);
   border-bottom: 4px double var(--second-dark);
-  @media screen and (max-width: 520px){
+  @media screen and (max-width: 520px) {
     padding: 30px 20px;
   }
 `
@@ -34,14 +34,14 @@ export const Container = styled.main`
   margin: 0 auto;
   padding: 20px 40px;
   scrollbar-width: none;
-  ::-webkit-scrollbar{
+  ::-webkit-scrollbar {
     display: none;
   }
-  a{
+  a {
     text-decoration: underline;
     color: var(--third-light);
   }
-  @media screen and (max-width: 520px){
+  @media screen and (max-width: 520px) {
     padding: 20px;
   }
 `

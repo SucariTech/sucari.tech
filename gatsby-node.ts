@@ -1,10 +1,7 @@
 import path from 'path'
 
 /* Dependencies */
-import {
-  GatsbyNode,
-  Node
-} from 'gatsby'
+import type { GatsbyNode, Node } from 'gatsby'
 import { createFilePath } from 'gatsby-source-filesystem'
 import TsconfigPathsWebpackPlugin from 'tsconfig-paths-webpack-plugin'
 
@@ -28,19 +25,22 @@ interface JSONResultData {
   allJson: CommonResult
 }
 
-export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
+export const createPages: GatsbyNode['createPages'] = async ({
+  graphql,
+  actions,
+}) => {
   const { createPage } = actions
 
   /* MDX */
   const MDXResult = await graphql<MDXResultData>(`
-    query{
-      allMdx{
-        nodes{
+    query {
+      allMdx {
+        nodes {
           id
-          fields{
+          fields {
             slug
           }
-          internal{
+          internal {
             contentFilePath
           }
         }
@@ -54,7 +54,13 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   }
 
   /* MDX Templates */
-  const privacyPolicyPageTemplate = path.resolve(__dirname, 'src', 'templates', 'privacy-policy', 'index.tsx')
+  const privacyPolicyPageTemplate = path.resolve(
+    __dirname,
+    'src',
+    'templates',
+    'privacy-policy',
+    'index.tsx',
+  )
 
   MDXResult.data?.allMdx.nodes.forEach(node => {
     let template = null
@@ -71,19 +77,19 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         path,
         component: `${template}?__contentFilePath=${node.internal.contentFilePath}`,
         context: {
-          id: node.id
-        }
+          id: node.id,
+        },
       })
     }
   })
 
   /* JSON */
   const JSONResult = await graphql<JSONResultData>(`
-    query{
-      allJson{
-        nodes{
+    query {
+      allJson {
+        nodes {
           id
-          fields{
+          fields {
             slug
           }
         }
@@ -97,7 +103,13 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   }
 
   /* JSON Templates */
-  const homePageTemplate = path.resolve(__dirname, 'src', 'templates', 'home', 'index.tsx')
+  const homePageTemplate = path.resolve(
+    __dirname,
+    'src',
+    'templates',
+    'home',
+    'index.tsx',
+  )
 
   JSONResult.data?.allJson.nodes.forEach(node => {
     let template = null
@@ -115,35 +127,39 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
         path,
         component: template,
         context: {
-          id: node.id
-        }
+          id: node.id,
+        },
       })
     }
   })
 }
 
-export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, getNode, actions }) => {
+export const onCreateNode: GatsbyNode['onCreateNode'] = ({
+  node,
+  getNode,
+  actions,
+}) => {
   const { createNodeField } = actions
 
   if (['Mdx', 'Json'].includes(node.internal.type)) {
     const value = createFilePath({
       node,
-      getNode
+      getNode,
     })
     createNodeField({
       node,
       name: 'slug',
-      value
+      value,
     })
   }
 }
 
-export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ actions }) => {
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
+  actions,
+}) => {
   actions.setWebpackConfig({
     resolve: {
-      plugins: [
-        new TsconfigPathsWebpackPlugin()
-      ]
-    }
+      plugins: [new TsconfigPathsWebpackPlugin()],
+    },
   })
 }

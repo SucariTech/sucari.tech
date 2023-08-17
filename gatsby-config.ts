@@ -2,15 +2,15 @@ import path from 'path'
 
 /* Dependencies */
 import dotenv from 'dotenv'
-import { GatsbyConfig } from 'gatsby'
+import { type GatsbyConfig } from 'gatsby'
 
 dotenv.config({
-  path: `.env.${process.env.NODE_ENV}`
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    siteUrl: process.env.GATSBY_URL_ROOT
+    siteUrl: process.env.GATSBY_URL_ROOT,
   },
   plugins: [
     {
@@ -24,10 +24,10 @@ const config: GatsbyConfig = {
             'gatsby',
             'dist',
             'utils',
-            'eslint-rules'
-          )
-        ]
-      }
+            'eslint-rules',
+          ),
+        ],
+      },
     },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-mdx',
@@ -37,29 +37,29 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-transformer-json',
       options: {
-        typeName: 'Json'
-      }
+        typeName: 'Json',
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'content',
-        path: path.resolve(__dirname, './content')
-      }
+        path: path.resolve(__dirname, './content'),
+      },
     },
     {
       resolve: 'gatsby-plugin-styled-components',
       options: {
-        displayName: false
-      }
+        displayName: false,
+      },
     },
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /\.svg$/
-        }
-      }
+          include: /\.svg$/,
+        },
+      },
     },
     {
       resolve: 'gatsby-plugin-manifest',
@@ -67,18 +67,16 @@ const config: GatsbyConfig = {
         name: 'Sucari Tech',
         short_name: 'sucari.tech',
         crossOrigin: 'use-credentials',
-        icon: path.resolve(__dirname, './static/images/logo.png')
-      }
+        icon: path.resolve(__dirname, './static/images/logo.png'),
+      },
     },
     {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingIds: [
-          process.env.GOOGLE_ANALYTICS_ID
-        ].filter(Boolean)
-      }
-    }
-  ]
+        trackingIds: [process.env.GOOGLE_ANALYTICS_ID].filter(Boolean),
+      },
+    },
+  ],
 }
 
 export default config

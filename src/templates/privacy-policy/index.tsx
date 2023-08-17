@@ -1,11 +1,8 @@
 import React from 'react'
 
 /* Gatsby */
-import {
-  HeadProps,
-  PageProps,
-  graphql
-} from 'gatsby'
+import { graphql } from 'gatsby'
+import type { HeadProps, PageProps } from 'gatsby'
 
 /* Config */
 import config from '@config'
@@ -19,61 +16,55 @@ import { MDXProvider } from '@mdx-js/react'
 /* Styles */
 import * as SC from './styles'
 
-export const Head: React.FC<HeadProps<any>> = ({
-  data: {
-    content
-  }
-}) => {
+export const Head: React.FC<HeadProps<any>> = ({ data: { content } }) => {
   return (
     <SiteHead
-      title={ content.frontmatter.title }
-      description={ content.frontmatter.description }
-      keywords={ content.frontmatter.keywords }
-      canonicalUrl={ `${config.url}${content.fields.slug}` }
+      title={content.frontmatter.title}
+      description={content.frontmatter.description}
+      keywords={content.frontmatter.keywords}
+      canonicalUrl={`${config.url}${content.fields.slug}`}
     />
   )
 }
 
 const PrivacyPolicyPageTemplate: React.FC<PageProps<any>> = ({
-  data: {
-    content
-  },
-  children
+  data: { content },
+  children,
 }) => {
   return (
     <>
       <SC.Header>
-        <SC.Label>{ config.name }</SC.Label>
-        <SC.Link to="/">{ content.frontmatter.header.link.label }</SC.Link>
+        <SC.Label>{config.name}</SC.Label>
+        <SC.Link to="/">{content.frontmatter.header.link.label}</SC.Link>
       </SC.Header>
-      <MDXProvider components={{
-        p: SC.P,
-        h1: SC.H1,
-        h2: SC.H2,
-        h3: SC.H3,
-        ul: SC.Ul,
-        li: SC.Li
-      }}>
-        <SC.Container>
-          { children }
-        </SC.Container>
+      <MDXProvider
+        components={{
+          p: SC.P,
+          h1: SC.H1,
+          h2: SC.H2,
+          h3: SC.H3,
+          ul: SC.Ul,
+          li: SC.Li,
+        }}
+      >
+        <SC.Container>{children}</SC.Container>
       </MDXProvider>
     </>
   )
 }
 
 export const query = graphql`
-  query($id: String){
-    content: mdx(id: { eq: $id }){
-      fields{
+  query ($id: String) {
+    content: mdx(id: { eq: $id }) {
+      fields {
         slug
       }
-      frontmatter{
+      frontmatter {
         title
         description
         keywords
-        header{
-          link{
+        header {
+          link {
             label
             to
           }

@@ -2,15 +2,9 @@
   "metadata": {
     "title": "Sucari Tech - Software Development Company",
     "description": "Sucari Tech is a full-service software development company. Customized software solutions in Peru",
-    "keywords": [
-      "Software Development Company",
-      "Software development"
-    ]
+    "keywords": ["Software Development Company", "Software development"]
   },
-  "contacts": [
-    "info@sucari.tech",
-    "+51 928 518 774"
-  ],
+  "contacts": ["info@sucari.tech", "+51 928 518 774"],
   "months": [
     "Jan.",
     "Feb.",

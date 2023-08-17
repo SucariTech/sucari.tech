@@ -1,20 +1,20 @@
-:root{
+:root {
   /* -- COLORS -- */
 
   /* Dark */
-  --main-dark: #040D21;
-  --second-dark: #1C2333;
+  --main-dark: #040d21;
+  --second-dark: #1c2333;
   --third-dark: #004182;
   --fourth-dark: #424242;
-  --fifth-dark: #8A8A8A;
+  --fifth-dark: #8a8a8a;
 
   /* Light */
-  --main-light: #F5F5F5;
-  --second-light: #ECECEC;
-  --third-light: #45EBA5;
-  --fourth-light: #57ABFF;
+  --main-light: #f5f5f5;
+  --second-light: #ececec;
+  --third-light: #45eba5;
+  --fourth-light: #57abff;
 
   /* Others */
-  --danger: #D71111;
+  --danger: #d71111;
   --success: #16aa51;
 }

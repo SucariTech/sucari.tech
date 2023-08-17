@@ -1,12 +1,14 @@
 /* Dependencies */
-import { GatsbySSR } from 'gatsby'
+import { type GatsbySSR } from 'gatsby'
 
 /* Config */
 import config from '@config'
 
-export const onRenderBody: GatsbySSR['onRenderBody'] = ({ setHtmlAttributes }) => {
+export const onRenderBody: GatsbySSR['onRenderBody'] = ({
+  setHtmlAttributes,
+}) => {
   setHtmlAttributes({
     lang: config.language,
-    translate: 'no'
+    translate: 'no',
   })
 }

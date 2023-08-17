@@ -18,34 +18,31 @@ export default {
   ogImageSrc: `${process.env.GATSBY_URL_ROOT}/images/og-image.png`,
   year: new Date().getFullYear(),
   apiHost: process.env.GATSBY_API_HOST,
-  fonts: [
-    MontserratSemiBold,
-    MontserratRegular
-  ],
+  fonts: [MontserratSemiBold, MontserratRegular],
   networks: [
     {
       label: 'Facebook link',
       alt: 'Facebook',
       to: 'https://www.facebook.com/SucariTech',
-      icon: FacebookIcon
+      icon: FacebookIcon,
     },
     {
       label: 'GitHub link',
       alt: 'GitHub',
       to: 'https://github.com/SucariTech',
-      icon: GitHubIcon
+      icon: GitHubIcon,
     },
     {
       label: 'LinkedIn link',
       alt: 'LinkedIn',
       to: 'https://www.linkedin.com/company/sucari-tech',
-      icon: LinkedInIcon
+      icon: LinkedInIcon,
     },
     {
       label: 'Twitter link',
       alt: 'Twitter',
       to: 'https://twitter.com/SucariTech',
-      icon: TwitterIcon
-    }
-  ]
+      icon: TwitterIcon,
+    },
+  ],
 }

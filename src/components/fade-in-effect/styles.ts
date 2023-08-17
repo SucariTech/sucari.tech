@@ -9,10 +9,10 @@ export const Container = styled.div`
   box-shadow: 0px 4px 20px var(--second-dark);
   margin: 0 auto;
   scrollbar-width: none;
-  ::-webkit-scrollbar{
+  ::-webkit-scrollbar {
     display: none;
   }
-  :focus-visible{
+  :focus-visible {
     outline: none;
   }
 `
