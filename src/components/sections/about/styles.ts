@@ -18,23 +18,23 @@ export const Title = styled.h2`
   font-weight: bold;
   font-family: secondFont;
   letter-spacing: 8px;
-  @media screen and (max-width: 1620px){
+  @media screen and (max-width: 1620px) {
     font-size: 70px;
   }
-  @media screen and (max-width: 1366px){
+  @media screen and (max-width: 1366px) {
     font-size: 60px;
     letter-spacing: 5px;
   }
-  @media screen and (max-width: 1200px){
+  @media screen and (max-width: 1200px) {
     font-size: 50px;
   }
-  @media screen and (max-width: 920px){
+  @media screen and (max-width: 920px) {
     font-size: 40px;
   }
-  @media screen and (max-width: 580px){
+  @media screen and (max-width: 580px) {
     font-size: 32px;
   }
-  @media screen and (max-width: 380px){
+  @media screen and (max-width: 380px) {
     font-size: 26px;
   }
 `
@@ -48,13 +48,13 @@ export const Founder = styled.p`
   font-size: 35px;
   font-family: secondFont;
   letter-spacing: 4px;
-  span:last-child{
+  span:last-child {
     color: var(--third-light);
   }
-  @media screen and (max-width: 1550px){
+  @media screen and (max-width: 1550px) {
     font-size: 30px;
   }
-  @media screen and (max-width: 1366px){
+  @media screen and (max-width: 1366px) {
     font-size: 24px;
     letter-spacing: 2px;
   }
@@ -75,19 +75,20 @@ export const Paragraph = styled.p`
   font-size: 26px;
   line-height: 40px;
   letter-spacing: 4px;
-  ::before, ::after{
+  ::before,
+  ::after {
     content: '"';
   }
-  @media screen and (max-width: 1550px){
+  @media screen and (max-width: 1550px) {
     line-height: 35px;
     font-size: 22px;
   }
-  @media screen and (max-width: 1366px){
+  @media screen and (max-width: 1366px) {
     line-height: 30px;
     font-size: 20px;
     letter-spacing: 1.5px;
   }
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 1024px) {
     font-size: 18px;
     letter-spacing: 0;
   }

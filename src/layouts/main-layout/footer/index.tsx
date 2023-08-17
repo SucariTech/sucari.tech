@@ -7,11 +7,7 @@ import config from '@config'
 import { useContent } from '@contexts'
 
 /* Styles */
-import {
-  NetworkList,
-  Network,
-  NetworkLink
-} from '../shared/styles'
+import { NetworkList, Network, NetworkLink } from '../shared/styles'
 
 import * as SC from './styles'
 
@@ -20,33 +16,29 @@ const Footer: React.FC = () => {
   return (
     <SC.Footer>
       <SC.TextLine data-effect="fade-in">
-        {
-          footer.textLine.map((part: any, index: number) =>
-            part.to
-              ? (
-                  <SC.FooterLink
-                    key={ index }
-                    to={ part.to }
-                  >
-                    { part.label }
-                  </SC.FooterLink>
-                )
-              : part.label)
-        }
+        {footer.textLine.map((part: any, index: number) =>
+          part.to ? (
+            <SC.FooterLink key={index} to={part.to}>
+              {part.label}
+            </SC.FooterLink>
+          ) : (
+            part.label
+          ),
+        )}
       </SC.TextLine>
       <NetworkList data-effect="fade-in">
-        { config.networks.map((network: any, index: number) => (
-          <Network key={ index }>
+        {config.networks.map((network: any, index: number) => (
+          <Network key={index}>
             <NetworkLink
-              aria-label={ network.label }
-              href={ network.to }
+              aria-label={network.label}
+              href={network.to}
               rel="noreferrer"
               target="_blank"
             >
-              <network.icon/>
+              <network.icon />
             </NetworkLink>
           </Network>
-        )) }
+        ))}
       </NetworkList>
     </SC.Footer>
   )

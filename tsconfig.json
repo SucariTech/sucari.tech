@@ -4,10 +4,7 @@
     "baseUrl": ".",
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "lib": [
-      "DOM",
-      "ESNext"
-    ],
+    "lib": ["DOM", "ESNext"],
     "module": "ESNext",
     "moduleResolution": "node",
     "noImplicitAny": true,
@@ -15,45 +12,19 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@config": [
-        "src/config"
-      ],
-      "@contexts": [
-        "src/contexts"
-      ],
-      "@contexts/*": [
-        "src/contexts/*"
-      ],
-      "@fonts/*": [
-        "src/fonts/*"
-      ],
-      "@head": [
-        "src/head"
-      ],
-      "@hooks": [
-        "src/hooks"
-      ],
-      "@hooks/*": [
-        "src/hooks/*"
-      ],
-      "@icons/*": [
-        "src/icons/*"
-      ],
-      "@images/*": [
-        "src/images/*"
-      ],
-      "@layouts/*": [
-        "src/layouts/*"
-      ],
-      "@templates/*": [
-        "src/templates/*"
-      ],
-      "@utils/*": [
-        "src/utils/*"
-      ]
+      "@components/*": ["src/components/*"],
+      "@config": ["src/config"],
+      "@contexts": ["src/contexts"],
+      "@contexts/*": ["src/contexts/*"],
+      "@fonts/*": ["src/fonts/*"],
+      "@head": ["src/head"],
+      "@hooks": ["src/hooks"],
+      "@hooks/*": ["src/hooks/*"],
+      "@icons/*": ["src/icons/*"],
+      "@images/*": ["src/images/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@templates/*": ["src/templates/*"],
+      "@utils/*": ["src/utils/*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,

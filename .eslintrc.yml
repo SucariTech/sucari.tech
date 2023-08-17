@@ -5,49 +5,30 @@ env:
 extends:
   - react-app
   - standard-with-typescript
-parser: "@typescript-eslint/parser"
+  - plugin:prettier/recommended
+parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaVersion: latest
   project:
     - tsconfig.json
   sourceType: module
 plugins:
-  - "@typescript-eslint/eslint-plugin"
+  - '@typescript-eslint/eslint-plugin'
 rules:
-  "@typescript-eslint/array-type":
+  '@typescript-eslint/array-type':
     - error
     - default: generic
       readonly: generic
-  "@typescript-eslint/consistent-type-imports":
-    - error
-    - prefer: no-type-imports
-  "@typescript-eslint/no-unused-vars": off
-  "@typescript-eslint/prefer-optional-chain": off
-  "@typescript-eslint/restrict-template-expressions": off
-  "@typescript-eslint/strict-boolean-expressions": off
-  indent:
-    - error
-    - 2
-    - SwitchCase: 1
-      flatTernaryExpressions: false
-      offsetTernaryExpressions: true
+  '@typescript-eslint/no-unused-vars': off
+  '@typescript-eslint/prefer-optional-chain': off
+  '@typescript-eslint/restrict-template-expressions': off
+  '@typescript-eslint/strict-boolean-expressions': off
   limited-exports-page-templates: warn
   no-anonymous-exports-page-templates: warn
-  operator-linebreak:
-    - error
-    - before
   react/function-component-definition:
     - error
     - namedComponents: arrow-function
       unnamedComponents: arrow-function
-  react/jsx-tag-spacing:
-    - error
-    - closingSlash: never
-      beforeSelfClosing: never
-      afterOpening: never
-      beforeClosing: never
-  react/no-unescaped-entities: off
-  react/react-in-jsx-scope: off
 settings:
   react:
     version: detect

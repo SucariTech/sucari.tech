@@ -20,60 +20,71 @@ const useForm = (initialFieldValues: any): Array<any> => {
     setValidForm(validCounter === bufferKeys.length)
   }, [fields])
 
-  const getFieldAttribute = React.useCallback((key = 'value') => {
-    const values: any = {}
-    Object.keys(fields).map(name => (
-      values[name] = fields[name][key]
-    ))
-    return values
-  }, [fields])
+  const getFieldAttribute = React.useCallback(
+    (key = 'value') => {
+      const values: any = {}
+      Object.keys(fields).map(name => (values[name] = fields[name][key]))
+      return values
+    },
+    [fields],
+  )
 
-  const resetFields = React.useCallback((input: any) => {
-    setFields({
-      ...fields,
-      ...input
-    })
-    setValidForm(false)
-  }, [fields])
-
-  /* Events */
-  const onChange = React.useCallback((e: React.ChangeEvent<any>): void => {
-    const buffer = fields
-    const currentTargetName = e.target.name
-    const currentTargetValue = e.target.value
-
-    if (buffer[currentTargetName]) {
-      buffer[currentTargetName].value = currentTargetValue
-      buffer[currentTargetName].valid = buffer[currentTargetName].validator(buffer[currentTargetName].value)
-
-      const bufferKeys = Object.keys(buffer)
-      let validCounter = 0
-
-      bufferKeys.forEach(name => (
-        buffer[name].valid && validCounter++
-      ))
-
+  const resetFields = React.useCallback(
+    (input: any) => {
       setFields({
         ...fields,
-        [currentTargetName]: buffer[currentTargetName]
+        ...input,
       })
-      setValidForm(validCounter === bufferKeys.length)
-    }
-  }, [fields])
+      setValidForm(false)
+    },
+    [fields],
+  )
 
-  const onSubmit = React.useCallback((args: {
-    onSuccess?: (fieldValues: any) => void
-    onFailed?: (fieldValidations: any) => void
-  }) => (e: React.FormEvent<HTMLFormElement>): void => {
-    const { onSuccess, onFailed } = args
-    e.preventDefault()
-    if (validForm) {
-      onSuccess?.(getFieldAttribute('value'))
-    } else {
-      validateAllFields()
-      onFailed?.(getFieldAttribute('valid'))
-    }
-  }, [getFieldAttribute, validateAllFields, validForm])
+  /* Events */
+  const onChange = React.useCallback(
+    (e: React.ChangeEvent<any>): void => {
+      const buffer = fields
+      const currentTargetName = e.target.name
+      const currentTargetValue = e.target.value
+
+      if (buffer[currentTargetName]) {
+        buffer[currentTargetName].value = currentTargetValue
+        buffer[currentTargetName].valid = buffer[currentTargetName].validator(
+          buffer[currentTargetName].value,
+        )
+
+        const bufferKeys = Object.keys(buffer)
+        let validCounter = 0
+
+        bufferKeys.forEach(name => buffer[name].valid && validCounter++)
+
+        setFields({
+          ...fields,
+          [currentTargetName]: buffer[currentTargetName],
+        })
+        setValidForm(validCounter === bufferKeys.length)
+      }
+    },
+    [fields],
+  )
+
+  const onSubmit = React.useCallback(
+    (args: {
+      onSuccess?: (fieldValues: any) => void
+      onFailed?: (fieldValidations: any) => void
+    }) =>
+      (e: React.FormEvent<HTMLFormElement>): void => {
+        const { onSuccess, onFailed } = args
+        e.preventDefault()
+        if (validForm) {
+          onSuccess?.(getFieldAttribute('value'))
+        } else {
+          validateAllFields()
+          onFailed?.(getFieldAttribute('valid'))
+        }
+      },
+    [getFieldAttribute, validateAllFields, validForm],
+  )
 
   return [
     onChange,
@@ -82,7 +93,7 @@ const useForm = (initialFieldValues: any): Array<any> => {
     resetFields,
     validForm,
     validateAllFields,
-    getFieldAttribute
+    getFieldAttribute,
   ]
 }
 

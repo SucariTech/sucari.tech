@@ -1,4 +1,5 @@
 export { default } from './layout'
-export * from './contexts'
+export { MenuProvider, useMenu } from './contexts'
+export type { MenuContextType } from './contexts'
 export { default as Header } from './header'
 export { default as Footer } from './footer'

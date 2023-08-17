@@ -1,11 +1,7 @@
 import React from 'react'
 
 /* Hooks */
-import {
-  useContent,
-  useAlert,
-  useAPI
-} from '@contexts'
+import { useContent, useAlert, useAPI } from '@contexts'
 import { useForm } from '@hooks'
 
 /* Validations */
@@ -24,13 +20,17 @@ const getInitialFieldValues = (): any => ({
   email: {
     value: '',
     valid: null,
-    validator: (value: any) => isEmailValid(value)
-  }
+    validator: (value: any) => isEmailValid(value),
+  },
 })
 
 const Subscribe: React.FC = () => {
-  const { sections: { subscribe } } = useContent()
-  const [onChange, onSubmit, fields, resetFields] = useForm(getInitialFieldValues())
+  const {
+    sections: { subscribe },
+  } = useContent()
+  const [onChange, onSubmit, fields, resetFields] = useForm(
+    getInitialFieldValues(),
+  )
   const { openAlert } = useAlert()
   const { sendToSubscribe } = useAPI()
   const [submitting, setSubmitting] = React.useState(false)
@@ -38,47 +38,48 @@ const Subscribe: React.FC = () => {
     <SC.Section>
       <SC.ContentWrapper>
         <SC.Content>
-          <SC.Description data-effect="fade-in">{ subscribe.description }</SC.Description>
+          <SC.Description data-effect="fade-in">
+            {subscribe.description}
+          </SC.Description>
           <SC.Form
-            onSubmit={ onSubmit({
-              onSuccess: React.useCallback((fieldValues: any) => {
-                setSubmitting(true)
-                sendToSubscribe?.(fieldValues, (data: any) => {
-                  setSubmitting(false)
-                  if (data.errorMessage) {
-                    openAlert?.(data.errorMessage)
-                  } else {
-                    openAlert?.(data.successMessage)
-                    resetFields(getInitialFieldValues())
-                  }
-                })
-              }, [openAlert, sendToSubscribe, resetFields])
-            }) }
+            onSubmit={onSubmit({
+              onSuccess: React.useCallback(
+                (fieldValues: any) => {
+                  setSubmitting(true)
+                  sendToSubscribe?.(fieldValues, (data: any) => {
+                    setSubmitting(false)
+                    if (data.errorMessage) {
+                      openAlert?.(data.errorMessage)
+                    } else {
+                      openAlert?.(data.successMessage)
+                      resetFields(getInitialFieldValues())
+                    }
+                  })
+                },
+                [openAlert, sendToSubscribe, resetFields],
+              ),
+            })}
           >
             <SC.Input
               data-effect="fade-in"
               name="email"
-              onChange={ onChange }
-              aria-label={ subscribe.form.fields.email.label }
-              placeholder={ subscribe.form.fields.email.placeholder }
-              value={ fields.email.value }
-              $valid={ fields.email.valid }
+              onChange={onChange}
+              aria-label={subscribe.form.fields.email.label}
+              placeholder={subscribe.form.fields.email.placeholder}
+              value={fields.email.value}
+              $valid={fields.email.valid}
             />
             <SC.Button
               data-effect="fade-in"
               type="submit"
-              disabled={ submitting }
+              disabled={submitting}
             >
-              {
-                submitting
-                  ? <Loader/>
-                  : subscribe.form.buttonText
-              }
+              {submitting ? <Loader /> : subscribe.form.buttonText}
             </SC.Button>
           </SC.Form>
         </SC.Content>
       </SC.ContentWrapper>
-      <Footer/>
+      <Footer />
     </SC.Section>
   )
 }

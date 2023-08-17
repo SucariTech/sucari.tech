@@ -18,11 +18,12 @@ const lineBase = css`
 const Container = styled.main`
   padding: 20px;
   margin: 5%;
-  p, a{
+  p,
+  a {
     ${lineBase}
     font-size: 18px;
   }
-  a{
+  a {
     text-decoration: underline;
     font-style: italic;
     color: var(--third-light);
@@ -50,15 +51,10 @@ export const Head: React.FC = () => {
     <>
       <title>Sucari Tech - Page Not Found</title>
 
-      { /* Fonts */
+      {
+        /* Fonts */
         config.fonts.map((src, index) => (
-          <link
-            key={ index }
-            href={ src }
-            rel="preload"
-            as="font"
-            crossOrigin=""
-          />
+          <link key={index} href={src} rel="preload" as="font" crossOrigin="" />
         ))
       }
     </>
@@ -71,7 +67,9 @@ const PageNotFound: React.FC = () => {
       <Title>Page Not Found</Title>
       <Subtitle>Sorry, we couldn't find what you were looking for</Subtitle>
       <Wrapper>
-        <p><strong>Need help finding something?</strong></p>
+        <p>
+          <strong>Need help finding something?</strong>
+        </p>
         <p>Email info@sucari.tech and we'll help you.</p>
       </Wrapper>
       <Link to="/">— Back to home</Link>

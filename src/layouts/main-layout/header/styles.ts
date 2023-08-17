@@ -8,7 +8,7 @@ export const Header = styled.header`
   left: 0;
   padding: 20px 30px;
   z-index: 1000;
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 1024px) {
     padding: 20px;
   }
 `
@@ -26,11 +26,11 @@ export const Title = styled.p`
   font-weight: bold;
   letter-spacing: 6px;
   user-select: none;
-  @media screen and (max-width: 1366px){
+  @media screen and (max-width: 1366px) {
     font-size: 25px;
     letter-spacing: 4px;
   }
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 1024px) {
     font-size: 22px;
     letter-spacing: 2px;
   }
@@ -56,18 +56,18 @@ const buttonBase = css`
 
 const toClose = css`
   background: transparent;
-  ::before{
+  ::before {
     transform: rotate3d(0, 0, 1, 40deg);
   }
-  ::after{
+  ::after {
     transform: rotate3d(0, 0, 1, -40deg);
   }
 `
 const toOpen = css`
-  ::before{
+  ::before {
     transform: translate3d(0, calc(45px / 3.5), 0);
   }
-  ::after{
+  ::after {
     transform: translate3d(0, calc(-45px / 3.5), 0);
   }
 `
@@ -78,14 +78,15 @@ export interface ButtonProps {
 
 export const Button = styled.div<ButtonProps>`
   ${buttonBase}
-  ::before, ::after{
+  ::before, ::after {
     content: '';
     position: absolute;
   }
-  ::before, ::after{
+  ::before,
+  ::after {
     ${buttonBase}
   }
-  ${({ $isOpen = false }) => $isOpen ? toClose : toOpen}
+  ${({ $isOpen = false }) => ($isOpen ? toClose : toOpen)}
 `
 
 /* Menu */
@@ -98,14 +99,20 @@ export const MenuWrapper = styled.div<MenuWrapperProps>`
   display: flex;
   flex-direction: column;
   top: 0;
-  right: ${({ $open = false }) => $open ? '0' : '-100%'};
+  right: ${({ $open = false }) => ($open ? '0' : '-100%')};
   max-width: 1920px;
   width: 100%;
   height: ${({ theme }) => `${theme.dimensions.innerHeight}px`};
   padding: 20px 30px 0 30px;
   background: var(--second-dark);
   background-size: 3px 3px;
-  background-image:  repeating-linear-gradient(0deg, var(--main-dark), var(--main-dark) 2.2px, transparent 2.2px, transparent);
+  background-image: repeating-linear-gradient(
+    0deg,
+    var(--main-dark),
+    var(--main-dark) 2.2px,
+    transparent 2.2px,
+    transparent
+  );
   transition: right 0.5s ease-in-out;
 `
 
@@ -120,7 +127,7 @@ export const Logo = styled.img`
   display: block;
   width: 80px;
   height: 80px;
-  @media screen and (max-width: 1366px){
+  @media screen and (max-width: 1366px) {
     width: 50px;
     height: 50px;
   }
@@ -153,7 +160,7 @@ export const MenuList = styled.ul`
 `
 
 const activeOption = css`
-  ::before{
+  ::before {
     width: 100%;
   }
 `
@@ -169,7 +176,7 @@ export const MenuOption = styled.li<MenuOptionProps>`
   font-size: 35px;
   letter-spacing: 2px;
   cursor: pointer;
-  ::before{
+  ::before {
     content: '';
     position: absolute;
     display: block;
@@ -180,14 +187,14 @@ export const MenuOption = styled.li<MenuOptionProps>`
     background: var(--main-light);
     transition: width 0.3s ease-out;
   }
-  :hover{
+  :hover {
     ${activeOption}
   }
-  ${({ $active = false }) => $active ? activeOption : ''}
-  @media screen and (max-width: 1550px){
+  ${({ $active = false }) => ($active ? activeOption : '')}
+  @media screen and (max-width: 1550px) {
     font-size: 30px;
   }
-  @media screen and (max-width: 1366px){
+  @media screen and (max-width: 1366px) {
     font-size: 24px;
     letter-spacing: 0;
   }

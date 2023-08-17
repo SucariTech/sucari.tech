@@ -9,7 +9,8 @@ export interface AlertContextType {
   closeAlert?: () => void
 }
 
-export const useAlert = (): AlertContextType => React.useContext<AlertContextType>(AlertContext)
+export const useAlert = (): AlertContextType =>
+  React.useContext<AlertContextType>(AlertContext)
 
 export interface AlertProviderProps extends React.PropsWithChildren {
   component: React.ElementType
@@ -17,7 +18,7 @@ export interface AlertProviderProps extends React.PropsWithChildren {
 
 export const AlertProvider: React.FC<AlertProviderProps> = ({
   children,
-  component: Alert
+  component: Alert,
 }) => {
   const [visible, setVisible] = React.useState(false)
   const [content, setContent] = React.useState(null)
@@ -44,19 +45,19 @@ export const AlertProvider: React.FC<AlertProviderProps> = ({
     }
   }, [closeAlert])
 
-  const value = React.useMemo(() => ({
-    openAlert,
-    closeAlert
-  }), [openAlert, closeAlert])
+  const value = React.useMemo(
+    () => ({
+      openAlert,
+      closeAlert,
+    }),
+    [openAlert, closeAlert],
+  )
 
   return (
-    <AlertContext.Provider value={ value }>
-      { children }
-      <Alert
-        visible={ visible }
-        callback={ closeAlert }
-      >
-        { content }
+    <AlertContext.Provider value={value}>
+      {children}
+      <Alert visible={visible} callback={closeAlert}>
+        {content}
       </Alert>
     </AlertContext.Provider>
   )

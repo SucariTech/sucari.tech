@@ -1,4 +1,7 @@
-export const getRelativePosition = (target: HTMLElement, parent: HTMLElement): Record<string, number> => {
+export const getRelativePosition = (
+  target: HTMLElement,
+  parent: HTMLElement,
+): Record<string, number> => {
   const containerPosition = parent.getBoundingClientRect()
   const targetPosition = target.getBoundingClientRect()
 
@@ -10,6 +13,6 @@ export const getRelativePosition = (target: HTMLElement, parent: HTMLElement): R
     top,
     bottom,
     left,
-    right
+    right,
   }
 }

@@ -11,7 +11,7 @@ export interface SimpleAlertProps extends React.PropsWithChildren {
 const SimpleAlert: React.FC<SimpleAlertProps> = ({
   callback,
   children,
-  visible
+  visible,
 }) => {
   const barrierRef = React.useRef<null | HTMLDivElement>(null)
 
@@ -25,14 +25,11 @@ const SimpleAlert: React.FC<SimpleAlertProps> = ({
 
   return (
     <SC.Container>
-      <SC.Barrier
-        ref={ barrierRef }
-        tabIndex={ 0 }
-      />
+      <SC.Barrier ref={barrierRef} tabIndex={0} />
       <SC.Modal>
-        { children }
+        {children}
         <SC.OptionContainer>
-          <SC.Option onClick={ callback }>OK</SC.Option>
+          <SC.Option onClick={callback}>OK</SC.Option>
         </SC.OptionContainer>
       </SC.Modal>
     </SC.Container>

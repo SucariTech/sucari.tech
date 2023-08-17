@@ -30,8 +30,10 @@ export const Rectangle = styled.div<RectangleProps>`
   margin: 0.1em;
   background: var(--third-light);
   animation-name: ${rectangleAnimation};
-  animation-duration: ${({ $numberOfRectangles }) => `${getAnimationDuration($numberOfRectangles)}s`};
-  animation-delay: ${({ $order, $numberOfRectangles }) => `-${getAnimationDuration($numberOfRectangles) - 0.1 * $order}s`};
+  animation-duration: ${({ $numberOfRectangles }) =>
+    `${getAnimationDuration($numberOfRectangles)}s`};
+  animation-delay: ${({ $order, $numberOfRectangles }) =>
+    `-${getAnimationDuration($numberOfRectangles) - 0.1 * $order}s`};
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 `

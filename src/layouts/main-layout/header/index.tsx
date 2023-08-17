@@ -13,11 +13,7 @@ import { useMenu } from '../contexts'
 import secondaryLogoSrc from '@images/secondary-logo.png'
 
 /* Styles */
-import {
-  NetworkList,
-  Network,
-  NetworkLink
-} from '../shared/styles'
+import { NetworkList, Network, NetworkLink } from '../shared/styles'
 
 import * as SC from './styles'
 
@@ -28,60 +24,57 @@ const Header: React.FC = () => {
     currentSection,
     openMenu,
     closeMenu,
-    scrollToSection
+    scrollToSection,
   } = useMenu()
   return (
     <SC.Header>
       <SC.Nav>
-        <SC.Title>{ config.domain }</SC.Title>
-        <SC.ButtonWrapper onClick={ openMenu as React.MouseEventHandler }>
-          <SC.Button/>
+        <SC.Title>{config.domain}</SC.Title>
+        <SC.ButtonWrapper onClick={openMenu as React.MouseEventHandler}>
+          <SC.Button />
         </SC.ButtonWrapper>
-        <SC.MenuWrapper $open={ isOpenMenu }>
+        <SC.MenuWrapper $open={isOpenMenu}>
           <SC.MenuHeader>
             <SC.Logo
-              src={ secondaryLogoSrc }
-              alt={ `${config.name} - Logo` }
+              src={secondaryLogoSrc}
+              alt={`${config.name} - Logo`}
               width="100"
               height="100"
             />
-            <SC.ButtonWrapper onClick={ closeMenu as React.MouseEventHandler }>
-              <SC.Button $isOpen/>
+            <SC.ButtonWrapper onClick={closeMenu as React.MouseEventHandler}>
+              <SC.Button $isOpen />
             </SC.ButtonWrapper>
           </SC.MenuHeader>
           <SC.MenuContent>
             <SC.MenuList>
-              {
-                Object.keys(sections).map(sectionKey =>
-                  !sections[sectionKey].skippable
-                    ? (
-                        <SC.MenuOption
-                          key={ sectionKey }
-                          $active={ currentSection === sectionKey }
-                        >
-                          <span onClick={ () => scrollToSection?.(sectionKey) }>
-                            { sections[sectionKey].name }
-                          </span>
-                        </SC.MenuOption>
-                      )
-                    : null)
-              }
+              {Object.keys(sections).map(sectionKey =>
+                !sections[sectionKey].skippable ? (
+                  <SC.MenuOption
+                    key={sectionKey}
+                    $active={currentSection === sectionKey}
+                  >
+                    <span onClick={() => scrollToSection?.(sectionKey)}>
+                      {sections[sectionKey].name}
+                    </span>
+                  </SC.MenuOption>
+                ) : null,
+              )}
             </SC.MenuList>
           </SC.MenuContent>
           <SC.MenuFooter>
             <NetworkList>
-              { config.networks.map((network, index) => (
-                <Network key={ index }>
+              {config.networks.map((network, index) => (
+                <Network key={index}>
                   <NetworkLink
-                    aria-label={ network.label }
-                    href={ network.to }
+                    aria-label={network.label}
+                    href={network.to}
                     rel="noreferrer"
                     target="_blank"
                   >
-                    <network.icon/>
+                    <network.icon />
                   </NetworkLink>
                 </Network>
-              )) }
+              ))}
             </NetworkList>
           </SC.MenuFooter>
         </SC.MenuWrapper>

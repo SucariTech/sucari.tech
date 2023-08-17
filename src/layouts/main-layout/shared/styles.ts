@@ -12,16 +12,16 @@ export const NetworkList = styled.ul`
 
 export const Network = styled.li`
   margin: 0 20px 0 0;
-  :last-child{
+  :last-child {
     margin: 0;
   }
-  svg{
+  svg {
     width: 28px;
     height: 28px;
     fill: var(--main-light);
   }
-  @media screen and (max-width: 1024px){
-    svg{
+  @media screen and (max-width: 1024px) {
+    svg {
       width: 24px;
       height: 24px;
     }

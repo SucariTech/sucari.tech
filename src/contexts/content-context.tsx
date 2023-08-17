@@ -10,15 +10,11 @@ export interface ContentProviderProps extends React.PropsWithChildren {
 
 export const ContentProvider: React.FC<ContentProviderProps> = ({
   content = {},
-  children
+  children,
 }) => {
   const value = React.useMemo(() => content, [content])
 
   return (
-    <ContentContext.Provider
-      value={ value }
-    >
-      { children }
-    </ContentContext.Provider>
+    <ContentContext.Provider value={value}>{children}</ContentContext.Provider>
   )
 }
