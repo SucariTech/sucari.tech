@@ -1,5 +1,8 @@
 import React from 'react'
 
+/* Components */
+import BannerSection from '@components/landing-page/sections/banner'
+
 /* Gatsby */
 import { graphql } from 'gatsby'
 import type { HeadProps, PageProps } from 'gatsby'
@@ -10,7 +13,9 @@ import SiteHead from '@head'
 /* Layout */
 import Layout from '@layout'
 
-const contentfulComponentMap = new Map<string, React.ElementType>([])
+const contentfulComponentMap = new Map<string, React.ElementType>([
+  ['ContentfulBannerComponent', BannerSection],
+])
 
 const prepareContentfulComponents = (
   data: Queries.LandingPageQuery,
@@ -67,6 +72,7 @@ export const query = graphql`
       sections {
         content {
           __typename
+          ...ContentfulBannerComponentContent
         }
       }
       footerMenu {
