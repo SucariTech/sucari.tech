@@ -65,6 +65,6 @@
     "lint": "yarn lint:eslint && yarn lint:prettier",
     "postinstall": "is-ci || husky install",
     "serve": "gatsby serve -H 0.0.0.0",
-    "tsc": "tsc --noEmit"
+    "type-check": "tsc --noEmit"
   }
 }
