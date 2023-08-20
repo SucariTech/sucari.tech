@@ -7790,6 +7790,8 @@ type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']>;
 };
 
+type ContentfulCardContentFragment = { readonly name: string | null, readonly description: string | null, readonly media: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null };
+
 type ContentfulFooterMenuContentFragment = { readonly facebookLink: string | null, readonly gitHubLink: string | null, readonly linkedInLink: string | null, readonly twitterLink: string | null, readonly contactGroupName: string | null, readonly contactPhoneNumber: string | null, readonly contactEmailAddress: string | null, readonly languageGroupName: string | null };
 
 type ContentfulNavigationMenuContentFragment = { readonly items: ReadonlyArray<{ readonly name: string | null, readonly reference: { readonly __typename: 'ContentfulAboutUsComponent' } | { readonly __typename: 'ContentfulBannerComponent' } | { readonly __typename: 'ContentfulContactComponent' } | { readonly __typename: 'ContentfulFAQComponent' } | { readonly __typename: 'ContentfulPage', readonly slug: string | null } | { readonly __typename: 'ContentfulServicesComponent' } | null } | null> | null, readonly rootItem: { readonly name: string | null, readonly reference: { readonly __typename: 'ContentfulAboutUsComponent' } | { readonly __typename: 'ContentfulBannerComponent' } | { readonly __typename: 'ContentfulContactComponent' } | { readonly __typename: 'ContentfulFAQComponent' } | { readonly __typename: 'ContentfulPage', readonly slug: string | null } | { readonly __typename: 'ContentfulServicesComponent' } | null } | null };
