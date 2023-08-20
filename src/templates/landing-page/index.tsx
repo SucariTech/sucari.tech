@@ -4,6 +4,7 @@ import React from 'react'
 import BannerSection from '@components/landing-page/sections/banner'
 import AboutUsSection from '@components/landing-page/sections/about-us'
 import ServicesSection from '@components/landing-page/sections/services'
+import FAQSection from '@components/landing-page/sections/faq'
 
 /* Gatsby */
 import { graphql } from 'gatsby'
@@ -19,6 +20,7 @@ const contentfulComponentMap = new Map<string, React.ElementType>([
   ['ContentfulBannerComponent', BannerSection],
   ['ContentfulAboutUsComponent', AboutUsSection],
   ['ContentfulServicesComponent', ServicesSection],
+  ['ContentfulFAQComponent', FAQSection],
 ])
 
 const prepareContentfulComponents = (
@@ -79,6 +81,7 @@ export const query = graphql`
           ...ContentfulBannerComponentContent
           ...ContentfulAboutUsComponentContent
           ...ContentfulServicesComponentContent
+          ...ContentfulFAQComponentContent
         }
       }
       footerMenu {
