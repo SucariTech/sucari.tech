@@ -1843,7 +1843,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@contentful/rich-text-react-renderer@npm:^15.16.5, @contentful/rich-text-react-renderer@npm:^15.17.1":
+"@contentful/rich-text-react-renderer@npm:^15.17.0, @contentful/rich-text-react-renderer@npm:^15.17.1":
   version: 15.17.1
   resolution: "@contentful/rich-text-react-renderer@npm:15.17.1"
   dependencies:
@@ -3968,9 +3968,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:>=10.0.0, @types/node@npm:^20.5.0":
-  version: 20.5.0
-  resolution: "@types/node@npm:20.5.0"
-  checksum: 659bc5fc93b5c02bd88ca4bfae4f6b9dc307d45884d1dd9d69df85819a9943cdc00cd3c87eec3048866df6a67f52297f74d170e47a44f61edb3e8f770d94e85e
+  version: 20.5.1
+  resolution: "@types/node@npm:20.5.1"
+  checksum: 3dbe611cd67afa987102c8558ee70f848949c5dcfee5f60abc073e55c0d7b048e391bf06bb1e0dc052cb7210ca97136ac496cbaf6e89123c989de6bd125fde82
   languageName: node
   linkType: hard
 
@@ -5703,9 +5703,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001517, caniuse-lite@npm:^1.0.30001520":
-  version: 1.0.30001521
-  resolution: "caniuse-lite@npm:1.0.30001521"
-  checksum: be2a2b2cd3be03401887aaa31b89f3e7c6230289e6ef704e224268389cc136480fca502ac9e5001a65ff1e50459d3d95f8c4b2d39f878ab9843af3d6f372c8bb
+  version: 1.0.30001522
+  resolution: "caniuse-lite@npm:1.0.30001522"
+  checksum: 56e3551c02ae595085114073cf242f7d9d54d32255c80893ca9098a44f44fc6eef353936f234f31c7f4cb894dd2b6c9c4626e30649ee29e04d70aa127eeefeb0
   languageName: node
   linkType: hard
 
@@ -6240,11 +6240,11 @@ __metadata:
   linkType: hard
 
 "contentful-resolve-response@npm:^1.3.12":
-  version: 1.7.0
-  resolution: "contentful-resolve-response@npm:1.7.0"
+  version: 1.8.1
+  resolution: "contentful-resolve-response@npm:1.8.1"
   dependencies:
     fast-copy: ^2.1.7
-  checksum: 54c92a84c7fdb453345e9a4acc2d26d16c1b970a18ac23929fcf110b8eadf3b23cf792c1baad4bce5f14197c818b013c78098dec93a35cacade76ded6297dd2e
+  checksum: 59d9085529cc1a371d0b9e218b5dbb2efdec3b339672e6f4f150884778ce990c32decb68b6cdf645fe4b9741e4078aae0f7290b20e13e8d91fd4c97d84aca60a
   languageName: node
   linkType: hard
 
@@ -6352,25 +6352,25 @@ __metadata:
   linkType: hard
 
 "core-js-compat@npm:^3.31.0":
-  version: 3.32.0
-  resolution: "core-js-compat@npm:3.32.0"
+  version: 3.32.1
+  resolution: "core-js-compat@npm:3.32.1"
   dependencies:
-    browserslist: ^4.21.9
-  checksum: e740b348dfd8dc25ac851ab625a1d5a63c012252bdd6d8ae92d1b2ebf46e6cf57ca6cbec4494cbacdd90d3f8ed822480c8a7106c990dbe9055ebdf5b79fbb92e
+    browserslist: ^4.21.10
+  checksum: 2ce0002d6d2acabfc6f4c1ea32915683406a10051a186db354b761303cb6f5728f83887d070fb8d0072b5601bb16cb0d24555ee72bfa6df244f7b3ef74d61f76
   languageName: node
   linkType: hard
 
 "core-js-pure@npm:^3.23.3":
-  version: 3.32.0
-  resolution: "core-js-pure@npm:3.32.0"
-  checksum: 57b1ae97e6d468dfa34af3df75bba3fec3d01a04392f7c11f77a698f7157be199b647c599a06869fb403397a2e512dbbfc6eb3b8a690f857484125620f7d36e6
+  version: 3.32.1
+  resolution: "core-js-pure@npm:3.32.1"
+  checksum: 06d3b1585b1f161e84adaf6a0f1db2434309b8d6c748ee82f1806c5d9755272a30074dfa888d60a164c639c6820588ab8462f1073c6971e76659f13788c2f10d
   languageName: node
   linkType: hard
 
 "core-js@npm:^3.30.2":
-  version: 3.32.0
-  resolution: "core-js@npm:3.32.0"
-  checksum: 52921395028550e4c9d21d47b9836439bb5b6b9eefc34d45a3948a68d81fdd093acc0fadf69f9cf632b82f01f95f22f484408a93dd9e940b19119ac204cd2925
+  version: 3.32.1
+  resolution: "core-js@npm:3.32.1"
+  checksum: e4af91d9c6be7b59235feb3f273d16705126ce09a0b4a787144d131d874f0cd10be3c24fc52e5eea7d7cb03ceabe4be7b255abcd9474b5eb1ff365d2c5611f9a
   languageName: node
   linkType: hard
 
@@ -7159,9 +7159,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.477":
-  version: 1.4.494
-  resolution: "electron-to-chromium@npm:1.4.494"
-  checksum: 95f72d22e0b7c27b79999d70a91201a4b23ad63f00c56adf89a66712a53887f0a4f153ed067d7027556354056642f44820615bf5a3bb1625795847fe58fd4e8e
+  version: 1.4.496
+  resolution: "electron-to-chromium@npm:1.4.496"
+  checksum: b90cc4cc71691a9506bcce3b8b184d22794c58b4a2af5e95f7bc305b254e8c5af06b51e26f866d018aaf70b80e0fb498e3a196c5841765bcf05bac9f0f924624
   languageName: node
   linkType: hard
 
@@ -7669,8 +7669,8 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-import@npm:^2.25.3, eslint-plugin-import@npm:^2.27.5, eslint-plugin-import@npm:^2.28.0":
-  version: 2.28.0
-  resolution: "eslint-plugin-import@npm:2.28.0"
+  version: 2.28.1
+  resolution: "eslint-plugin-import@npm:2.28.1"
   dependencies:
     array-includes: ^3.1.6
     array.prototype.findlastindex: ^1.2.2
@@ -7681,18 +7681,17 @@ __metadata:
     eslint-import-resolver-node: ^0.3.7
     eslint-module-utils: ^2.8.0
     has: ^1.0.3
-    is-core-module: ^2.12.1
+    is-core-module: ^2.13.0
     is-glob: ^4.0.3
     minimatch: ^3.1.2
     object.fromentries: ^2.0.6
     object.groupby: ^1.0.0
     object.values: ^1.1.6
-    resolve: ^1.22.3
     semver: ^6.3.1
     tsconfig-paths: ^3.14.2
   peerDependencies:
     eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0 || ^8
-  checksum: f9eba311b93ca1bb89311856b1f7285bd79e0181d7eb70fe115053ff77e2235fea749b30f538b78927dc65769340b5be61f4c9581d1c82bcdcccb2061f440ad1
+  checksum: e8ae6dd8f06d8adf685f9c1cfd46ac9e053e344a05c4090767e83b63a85c8421ada389807a39e73c643b9bff156715c122e89778169110ed68d6428e12607edf
   languageName: node
   linkType: hard
 
@@ -8822,6 +8821,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gatsby-core-utils@npm:^4.13.0-next.0":
+  version: 4.13.0-next.0
+  resolution: "gatsby-core-utils@npm:4.13.0-next.0"
+  dependencies:
+    "@babel/runtime": ^7.20.13
+    ci-info: 2.0.0
+    configstore: ^5.0.1
+    fastq: ^1.15.0
+    file-type: ^16.5.4
+    fs-extra: ^11.1.1
+    got: ^11.8.6
+    hash-wasm: ^4.9.0
+    import-from: ^4.0.0
+    lmdb: 2.5.3
+    lock: ^1.1.0
+    node-object-hash: ^2.3.10
+    proper-lockfile: ^4.1.2
+    resolve-from: ^5.0.0
+    tmp: ^0.2.1
+    xdg-basedir: ^4.0.0
+  checksum: d464083b848621f05a887803ac60b0d6c6fc94e8dad6080a8776853717da6347d97f3611dc1dc08bed4313a9ac7d8b1c02a9097641b9063951cd749bc09854ae
+  languageName: node
+  linkType: hard
+
 "gatsby-graphiql-explorer@npm:^3.11.0":
   version: 3.11.0
   resolution: "gatsby-graphiql-explorer@npm:3.11.0"
@@ -9079,6 +9102,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-utils@npm:^4.13.0-next.0":
+  version: 4.13.0-next.0
+  resolution: "gatsby-plugin-utils@npm:4.13.0-next.0"
+  dependencies:
+    "@babel/runtime": ^7.20.13
+    fastq: ^1.15.0
+    fs-extra: ^11.1.1
+    gatsby-core-utils: ^4.13.0-next.0
+    gatsby-sharp: ^1.13.0-next.0
+    graphql-compose: ^9.0.10
+    import-from: ^4.0.0
+    joi: ^17.9.2
+    mime: ^3.0.0
+  peerDependencies:
+    gatsby: ^5.0.0-next
+    graphql: ^16.0.0
+  checksum: 51c81f8d453ab0ae9576e09ad1f48351215916f145886415fa2f9f1a8079efe52d54489dfe8c32e98cc8cd89f3c541a9aed9dd385b774de44b3766c37de9e6fe
+  languageName: node
+  linkType: hard
+
 "gatsby-react-router-scroll@npm:^6.11.0":
   version: 6.11.0
   resolution: "gatsby-react-router-scroll@npm:6.11.0"
@@ -9113,12 +9156,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-source-contentful@npm:^8.11.0":
-  version: 8.11.0
-  resolution: "gatsby-source-contentful@npm:8.11.0"
+"gatsby-sharp@npm:^1.13.0-next.0":
+  version: 1.13.0-next.0
+  resolution: "gatsby-sharp@npm:1.13.0-next.0"
+  dependencies:
+    sharp: ^0.32.1
+  checksum: 52e608fa3536dcfefd84902345b508ec74268649f8f6cea56e59f11eb6152c34b4d09caf97eed295b9255853978d821b5e0162a09393895acb6d5e35e06dad13
+  languageName: node
+  linkType: hard
+
+"gatsby-source-contentful@npm:^8.13.0-next.0":
+  version: 8.13.0-next.0
+  resolution: "gatsby-source-contentful@npm:8.13.0-next.0"
   dependencies:
     "@babel/runtime": ^7.20.13
-    "@contentful/rich-text-react-renderer": ^15.16.5
+    "@contentful/rich-text-react-renderer": ^15.17.0
     "@contentful/rich-text-types": ^15.15.1
     "@hapi/joi": ^15.1.1
     "@vercel/fetch-retry": ^5.1.3
@@ -9126,40 +9178,40 @@ __metadata:
     common-tags: ^1.8.2
     contentful: ^9.3.5
     fs-extra: ^11.1.1
-    gatsby-core-utils: ^4.11.0
-    gatsby-plugin-utils: ^4.11.0
-    gatsby-source-filesystem: ^5.11.0
+    gatsby-core-utils: ^4.13.0-next.0
+    gatsby-plugin-utils: ^4.13.0-next.0
+    gatsby-source-filesystem: ^5.13.0-next.0
     is-online: ^9.0.1
     json-stringify-safe: ^5.0.1
     lodash: ^4.17.21
-    node-fetch: ^2.6.11
-    semver: ^7.5.1
-    url: ^0.11.0
+    node-fetch: ^2.6.12
+    semver: ^7.5.3
+    url: ^0.11.1
   peerDependencies:
     gatsby: ^5.0.0-next
     gatsby-plugin-image: ^3.0.0-next
     gatsby-plugin-sharp: ^5.0.0-next
     sharp: ^0.30.1
-  checksum: fa2d2ecb9e9578191c4c309ecdbf354062a6318557ae0f23f162d31a272c3982a460bcc11f628403aa5d031ed22d7b45c11b6e6d7229ed3114df20ce4d8e7f9e
+  checksum: 19ea177a21552461a55683bdcf596d59cb7a7332b8792a57ccd3ccd503c9266b7cd88602cea30ab12e12f94a38bc83913489692ce978f15c4e8c79373f85018a
   languageName: node
   linkType: hard
 
-"gatsby-source-filesystem@npm:^5.11.0":
-  version: 5.11.0
-  resolution: "gatsby-source-filesystem@npm:5.11.0"
+"gatsby-source-filesystem@npm:^5.13.0-next.0":
+  version: 5.13.0-next.0
+  resolution: "gatsby-source-filesystem@npm:5.13.0-next.0"
   dependencies:
     "@babel/runtime": ^7.20.13
     chokidar: ^3.5.3
     file-type: ^16.5.4
     fs-extra: ^11.1.1
-    gatsby-core-utils: ^4.11.0
+    gatsby-core-utils: ^4.13.0-next.0
     mime: ^3.0.0
     pretty-bytes: ^5.6.0
     valid-url: ^1.0.9
-    xstate: ^4.37.2
+    xstate: ^4.38.0
   peerDependencies:
     gatsby: ^5.0.0-next
-  checksum: f697e2012c4d56764388a62ff26a97de33bae2d0085043f43cb904b0d8f24ed0a18b5559e5b71fc8c31f6198a73c421484e6d4fdda40d41f45675bc4a1596870
+  checksum: 85f22f2dae1ed394d7070ce0eb499945d12f118562a0173ef78bd085d3550a599831d07039d5bd7f4b9b886c499af71d776aa4335d9313a69cf891043f474eea
   languageName: node
   linkType: hard
 
@@ -12203,8 +12255,8 @@ __metadata:
   linkType: hard
 
 "node-fetch@npm:^2.6.11, node-fetch@npm:^2.6.12":
-  version: 2.6.12
-  resolution: "node-fetch@npm:2.6.12"
+  version: 2.6.13
+  resolution: "node-fetch@npm:2.6.13"
   dependencies:
     whatwg-url: ^5.0.0
   peerDependencies:
@@ -12212,7 +12264,7 @@ __metadata:
   peerDependenciesMeta:
     encoding:
       optional: true
-  checksum: 3bc1655203d47ee8e313c0d96664b9673a3d4dd8002740318e9d27d14ef306693a4b2ef8d6525775056fd912a19e23f3ac0d7111ad8925877b7567b29a625592
+  checksum: 055845ae5b4796c78c7053564745345025cf959563b3568b43c385f67d311779e6b00e5fef6ed1b79f86ba4048e4b4b722e1aa948305521b9353eb7e788912c9
   languageName: node
   linkType: hard
 
@@ -14220,7 +14272,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.10.0, resolve@npm:^1.14.2, resolve@npm:^1.19.0, resolve@npm:^1.22.2, resolve@npm:^1.22.3, resolve@npm:^1.22.4":
+"resolve@npm:^1.10.0, resolve@npm:^1.14.2, resolve@npm:^1.19.0, resolve@npm:^1.22.2, resolve@npm:^1.22.4":
   version: 1.22.4
   resolution: "resolve@npm:1.22.4"
   dependencies:
@@ -14246,7 +14298,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.19.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.3#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.4#~builtin<compat/resolve>":
+"resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.19.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.22.4#~builtin<compat/resolve>":
   version: 1.22.4
   resolution: "resolve@patch:resolve@npm%3A1.22.4#~builtin<compat/resolve>::version=1.22.4&hash=c3c19d"
   dependencies:
@@ -14405,7 +14457,7 @@ __metadata:
     gatsby-plugin-manifest: ^5.11.0
     gatsby-plugin-sharp: ^5.11.0
     gatsby-plugin-sitemap: ^6.11.0
-    gatsby-source-contentful: ^8.11.0
+    gatsby-source-contentful: ^8.13.0-next.0
     gatsby-transformer-sharp: ^5.11.0
     husky: ^8.0.3
     is-ci: ^3.0.1
@@ -15823,9 +15875,9 @@ __metadata:
   linkType: hard
 
 "tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.4.0, tslib@npm:^2.5.0, tslib@npm:^2.6.0":
-  version: 2.6.1
-  resolution: "tslib@npm:2.6.1"
-  checksum: b0d176d176487905b66ae4d5856647df50e37beea7571c53b8d10ba9222c074b81f1410fb91da13debaf2cbc970663609068bdebafa844ea9d69b146527c38fe
+  version: 2.6.2
+  resolution: "tslib@npm:2.6.2"
+  checksum: 329ea56123005922f39642318e3d1f0f8265d1e7fcb92c633e0809521da75eeaca28d2cf96d7248229deb40e5c19adf408259f4b9640afd20d13aecc1430f3ad
   languageName: node
   linkType: hard
 
@@ -16209,7 +16261,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"url@npm:^0.11.0":
+"url@npm:^0.11.1":
   version: 0.11.1
   resolution: "url@npm:0.11.1"
   dependencies:
@@ -16622,7 +16674,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"xstate@npm:^4.37.2":
+"xstate@npm:^4.37.2, xstate@npm:^4.38.0":
   version: 4.38.2
   resolution: "xstate@npm:4.38.2"
   checksum: 04cc8a5ab40f85e2dc46c72c0737dec028ef5733e4d4074962d701632895b3208e1031be79e6e26b32667fcb161ed85da5a73c6f759430c9642144e696291e5f
