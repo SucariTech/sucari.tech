@@ -1,4 +1,5 @@
 .cache
 .yarn
+beta
 public
-src/generated/gatsby-types.d.ts
+src/generated/*

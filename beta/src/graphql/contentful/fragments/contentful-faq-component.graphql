@@ -1,0 +1,16 @@
+fragment ContentfulFaqComponentContent on FaqComponent {
+  __typename
+  description
+  heading {
+    json
+  }
+  name
+  questionsCollection {
+    items {
+      answer {
+        json
+      }
+      question
+    }
+  }
+}

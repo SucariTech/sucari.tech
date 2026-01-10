@@ -1,0 +1,7 @@
+fragment ContentfulCardContent on Card {
+  description
+  media {
+    ...ContentfulImageContent
+  }
+  name
+}

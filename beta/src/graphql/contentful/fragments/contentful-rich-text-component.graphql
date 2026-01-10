@@ -1,0 +1,6 @@
+fragment ContentfulRichTextComponentContent on RichTextComponent {
+  __typename
+  body {
+    json
+  }
+}

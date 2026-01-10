@@ -1,0 +1,31 @@
+fragment ContentfulFooterMenuContent on FooterMenu {
+  contactGroupName
+  contactPhoneNumber
+  contactEmailAddress
+  facebookLink
+  gitHubLink
+  languageGroupName
+  linkedInLink
+  twitterLink
+}
+
+fragment ContentfulNavigationMenuItemContent on NavigationMenuItem {
+  name
+  reference {
+    __typename
+    ... on Page {
+      pathname
+    }
+  }
+}
+
+fragment ContentfulNavigationMenuContent on NavigationMenu {
+  itemsCollection {
+    items {
+      ...ContentfulNavigationMenuItemContent
+    }
+  }
+  rootItem {
+    ...ContentfulNavigationMenuItemContent
+  }
+}

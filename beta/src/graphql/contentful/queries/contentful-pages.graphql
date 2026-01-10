@@ -1,0 +1,75 @@
+query ContentfulErrorPage($languageCode: String!, $code: Int!) {
+  errorPageCollection(limit: 1, locale: $languageCode, where: { code: $code }) {
+    items {
+      footerMenu {
+        ...ContentfulFooterMenuContent
+      }
+      metadata {
+        description
+        openGraphImage {
+          url
+        }
+        title
+        twitterUsername
+      }
+      name
+      navigationMenu {
+        ...ContentfulNavigationMenuContent
+      }
+      content {
+        __typename
+        ...ContentfulRichTextComponentContent
+      }
+    }
+  }
+}
+
+query ContentfulPages($languageCode: String!) {
+  pageCollection(locale: $languageCode) {
+    items {
+      pathname
+      sys {
+        publishedAt
+      }
+    }
+  }
+}
+
+query ContentfulLandingPage($languageCode: String!, $pathname: String!) {
+  pageCollection(
+    limit: 1
+    locale: $languageCode
+    where: { pathname: $pathname }
+  ) {
+    items {
+      footerMenu {
+        ...ContentfulFooterMenuContent
+      }
+      metadata {
+        description
+        openGraphImage {
+          url
+        }
+        title
+        twitterUsername
+      }
+      name
+      navigationMenu {
+        ...ContentfulNavigationMenuContent
+      }
+      sectionsCollection {
+        items {
+          content {
+            __typename
+            ...ContentfulAboutUsComponentContent
+            ...ContentfulBannerComponentContent
+            ...ContentfulContactComponentContent
+            ...ContentfulFaqComponentContent
+            ...ContentfulRichTextComponentContent
+            ...ContentfulServicesComponentContent
+          }
+        }
+      }
+    }
+  }
+}

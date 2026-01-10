@@ -1,0 +1,23 @@
+fragment ContentfulContactComponentContent on ContactComponent {
+  __typename
+  description
+  errorMessage
+  formButtonText
+  formFieldsCollection {
+    items {
+      key
+      label
+    }
+  }
+  heading {
+    json
+  }
+  name
+  notice {
+    json
+  }
+  siteLogo {
+    url
+  }
+  successMessage
+}
