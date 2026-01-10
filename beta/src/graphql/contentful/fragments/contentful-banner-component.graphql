@@ -1,0 +1,26 @@
+fragment ContentfulBannerComponentContent on BannerComponent {
+  __typename
+  body {
+    json
+  }
+  buttonsCollection {
+    items {
+      reference {
+        __typename
+      }
+      text
+    }
+  }
+  cardsCollection {
+    items {
+      ...ContentfulCardContent
+    }
+  }
+  description
+  heading {
+    json
+  }
+  subheading {
+    json
+  }
+}

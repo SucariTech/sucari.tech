@@ -1,0 +1,13 @@
+fragment ContentfulServicesComponentContent on ServicesComponent {
+  __typename
+  cardsCollection {
+    items {
+      ...ContentfulCardContent
+    }
+  }
+  description
+  heading {
+    json
+  }
+  name
+}

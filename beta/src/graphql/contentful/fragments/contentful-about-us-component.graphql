@@ -1,0 +1,22 @@
+fragment ContentfulAboutUsComponentContent on AboutUsComponent {
+  __typename
+  body {
+    json
+  }
+  buttonsCollection {
+    items {
+      reference {
+        __typename
+      }
+      text
+    }
+  }
+  description
+  heading {
+    json
+  }
+  name
+  subheading {
+    json
+  }
+}
