@@ -5,6 +5,6 @@
 !.yarn/plugins
 !.yarn/releases
 node_modules
-public
+/public
 .env*
 !.env.example
