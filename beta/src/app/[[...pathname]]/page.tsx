@@ -3,6 +3,7 @@ import React from 'react'
 /* Components */
 import AboutUsComponent from '@/components/contentful-landing-page/about-us'
 import BannerComponent from '@/components/contentful-landing-page/banner'
+import FaqComponent from '@/components/contentful-landing-page/faq'
 import ServicesComponent from '@/components/contentful-landing-page/services'
 
 /* Config */
@@ -20,6 +21,7 @@ import contentfulClient from '@/utils/contentful/client'
 const contentfulComponentMap = new Map<string, React.ElementType>([
   ['AboutUsComponent', AboutUsComponent],
   ['BannerComponent', BannerComponent],
+  ['FaqComponent', FaqComponent],
   ['ServicesComponent', ServicesComponent],
 ])
 
