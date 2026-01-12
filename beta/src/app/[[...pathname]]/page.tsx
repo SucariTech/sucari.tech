@@ -1,6 +1,7 @@
 import React from 'react'
 
 /* Components */
+import AboutUsComponent from '@/components/contentful-landing-page/about-us'
 import BannerComponent from '@/components/contentful-landing-page/banner'
 
 /* Config */
@@ -16,6 +17,7 @@ import { notFound } from 'next/navigation'
 import contentfulClient from '@/utils/contentful/client'
 
 const contentfulComponentMap = new Map<string, React.ElementType>([
+  ['AboutUsComponent', AboutUsComponent],
   ['BannerComponent', BannerComponent],
 ])
 
