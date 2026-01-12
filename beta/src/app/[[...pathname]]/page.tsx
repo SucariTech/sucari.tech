@@ -5,6 +5,7 @@ import AboutUsComponent from '@/components/contentful-landing-page/about-us'
 import BannerComponent from '@/components/contentful-landing-page/banner'
 import ContactComponent from '@/components/contentful-landing-page/contact'
 import FaqComponent from '@/components/contentful-landing-page/faq'
+import RichTextComponent from '@/components/contentful-landing-page/rich-text'
 import ServicesComponent from '@/components/contentful-landing-page/services'
 
 /* Config */
@@ -24,6 +25,7 @@ const contentfulComponentMap = new Map<string, React.ElementType>([
   ['BannerComponent', BannerComponent],
   ['ContactComponent', ContactComponent],
   ['FaqComponent', FaqComponent],
+  ['RichTextComponent', RichTextComponent],
   ['ServicesComponent', ServicesComponent],
 ])
 
