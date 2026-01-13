@@ -9,10 +9,10 @@ const siteConfig = {
       name: 'Español',
     },
   ],
-  domainName: process.env.GATSBY_DOMAIN_NAME ?? 'sucari.tech',
-  name: process.env.GATSBY_APP_NAME,
-  apiHost: process.env.GATSBY_API_HOST,
-  languageCode: process.env.GATSBY_LANGUAGE_CODE ?? 'en',
+  domainName: process.env.NEXT_PUBLIC_DOMAIN_NAME ?? 'sucari.tech',
+  googleAnalyticsId: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID,
+  languageCode: process.env.NEXT_PUBLIC_LANGUAGE_CODE ?? 'en',
+  name: process.env.NEXT_PUBLIC_APP_NAME ?? 'Sucari Tech',
 }
 
 export default siteConfig

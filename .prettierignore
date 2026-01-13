@@ -1,5 +1,3 @@
 .cache
 .yarn
-beta
-public
 src/generated/*

@@ -7,7 +7,7 @@ This repository contains the source code of [sucari.tech](https://sucari.tech/).
 ### Prerequisites
 
 1. Git
-1. Node: any 18.x.x version starting with v18.0.0 or greater
+1. Node: any 18.x.x version starting with v22.0.0 or greater
 1. Yarn: See [Yarn website for installation instructions](https://classic.yarnpkg.com/lang/en/docs/install/)
 1. A clone of the [sucari.tech](https://github.com/SucariTech/sucari.tech) repo on your local machine
 
@@ -19,8 +19,8 @@ This repository contains the source code of [sucari.tech](https://sucari.tech/).
 
 ### Running locally
 
-1. `yarn dev` to start the development server (powered by [Gatsby](https://www.gatsbyjs.com/))
-1. `open http://localhost:8000/` to open the site in your favorite browser
+1. `yarn dev` to start the development server (powered by [Next.js](https://nextjs.org/))
+1. `open http://localhost:3000/` to open the site in your favorite browser
 
 ## Lint
 

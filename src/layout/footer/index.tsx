@@ -1,58 +1,51 @@
+'use client'
+
 import React from 'react'
 
 /* Components */
-import Logo from '@components/logo'
+import Logo from '@/components/logo'
 
 /* Config */
-import config from '@config'
+import config from '@/config'
 
-/* Gatsby */
-import { graphql } from 'gatsby'
-
-/* Head */
-import { getDomainName } from '@head'
+/* Generated Contentful */
+import type { ContentfulFooterMenuContentFragment } from '@/generated/contentful'
 
 /* MUI */
 import Autocomplete from '@mui/material/Autocomplete'
-import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import InputAdornment from '@mui/material/InputAdornment'
 import Link from '@mui/material/Link'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
 import TextField from '@mui/material/TextField'
+import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 
 /* MUI Icons */
-import Email from '@mui/icons-material/Email'
-import FacebookOutlined from '@mui/icons-material/FacebookOutlined'
-import GitHub from '@mui/icons-material/GitHub'
-import LinkedIn from '@mui/icons-material/LinkedIn'
-import Phone from '@mui/icons-material/Phone'
-import Translate from '@mui/icons-material/Translate'
-import Twitter from '@mui/icons-material/Twitter'
+import EmailIcon from '@mui/icons-material/Email'
+import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import PhoneIcon from '@mui/icons-material/Phone'
+import TranslateIcon from '@mui/icons-material/Translate'
+import TwitterIcon from '@mui/icons-material/Twitter'
+
+/* Next.js */
+import { usePathname } from 'next/navigation'
 
 /* Shared Styles */
-import { Content } from '@components/shared/styles'
+import { Content } from '@/components/shared/styles'
 
-export const contentfulFooterMenuContent = graphql`
-  fragment ContentfulFooterMenuContent on ContentfulFooterMenu {
-    facebookLink
-    gitHubLink
-    linkedInLink
-    twitterLink
-    contactGroupName
-    contactPhoneNumber
-    contactEmailAddress
-    languageGroupName
-  }
-`
+/* Utils */
+import { getDomainName } from '@/utils'
 
 export interface FooterProps {
-  footerMenuContent?: Queries.ContentfulFooterMenuContentFragment | null
+  footerMenuContent?: ContentfulFooterMenuContentFragment | null
 }
 
 const Footer: React.FC<FooterProps> = ({ footerMenuContent }) => {
+  const pathname = usePathname()
   return (
     <Paper
       component="footer"
@@ -63,13 +56,13 @@ const Footer: React.FC<FooterProps> = ({ footerMenuContent }) => {
       }}
       variant="outlined"
     >
-      <Box p={3}>
-        <Content>
-          <Grid container spacing={3}>
-            <Grid item md={4} xs={12}>
+      <Toolbar>
+        <Content py={1.75}>
+          <Grid container spacing={2} width="100%">
+            <Grid size={{ md: 4, sm: 6, xs: 12 }}>
               <Stack spacing={2}>
                 <Stack direction="row" alignItems="center" spacing={1.6}>
-                  <Logo fontSize="large" sx={{ p: 0.3 }} />
+                  <Logo sx={{ fontSize: 30 }} />
                   <Typography
                     component="span"
                     fontWeight={600}
@@ -94,7 +87,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenuContent }) => {
                       rel="noreferrer"
                       target="_blank"
                     >
-                      <FacebookOutlined fontSize="medium" />
+                      <FacebookOutlinedIcon fontSize="medium" />
                     </Link>
                   )}
                   {!!footerMenuContent?.gitHubLink && (
@@ -104,7 +97,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenuContent }) => {
                       rel="noreferrer"
                       target="_blank"
                     >
-                      <GitHub fontSize="medium" />
+                      <GitHubIcon fontSize="medium" />
                     </Link>
                   )}
                   {!!footerMenuContent?.linkedInLink && (
@@ -114,7 +107,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenuContent }) => {
                       rel="noreferrer"
                       target="_blank"
                     >
-                      <LinkedIn fontSize="medium" />
+                      <LinkedInIcon fontSize="medium" />
                     </Link>
                   )}
                   {!!footerMenuContent?.twitterLink && (
@@ -124,13 +117,13 @@ const Footer: React.FC<FooterProps> = ({ footerMenuContent }) => {
                       rel="noreferrer"
                       target="_blank"
                     >
-                      <Twitter fontSize="medium" />
+                      <TwitterIcon fontSize="medium" />
                     </Link>
                   )}
                 </Stack>
               </Stack>
             </Grid>
-            <Grid item md={4} xs={12}>
+            <Grid size={{ md: 4, sm: 6, xs: 12 }}>
               <Stack
                 spacing={1.25}
                 sx={{
@@ -155,7 +148,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenuContent }) => {
                   spacing={2}
                   variant="subtitle1"
                 >
-                  <Email />
+                  <EmailIcon />
                   <span>{footerMenuContent?.contactEmailAddress}</span>
                 </Stack>
                 <Stack
@@ -165,12 +158,12 @@ const Footer: React.FC<FooterProps> = ({ footerMenuContent }) => {
                   spacing={2}
                   variant="subtitle1"
                 >
-                  <Phone />
+                  <PhoneIcon />
                   <span>{footerMenuContent?.contactPhoneNumber}</span>
                 </Stack>
               </Stack>
             </Grid>
-            <Grid item md={4} xs={12}>
+            <Grid size={{ md: 4, sm: 6, xs: 12 }}>
               <Autocomplete
                 defaultValue={config.deployedTranslations.find(
                   ({ code }) => code === config.languageCode,
@@ -181,7 +174,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenuContent }) => {
                 onChange={(_, language) => {
                   window.location.href = `https://${getDomainName(
                     language.code,
-                  )}${window.location.pathname}`
+                  )}${pathname}`
                 }}
                 options={config.deployedTranslations}
                 renderInput={params => (
@@ -191,7 +184,7 @@ const Footer: React.FC<FooterProps> = ({ footerMenuContent }) => {
                       ...params.InputProps,
                       startAdornment: (
                         <InputAdornment position="start">
-                          <Translate color="primary" />
+                          <TranslateIcon color="primary" />
                         </InputAdornment>
                       ),
                     }}
@@ -205,14 +198,13 @@ const Footer: React.FC<FooterProps> = ({ footerMenuContent }) => {
             </Grid>
           </Grid>
         </Content>
-      </Box>
+      </Toolbar>
       <Paper
         sx={{
           borderBottom: 'none',
           borderLeft: 'none',
           borderRight: 'none',
-          px: 3,
-          py: 2,
+          py: 1.75,
         }}
         variant="outlined"
       >

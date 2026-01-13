@@ -1,3 +1,5 @@
+'use client'
+
 /* MUI */
 import { createTheme as createMUITheme } from '@mui/material/styles'
 import type { PaletteOptions } from '@mui/material/styles'
@@ -5,9 +7,15 @@ import type { PaletteOptions } from '@mui/material/styles'
 /* MUI Locale */
 import { enUS } from '@mui/material/locale'
 
-/* Shared */
-import typography, { fontFaceDeclarations } from '@theme/shared/typography'
-import type { ThemeFont } from '@theme/shared/typography'
+/* Next.js */
+import { Inter } from 'next/font/google'
+
+const inter = Inter({
+  weight: ['300', '400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
 
 export const createTheme = (
   palette: PaletteOptions,
@@ -15,14 +23,6 @@ export const createTheme = (
   createMUITheme(
     {
       components: {
-        MuiCssBaseline: {
-          styleOverrides: () => {
-            const declarations = Object.entries<ThemeFont>(typography).map(
-              ([, value]) => fontFaceDeclarations(value),
-            )
-            return declarations.join('\n')
-          },
-        },
         MuiFilledInput: {
           styleOverrides: {
             root: ({ theme, ownerState }) => ({
@@ -69,7 +69,7 @@ export const createTheme = (
         borderRadius: 4,
       },
       typography: {
-        fontFamily: typography.primary.fontFamily,
+        fontFamily: inter.style.fontFamily,
       },
     },
     enUS,

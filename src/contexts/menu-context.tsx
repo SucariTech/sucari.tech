@@ -1,7 +1,9 @@
+'use client'
+
 import React from 'react'
 
 /* Hooks */
-import useEventHandler from '@hooks/use-event-handler'
+import { useEventCallback } from 'usehooks-ts'
 
 export interface MenuContextType {
   currentSectionId?: string | null
@@ -25,8 +27,8 @@ export const isScrollIntoSection = (
   section: HTMLElement,
   offset: number = 0,
 ): boolean =>
-  window.pageYOffset + offset >= section.offsetTop &&
-  window.pageYOffset + offset <= section.offsetTop + section.offsetHeight
+  window.scrollY + offset >= section.offsetTop &&
+  window.scrollY + offset <= section.offsetTop + section.offsetHeight
 
 export interface MenuProviderProps extends React.PropsWithChildren {
   offset?: number
@@ -67,7 +69,7 @@ export const MenuProvider: React.FC<MenuProviderProps> = ({
     [offset, closeMenu],
   )
 
-  const handleScroll = useEventHandler(() => {
+  const handleScroll = useEventCallback(() => {
     const sections = document.querySelectorAll('section')
     sections.forEach(section => {
       if (isScrollIntoSection(section, offset * 2)) {

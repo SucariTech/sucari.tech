@@ -1,3 +1,5 @@
+'use client'
+
 /* MUI */
 import type { PaletteOptions } from '@mui/material/styles'
 
