@@ -1,17 +1,22 @@
+'use client'
+
 import React from 'react'
 
 /* Components */
-import Logo from '@components/logo'
-import HamburgerButton from '@components/hamburger-button'
+import Logo from '@/components/logo'
+import HamburgerButton from '@/components/hamburger-button'
 
 /* Config */
-import config from '@config'
+import config from '@/config'
 
-/* Gatsby */
-import { Link as LinkGatsby, graphql } from 'gatsby'
+/* Generated Contentful */
+import type {
+  ContentfulNavigationMenuContentFragment,
+  ContentfulNavigationMenuItemContentFragment,
+} from '@/generated/contentful'
 
 /* Hooks */
-import useMenu from '@hooks/use-menu'
+import useMenu from '@/hooks/use-menu'
 
 /* MUI */
 import AppBar from '@mui/material/AppBar'
@@ -26,31 +31,11 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import { styled } from '@mui/material/styles'
 
-export const contentfulNavigationMenuItemContent = graphql`
-  fragment ContentfulNavigationMenuItemContent on ContentfulNavigationMenuItem {
-    name
-    reference {
-      __typename
-      ... on ContentfulPage {
-        slug
-      }
-    }
-  }
-`
-
-export const contentfulNavigationMenuContent = graphql`
-  fragment ContentfulNavigationMenuContent on ContentfulNavigationMenu {
-    items {
-      ...ContentfulNavigationMenuItemContent
-    }
-    rootItem {
-      ...ContentfulNavigationMenuItemContent
-    }
-  }
-`
+/* Next.js */
+import NextLink from 'next/link'
 
 export interface HeaderProps {
-  navigationMenuContent?: Queries.ContentfulNavigationMenuContentFragment | null
+  navigationMenuContent?: ContentfulNavigationMenuContentFragment | null
 }
 
 export const HEADER_TOOLBAR_HEIGHT = 64
@@ -63,19 +48,16 @@ export const HeaderToolbar = styled(Toolbar)(() => ({
 }))
 
 export const getMenuItemTarget = (
-  navigationMenuItem: Queries.ContentfulNavigationMenuItemContentFragment,
+  navigationMenuItem: ContentfulNavigationMenuItemContentFragment,
 ): string => {
-  if (navigationMenuItem.reference?.__typename === 'ContentfulPage') {
-    if (navigationMenuItem.reference.slug === 'home') {
-      return '/'
-    }
-    return `/${navigationMenuItem.reference.slug}`
+  if (navigationMenuItem.reference?.__typename === 'Page') {
+    return navigationMenuItem.reference.pathname ?? '#'
   }
   return '#'
 }
 
 interface NavigationMenuItemTextProps {
-  navigationMenuItemContent: Queries.ContentfulNavigationMenuItemContentFragment
+  navigationMenuItemContent: ContentfulNavigationMenuItemContentFragment
 }
 
 const NavigationMenuItemText: React.FC<NavigationMenuItemTextProps> = ({
@@ -85,32 +67,35 @@ const NavigationMenuItemText: React.FC<NavigationMenuItemTextProps> = ({
   return (
     <ListItemText
       primary={navigationMenuItemContent.name}
-      primaryTypographyProps={{
-        component:
-          navigationMenuItemContent.reference?.__typename === 'ContentfulPage'
-            ? LinkGatsby
-            : 'p',
-        to:
-          navigationMenuItemContent.reference?.__typename === 'ContentfulPage'
-            ? getMenuItemTarget(navigationMenuItemContent)
-            : undefined,
-        color:
-          currentSectionId === navigationMenuItemContent.reference?.__typename
-            ? 'secondary'
-            : 'inherit',
-        fontWeight: 600,
-        onClick: () => {
-          scrollToSection(navigationMenuItemContent.reference?.__typename)
-        },
-        sx: theme => ({
-          cursor: 'pointer',
-          textDecoration: 'none',
-          ':hover': {
-            color: theme.palette.secondary.main,
+      slotProps={{
+        primary: {
+          component:
+            navigationMenuItemContent.reference?.__typename === 'Page'
+              ? NextLink
+              : 'p',
+          /* @ts-expect-error: ts(2322) */
+          href:
+            navigationMenuItemContent.reference?.__typename === 'Page'
+              ? getMenuItemTarget(navigationMenuItemContent)
+              : undefined,
+          color:
+            currentSectionId === navigationMenuItemContent.reference?.__typename
+              ? 'secondary'
+              : 'inherit',
+          fontWeight: 600,
+          onClick: () => {
+            scrollToSection(navigationMenuItemContent.reference?.__typename)
           },
-        }),
-        textAlign: 'center',
-        variant: 'subtitle1',
+          sx: theme => ({
+            cursor: 'pointer',
+            textDecoration: 'none',
+            ':hover': {
+              color: theme.palette.secondary.main,
+            },
+          }),
+          textAlign: 'center',
+          variant: 'subtitle1',
+        },
       }}
     />
   )
@@ -153,13 +138,13 @@ const Header: React.FC<HeaderProps> = ({ navigationMenuContent }) => {
             <Box
               component={
                 navigationMenuContent?.rootItem?.reference?.__typename ===
-                'ContentfulPage'
-                  ? LinkGatsby
+                'Page'
+                  ? NextLink
                   : 'div'
               }
-              to={
+              href={
                 navigationMenuContent?.rootItem?.reference?.__typename ===
-                'ContentfulPage'
+                'Page'
                   ? getMenuItemTarget(navigationMenuContent.rootItem)
                   : undefined
               }
@@ -179,7 +164,7 @@ const Header: React.FC<HeaderProps> = ({ navigationMenuContent }) => {
                 spacing={1.6}
                 sx={{ cursor: 'pointer' }}
               >
-                <Logo fontSize="large" sx={{ p: 0.3 }} />
+                <Logo sx={{ fontSize: 30 }} />
                 <Typography
                   component="span"
                   fontWeight={600}
@@ -200,9 +185,9 @@ const Header: React.FC<HeaderProps> = ({ navigationMenuContent }) => {
                 component={List}
                 direction="row"
                 disablePadding
-                spacing={4}
+                spacing={3}
               >
-                {navigationMenuContent?.items?.map(
+                {navigationMenuContent?.itemsCollection?.items.map(
                   (navigationMenuItem, index) =>
                     navigationMenuItem && (
                       <ListItem
@@ -238,12 +223,14 @@ const Header: React.FC<HeaderProps> = ({ navigationMenuContent }) => {
         ModalProps={{
           keepMounted: true,
         }}
-        PaperProps={{
-          elevation: 0,
-          sx: {
-            width: '100%',
+        slotProps={{
+          paper: {
+            elevation: 0,
+            sx: {
+              width: '100%',
+            },
+            variant: 'outlined',
           },
-          variant: 'outlined',
         }}
         anchor="top"
         variant="temporary"
@@ -259,7 +246,7 @@ const Header: React.FC<HeaderProps> = ({ navigationMenuContent }) => {
         <HeaderToolbar />
         <Box component="nav">
           <List>
-            {navigationMenuContent?.items?.map(
+            {navigationMenuContent?.itemsCollection?.items.map(
               (navigationMenuItem, index) =>
                 navigationMenuItem && (
                   <ListItem key={index} dense>

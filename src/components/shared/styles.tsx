@@ -1,7 +1,9 @@
+'use client'
+
 import React from 'react'
 
 /* Components */
-import ContentfulRichTextHyperlink from '@components/contentful-rich-text-hyperlink'
+import ContentfulRichTextHyperlink from '@/components/contentful-rich-text-hyperlink'
 
 /* Contentful */
 import type { Options } from '@contentful/rich-text-react-renderer'
@@ -12,8 +14,9 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import { styled } from '@mui/material/styles'
 import type { BoxProps } from '@mui/material/Box'
+import type { ButtonProps } from '@mui/material/Button'
+import type { StackProps } from '@mui/material/Stack'
 import type { TypographyProps } from '@mui/material/Typography'
 import type { TypographyVariant } from '@mui/material/styles'
 
@@ -34,34 +37,45 @@ export const Container: React.FC<BoxProps<'section'>> = ({
   </Box>
 )
 
-export const Content = styled(Stack)(() => ({
-  alignItems: 'center',
-  position: 'relative',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  textAlign: 'center',
-  width: '100%',
-}))
+export const Content: React.FC<StackProps> = ({ children, ...props }) => (
+  <Stack
+    sx={{
+      alignItems: 'center',
+      position: 'relative',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      textAlign: 'center',
+      width: '100%',
+    }}
+    maxWidth="lg"
+    spacing={3}
+    {...props}
+  >
+    {children}
+  </Stack>
+)
 
-Content.defaultProps = {
-  maxWidth: 'lg',
-  spacing: 3,
-}
-
-export const CustomizedButton = styled(Button)(({ theme }) => ({
-  padding: theme.spacing(0.75, 2.6),
-  ...theme.typography.subtitle1,
-  fontWeight: 500,
-  textTransform: 'none',
-  [theme.breakpoints.down('xl')]: {
-    padding: theme.spacing(0.75, 2),
-    fontSize: theme.typography.subtitle2.fontSize,
-  },
-}))
-
-CustomizedButton.defaultProps = {
-  disableElevation: true,
-}
+export const CustomizedButton: React.FC<ButtonProps> = ({
+  children,
+  ...props
+}) => (
+  <Button
+    sx={theme => ({
+      padding: theme.spacing(0.75, 2.6),
+      ...theme.typography.subtitle1,
+      fontWeight: 500,
+      textTransform: 'none',
+      [theme.breakpoints.down('xl')]: {
+        padding: theme.spacing(0.75, 2),
+        fontSize: theme.typography.subtitle2.fontSize,
+      },
+    })}
+    disableElevation
+    {...props}
+  >
+    {children}
+  </Button>
+)
 
 export const SectionName: React.FC<TypographyProps<'p'>> = ({
   children,
@@ -135,6 +149,14 @@ export const getAnswerOptions = (): Options => ({
       <Box component="ul" color="text.secondary">
         {children}
       </Box>
+    ),
+  },
+})
+
+export const getBodyOptions = (): Options => ({
+  renderNode: {
+    [BLOCKS.PARAGRAPH]: (_, children) => (
+      <SectionParagraph>{children}</SectionParagraph>
     ),
   },
 })

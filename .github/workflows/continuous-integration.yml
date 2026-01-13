@@ -19,7 +19,7 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 18.x
+          - 22.x
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -33,4 +33,4 @@ jobs:
       - name: Lint
         run: yarn lint
       - name: Type Check
-        run: yarn type-check
+        run: yarn tsc

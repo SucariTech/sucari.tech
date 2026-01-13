@@ -1,3 +1,5 @@
+'use client'
+
 /* MUI */
 import { createSvgIcon } from '@mui/material/utils'
 
