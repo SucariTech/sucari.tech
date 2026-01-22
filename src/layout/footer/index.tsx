@@ -57,11 +57,16 @@ const Footer: React.FC<FooterProps> = ({ footerMenuContent }) => {
       variant="outlined"
     >
       <Toolbar>
-        <Content py={1.75}>
+        <Content py={1.75} px={{ xs: 1, sm: 0 }}>
           <Grid container spacing={2} width="100%">
             <Grid size={{ md: 4, sm: 6, xs: 12 }}>
               <Stack spacing={2}>
-                <Stack direction="row" alignItems="center" spacing={1.6}>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  spacing={1.6}
+                  display={{ xs: 'none', sm: 'flex' }}
+                >
                   <Logo sx={{ fontSize: 30 }} />
                   <Typography
                     component="span"
